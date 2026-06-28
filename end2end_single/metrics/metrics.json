@@ -1,0 +1,109 @@
+{
+  "n_rows": 2213665,
+  "n_scored": 2213665,
+  "merged_ic": 0.03965984895636088,
+  "merged_rank_ic": 0.04984013179901677,
+  "icir_monthly": 2.2802384778719738,
+  "pred_mean": -2.5065325428874408e-05,
+  "pred_std": 0.00036589008650947846,
+  "label_mean": -2.46350514525146e-05,
+  "label_std": 0.00339905245923495,
+  "split_metrics": [
+    {
+      "split": "2020M05",
+      "train_start": "2018-01-01",
+      "train_end": "2020-05-01",
+      "test_start": "2020-05-01",
+      "test_end": "2020-06-01",
+      "train_windows": 6114728,
+      "val_windows": 175830,
+      "test_windows": 245850,
+      "ic": 0.07208418343198934,
+      "rank_ic": 0.0927105869616325
+    },
+    {
+      "split": "2020M06",
+      "train_start": "2018-01-01",
+      "train_end": "2020-06-01",
+      "test_start": "2020-06-01",
+      "test_end": "2020-07-01",
+      "train_windows": 6290558,
+      "val_windows": 245850,
+      "test_windows": 269027,
+      "ic": 0.031290121530026305,
+      "rank_ic": 0.049958480917383155
+    },
+    {
+      "split": "2020M07",
+      "train_start": "2018-01-01",
+      "train_end": "2020-07-01",
+      "test_start": "2020-07-01",
+      "test_end": "2020-08-01",
+      "train_windows": 6536408,
+      "val_windows": 269027,
+      "test_windows": 316667,
+      "ic": 0.05838135743112051,
+      "rank_ic": 0.06279629954662116
+    },
+    {
+      "split": "2020M08",
+      "train_start": "2018-01-01",
+      "train_end": "2020-08-01",
+      "test_start": "2020-08-01",
+      "test_end": "2020-09-01",
+      "train_windows": 6805435,
+      "val_windows": 316667,
+      "test_windows": 286473,
+      "ic": 0.04772044581542484,
+      "rank_ic": 0.06203567769382195
+    },
+    {
+      "split": "2020M09",
+      "train_start": "2018-01-01",
+      "train_end": "2020-09-01",
+      "test_start": "2020-09-01",
+      "test_end": "2020-10-01",
+      "train_windows": 7122102,
+      "val_windows": 286473,
+      "test_windows": 296947,
+      "ic": 0.02811234245742766,
+      "rank_ic": 0.03218881973707173
+    },
+    {
+      "split": "2020M10",
+      "train_start": "2018-01-01",
+      "train_end": "2020-10-01",
+      "test_start": "2020-10-01",
+      "test_end": "2020-11-01",
+      "train_windows": 7408575,
+      "val_windows": 296947,
+      "test_windows": 219635,
+      "ic": 0.023749592090377775,
+      "rank_ic": 0.0296931288636718
+    },
+    {
+      "split": "2020M11",
+      "train_start": "2018-01-01",
+      "train_end": "2020-11-01",
+      "test_start": "2020-11-01",
+      "test_end": "2020-12-01",
+      "train_windows": 7705522,
+      "val_windows": 219635,
+      "test_windows": 287578,
+      "ic": 0.021466375327693892,
+      "rank_ic": 0.03615102126124348
+    },
+    {
+      "split": "2020M12",
+      "train_start": "2018-01-01",
+      "train_end": "2020-12-01",
+      "test_start": "2020-12-01",
+      "test_end": "2021-01-01",
+      "train_windows": 7925157,
+      "val_windows": 287578,
+      "test_windows": 291488,
+      "ic": 0.049472388920574,
+      "rank_ic": 0.03565351279447317
+    }
+  ]
+}

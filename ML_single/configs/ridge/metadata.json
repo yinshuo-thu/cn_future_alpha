@@ -1,0 +1,7 @@
+{
+  "fit_path": "/root/autodl-tmp/quant/ML/effective_rolling_results/ridge_overlap333_xsz_hl12_a05/ridge_overlap333_xsz_hl12_a05.parquet",
+  "apply_path": "/root/autodl-tmp/quant/ML/effective_rolling_results/ridge_overlap333_xsz_hl12_n900k_a02/ridge_overlap333_xsz_hl12_n900k_a02.parquet",
+  "selection": "candidate ranking uses 2019 H2/Q4 only; audit_2020 columns are not used for selection",
+  "rows_fit_2019": 3852582,
+  "rows_apply_2020": 3915511
+}

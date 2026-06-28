@@ -1,0 +1,2 @@
+model,pooled_ic,SN_nonoverlap_ic,raw_nonoverlap_ic,dense_cs_ic,merged_pearson_ic,n_nonoverlap_ts,n_dense_ts,rows,label_rows
+expanded_gate_stack_2019q4_nonneg,0.05913773773846186,0.07926585644193108,0.0727410578302111,0.07618031474543797,0.059009760655432446,3086,92619,3915511,2939535

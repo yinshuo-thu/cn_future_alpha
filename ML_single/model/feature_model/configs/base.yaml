@@ -1,0 +1,16 @@
+# Portable config for the migrated archive.
+# After moving /root/quant to a new server, set QUANT_ROOT below to the new
+# absolute path of the `quant` directory (or sed-replace /root/quant).
+start_date: "2018-01-01"
+end_date: "2020-12-31"            # 2020-only rebuild/evaluation for current ML task
+data_dir: "/root/quant/data/raw"
+output_dir: "/root/quant/work/outputs"     # scratch dir for regenerated predictions
+reports_dir: "/root/quant/work/reports"
+logs_dir: "/root/quant/work/logs"
+seed: 42
+excluded_symbols: ["T", "TF", "TS", "IF", "IC", "IH"]
+rolling: "monthly"
+label_horizon: 30
+# Factor panel cache (rebuild target of build_factors.py). Override at runtime with
+#   FACTOR_DATA_PATH=/path/to/data_factors_big.parquet
+# The 50GB+ panel is NOT shipped; rebuild it from raw with build_factors.py.

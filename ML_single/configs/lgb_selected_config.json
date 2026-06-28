@@ -1,0 +1,30 @@
+{
+  "candidate": "time90_a0.5_then_signed_abs4_a0.5",
+  "no_future_leakage_note": "shape candidate was selected on 2019; sequential multiplier config selected on 2019 folds; final shape thresholds and multipliers fit on full 2019; 2020 labels used only for audit.",
+  "selected_by": "highest 2019 screen_score_mean_minus_0p25std inside shape-primary sequential multiplier family",
+  "shape_candidate": "winsor_power_q0.001_0.999_g0.85",
+  "shape_fit_json_from_2019_selection": "{\"gamma\": 0.85, \"hi\": 0.6126022689342533, \"kind\": \"winsor_power\", \"lo\": -0.8135855528116226, \"qhi\": 0.999, \"qlo\": 0.001}",
+  "shape_source": "/root/autodl-tmp/quant/ML/agent_runs/lgb_parallel_20260628/shape_refine_selected_2019_only.csv",
+  "stages": [
+    {
+      "alpha": 0.5,
+      "bucket_minutes": 90,
+      "clip_high": 1.2,
+      "clip_low": 0.8,
+      "k": 5000.0,
+      "kind": "time",
+      "min_count": 5000,
+      "n_bins": 5
+    },
+    {
+      "alpha": 0.5,
+      "bucket_minutes": 90,
+      "clip_high": 1.2,
+      "clip_low": 0.8,
+      "k": 80000.0,
+      "kind": "signed_abs",
+      "min_count": 5000,
+      "n_bins": 4
+    }
+  ]
+}

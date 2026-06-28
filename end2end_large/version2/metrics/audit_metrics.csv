@@ -1,0 +1,2 @@
+model,pooled_ic,SN_nonoverlap_ic,raw_nonoverlap_ic,dense_cs_ic,merged_pearson_ic,n_nonoverlap_ts,n_dense_ts,rows,label_rows,version,run,eval_window,checkpoint_count,checkpoint_bytes,param_count,feature_cols,first_checkpoint
+large_v2,0.032293954976066706,0.036223091120324014,0.03698796079317675,0.03187019959770899,0.03186944146513312,3086,92619,2939535,2939535,large_v2,factor_operator_extra_market_full_seq_top48_huber_moe4_monthly12_val1,2020-01-02 09:00:00 to 2020-12-31 14:29:00,12,68792292,1421371,35,2020M01.pt

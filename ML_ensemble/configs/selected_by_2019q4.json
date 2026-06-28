@@ -1,0 +1,18 @@
+{
+  "model": "old_family_top24_xsz_month_equal_signed05_u090",
+  "rows": 3915511,
+  "label_rows": 2939535,
+  "pred_ic_2020": 0.047650502853908136,
+  "pred_xsz_ic_2020": 0.0475287637674691,
+  "pred_xrank_ic_2020": 0.0459818833964512,
+  "monthly_mean": 0.049660000297587,
+  "monthly_ir": 5.8664616424669696,
+  "val_ic_2019q4": 0.07196755815226756,
+  "train_ic_2019q1q3": 0.09340002225545696,
+  "final_train_ic_2019": 0.09227195528631392,
+  "k": 35,
+  "target": "xsz",
+  "scheme": "month_equal",
+  "signed": true,
+  "upper": 0.9
+}

@@ -1,0 +1,22 @@
+{
+  "variant": {
+    "name": "opt_lgb_worker_t500_xsz_random_lb18_reg8_seed140",
+    "top_n": 500,
+    "target_mode": "xsz",
+    "sample_mode": "random",
+    "lookback_months": 18,
+    "max_rows": 550000,
+    "use_assist": true,
+    "group_expert": false,
+    "seed": 140,
+    "n_estimators": 280,
+    "learning_rate": 0.035,
+    "num_leaves": 63,
+    "min_child_samples": 120,
+    "reg_lambda": 8.0,
+    "colsample_bytree": 0.58,
+    "subsample": 0.82
+  },
+  "protocol": "2020 audit only. RNG is burned from 2019-01 through 2019-12 to match strict full path; models are trained only on rows before each audited month.",
+  "prediction_path": "/root/autodl-tmp/quant/ML/strict_opt_results/opt_lgb_worker_t500_xsz_random_lb18_reg8_seed140_audit2020.parquet"
+}

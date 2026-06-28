@@ -1,0 +1,37 @@
+loaded lgb:lgbm_lgbm643_xsz_soft_n300k rows=7768093
+loaded lgb:lgbm_ridge617_xsz_soft_n300k rows=7768093
+loaded lgb:lgbm_union927_xsz_soft_n300k rows=7768093
+skip mlp_agent_overlap333_xsz_hl12_n1200k_seed20260717_2020: alignment mismatch
+skip mlp_agent_screen19h2_overlap333_seed20260631_d012_e5: alignment mismatch
+loaded mlp:mlp_mlp333_new1000_ret527_hl12_n600k rows=7768093
+loaded mlp:mlp_overlap333_xrank_hl12_n800k rows=7768093
+loaded mlp:mlp_overlap333_xsz_hl12_n1200k rows=7768093
+skip mlp_overlap333_xsz_hl12_n1200k_h256_e8_2020: alignment mismatch
+loaded mlp:mlp_overlap333_xsz_hl12_n400k rows=7768093
+loaded mlp:mlp_overlap333_xsz_hl12_n800k rows=7768093
+loaded mlp:mlp_overlap333_xsz_hl12_n800k_corrmse_val1 rows=7768093
+loaded mlp:mlp_overlap333_xsz_hl12_wstd_n400k rows=7768093
+loaded mlp:mlp_ridge617_xsz_hl12_n400k rows=7768093
+loaded mlp:mlp_union927_xsz_hl12_n400k_top450_corrmse rows=7768093
+loaded ridge:ridge_lgbm643_xsz_a1 rows=7768093
+loaded ridge:ridge_overlap333_xsz_a05 rows=7768093
+loaded ridge:ridge_overlap333_xsz_hl12_a05 rows=7768093
+skip ridge_overlap333_xsz_hl12_n900k_a02: alignment mismatch
+loaded ridge:ridge_overlap333_xsz_hl6_a05 rows=7768093
+loaded ridge:ridge_ridge617_ranknorm_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_hl12_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_hl6_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_lb12_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_lb18_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_lb6_a1 rows=7768093
+loaded ridge:ridge_ridge617_xsz_top200_a05 rows=7768093
+loaded ridge:ridge_ridge617_xsz_top300_a05 rows=7768093
+loaded ridge:ridge_union927_xsz_a2 rows=7768093
+loaded lgb:new1617_shuffle_rolling_lgb838 rows=7768093
+loaded mlp:new1617_shuffle_rolling_mlp537 rows=7768093
+loaded lowcorr:lowcorr_lgb_meta_chain_xsz rows=7768093
+loaded lowcorr:lowcorr_lgb_fwd15_light_xsz rows=7768093
+loaded lowcorr:lowcorr_ridge_chain_only_xsz rows=7768093
+loaded lowcorr:lowcorr_ridge_meta_chain_xsz rows=7768093
+loaded lowcorr:new_lgb_resid_lgb_meta_chain_xsz rows=7768093

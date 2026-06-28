@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Raw/rebuildable data and bulky prediction/factor materializations.
+data/
+raw/
+cache/
+*.parquet
+*.feather
+*.npy
+*.npz
+*.tmp
+*.building
+
+# Local editor/system noise.
+.DS_Store
+.vscode/

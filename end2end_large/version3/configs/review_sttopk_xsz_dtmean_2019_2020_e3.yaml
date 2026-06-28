@@ -1,0 +1,17 @@
+extends: review_sttopk_xsz_m02_m04_e3.yaml
+
+experiment:
+  name: review_sttopk_xsz_dtmean_2019_2020_e3
+  seed: 20260802
+  report_name: 288_review_sttopk_xsz_dtmean_2019_2020_e3_report.md
+
+rolling:
+  data_start: '2017-01-01'
+  train_start: '2017-01-01'
+  first_test_start: '2019-01-01'
+  freq_months: 1
+  max_splits: 24
+  embargo_days: 1
+
+prediction_postprocess:
+  mode: datetime_demean

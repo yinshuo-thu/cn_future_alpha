@@ -1,0 +1,98 @@
+experiment:
+  name: factor_operator_extra_market_lite_seq_top48_huber_moe4_monthly12_val1
+  seed: 20260734
+  report_name: 189_factor_operator_extra_market_lite_seq_top48_huber_moe4_monthly12_val1_report.md
+paths:
+  runs_dir: /root/autodl-tmp/quant/end2end/runs
+  checkpoints_dir: /root/autodl-tmp/quant/end2end/checkpoints
+  figures_dir: /root/autodl-tmp/quant/end2end/figures
+  reports_dir: /root/autodl-tmp/quant/end2end/reports
+data:
+  data_dir: /root/autodl-tmp/quant/data/raw
+  cache_path: /root/autodl-tmp/quant/end2end/runs/cache/extended_market_lite_labeled_norm.parquet
+  use_cache: true
+  excluded_symbols:
+  - T
+  - TF
+  - TS
+  - IF
+  - IC
+  - IH
+  start_date: '2018-01-01'
+  end_date: '2021-02-03'
+  label_horizon: 30
+  seq_len: 120
+  allow_short_windows: true
+  raw_feature_set: extended_market_lite
+  target_mode: raw
+normalization:
+  window: 240
+  min_periods: 30
+  clip_value: 8.0
+rolling:
+  data_start: '2018-01-01'
+  data_end: '2021-01-01'
+  train_start: '2018-01-01'
+  first_test_start: '2020-01-01'
+  freq_months: 1
+  allow_partial_test: false
+  max_splits: 12
+model:
+  input_block: lowrank
+  factor_operator_bank: true
+  factor_operator_windows:
+  - 3
+  - 5
+  - 8
+  - 13
+  - 21
+  - 34
+  - 55
+  - 89
+  factor_operator_extra_ops: true
+  factor_operator_dropout: 0.14
+  factor_operator_clip: 10.0
+  factor_operator_projection_dim: 96
+  factor_operator_gate: sequence
+  factor_operator_topk: 48
+  factor_operator_gate_hidden: 80
+  feature_gate: true
+  feature_gate_dropout: 0.05
+  interaction_dim: 128
+  interaction_rank: 8
+  d_model: 128
+  n_heads: 4
+  n_layers: 4
+  ffn_dim: 256
+  patch_len: 6
+  stride: 3
+  dropout: 0.17
+  attention_dropout: 0.1
+  pooling: attention
+  patch_encoder: conv1d
+  use_cls_token: false
+  moe_n_experts: 4
+  moe_hidden_dim: 64
+  moe_temperature: 1.0
+train:
+  device: auto
+  epochs: 3
+  batch_size: 256
+  pred_batch_size: 1024
+  lr: 0.0002
+  weight_decay: 0.09
+  warmup_frac: 0.08
+  grad_accum_steps: 1
+  grad_clip: 1.0
+  amp: true
+  loss: huber
+  feature_gate_l1: 0.0001
+  operator_gate_l1: 0.004
+  operator_gate_binary_l1: 0.0015
+  moe_balance_weight: 0.01
+  val_months: 1
+  max_train_windows: 220000
+  max_val_windows: 40000
+  min_train_windows: 10000
+  num_workers: 4
+  destandardize_pred: true
