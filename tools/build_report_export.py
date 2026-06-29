@@ -62,24 +62,25 @@ EXEC_CSS = """
   .execsum .figs figure{margin:0}
   .execsum .figs .wide{grid-column:1 / -1}
 
-  /* ---- compact typography for the PDF export (≈ half the page count) ---- */
-  body{font-size:9.6px;line-height:1.4}
+  /* ---- compact typography for the PDF export (~half the page count, readable) ---- */
+  body{font-size:10.1px;line-height:1.48}
   header.doc{padding:24px 0 14px} header.doc h1{font-size:22px;margin:0 0 .2em}
-  header.doc .sub{font-size:12px} header.doc .meta{font-size:10.5px;margin-top:11px}
-  h2{font-size:15px;padding-bottom:5px;margin:6px 0 11px} h2 .num{font-size:11px;padding:1px 7px}
-  h3{font-size:12.8px;margin:15px 0 5px;padding-top:4px} h4{font-size:11.4px;margin:12px 0 3px}
-  p{margin:.42em 0} ul,ol{margin:.3em 0 .6em} li{margin:.2em 0}
-  table{font-size:9.6px} th,td{padding:3.5px 7px}
-  .formula{font-size:10px;padding:6px 10px;margin:9px 0} code{font-size:.86em}
-  .small{font-size:9px} .kbd{font-size:9px;padding:7px 10px;margin:9px 0}
-  nav.toc{padding:12px 16px;margin:16px 0 20px} nav.toc ol{font-size:10.3px} nav.toc ol ol{font-size:9.8px}
-  .cards{gap:10px;margin:13px 0} .card{padding:10px 13px} .card .k{font-size:18px} .card .l{font-size:9.3px}
-  .road{gap:8px;margin:13px 0} .road .step h5{font-size:11px} .road .step p{font-size:9.2px}
+  header.doc .sub{font-size:12.5px} header.doc .meta{font-size:11px;margin-top:11px}
+  h2{font-size:15.5px;padding-bottom:5px;margin:6px 0 11px} h2 .num{font-size:11px;padding:1px 7px}
+  h3{font-size:13.2px;margin:16px 0 5px;padding-top:4px} h4{font-size:11.8px;margin:13px 0 3px}
+  p{margin:.46em 0} ul,ol{margin:.32em 0 .64em} li{margin:.22em 0}
+  table{font-size:10.2px} th,td{padding:4px 7px}
+  .formula{font-size:10.6px;padding:6px 10px;margin:9px 0} code{font-size:.86em}
+  .small{font-size:9.6px} .kbd{font-size:9.6px;padding:7px 10px;margin:9px 0}
+  nav.toc{padding:12px 16px;margin:16px 0 20px} nav.toc ol{font-size:11px} nav.toc ol ol{font-size:10.4px}
+  .cards{gap:10px;margin:13px 0} .card{padding:10px 13px} .card .k{font-size:19px} .card .l{font-size:9.9px}
+  .road{gap:8px;margin:13px 0} .road .step h5{font-size:11.5px} .road .step p{font-size:9.8px}
   .tldr,.note,.why,.cite,.fail{padding:9px 13px;margin:11px 0}
-  .cite{font-size:9.8px} .fail{font-size:9.8px} .fail .m{font-size:.8em}
-  section{margin:0 0 18px}
+  .cite{font-size:10.4px} .fail{font-size:10.4px} .fail .m{font-size:.8em}
+  section{margin:0 0 19px}
   figure{margin:10px auto;max-width:415px} figure img{max-width:415px}
-  figcaption{font-size:8.8px;padding:5px 10px;line-height:1.4}
+  figcaption{font-size:9.4px;padding:5px 10px;line-height:1.45}
+  .ronote{color:var(--muted);font-size:.9em}
   .execsum{padding:15px 19px 7px;margin:22px 0 6px} .execsum h2{font-size:16px}
   .execsum .kpi{font-size:10.5px;padding:6px 12px} .execsum .kpi b{font-size:14px}
   .execsum .figs{gap:12px;margin:13px 0 2px}
@@ -95,7 +96,7 @@ EXEC_CSS = """
 
 EXEC_BLOCK = """
 <section id="execsum" class="execsum">
-  <h2><span class="zh">总结 · Executive Summary</span><span class="en">Executive Summary</span></h2>
+  <h2><span class="zh">总结 · Task Summary</span><span class="en">Task Summary</span></h2>
 
   <div class="zh">
     <p>本 Project 用两条技术线预测中国期货 30 分钟收益。<b>经典基线</b>：Ridge / LightGBM / MLP 三个互补单模型（各带日内时段后校准），再用一个小而可审计的 signed-ridge 严格堆叠成 <b>ML Ensemble</b>。<b>端到端</b>：把 Transformer 从 smoke test 一路推进到 v1→v3。</p>
@@ -111,8 +112,6 @@ EXEC_BLOCK = """
   <div class="kpis">
     <div class="kpi"><b>0.0573</b> · <span class="zh">ML Ensemble Pooled IC</span><span class="en">ML Ensemble Pooled IC</span></div>
     <div class="kpi"><b>0.0548</b> · <span class="zh">End2End v3 Pooled IC</span><span class="en">End2End v3 Pooled IC</span></div>
-    <div class="kpi"><b>1,144</b> · <span class="zh">基础因子字段</span><span class="en">baseline factor fields</span></div>
-    <div class="kpi"><b>v3&gt;v2&gt;v1</b> · <span class="zh">验证→测试排序不变</span><span class="en">order holds val→test</span></div>
   </div>
 
   <div class="figs">
@@ -148,6 +147,12 @@ def build_lang(lang):
     html = html.replace('<nav class="toc">', EXEC_BLOCK + '\n<nav class="toc">', 1)
     # 6) repoint the factor link to the public page
     html = html.replace('href="factors.html"', f'href="{FACTORS_URL}"')
+    # 6b) add a concise "view online" note after the report-online link (PDF only)
+    html = html.replace(
+        'report online ↗</a>',
+        'report online ↗</a> <span class="ronote">'
+        '<span class="zh">（在线访问，阅读体验更佳）</span>'
+        '<span class="en">(best viewed online)</span></span>')
     # 7) self-contain: inline all local images
     html = _inline_images(html)
 
