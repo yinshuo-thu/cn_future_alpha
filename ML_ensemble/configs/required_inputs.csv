@@ -1,0 +1,9 @@
+name,path,exists,purpose
+mlp_month_parts,/root/autodl-tmp/quant/ML/effective_rolling_results/mlp_overlap333_xsz_hl12_n1200k/month_parts,False,Monthly MLP prediction/view panels for 2019-2020.
+mlp_base_script,/root/autodl-tmp/quant/ML/agent_runs/mlp_20260628/mlp_same_model_viewcal_screen.py,False,Original MLP view-calibration helper imported by the selected MLP calibrator.
+mlp_selected_config,/root/autodl-tmp/quant/ML/agent_runs/mlp_parallel_20260628/time120_slope_a025_strong/selected_config.json,False,2019-only selected MLP calibration config.
+lgb_2019_predictions,/root/autodl-tmp/quant/ML/agent_runs/lgb_reg8_viewcal_20260628/opt_lgb_worker_t500_xsz_random_lb18_reg8_seed140_2019full.parquet,False,LGB 2019 prediction panel for outer-fold fitting.
+lgb_2020_predictions,/root/autodl-tmp/quant/ML/strict_opt_results/opt_lgb_worker_t500_xsz_random_lb18_reg8_seed140_audit2020.parquet,False,LGB raw 2020 audit prediction panel.
+lgb_2020_pass,/root/autodl-tmp/quant/ML/agent_runs/lgb_reg8_shape_seqcal_20260628/ref_time90_a1_then_signed_abs12_a0.8_recent_weak_selector_winner_audit2020_predictions.parquet,False,Materialized selected LGB postprocessed 2020 pass.
+ridge_fit_predictions,/root/autodl-tmp/quant/ML/effective_rolling_results/ridge_overlap333_xsz_hl12_a05/ridge_overlap333_xsz_hl12_a05.parquet,False,Ridge 2019 fit-side prediction panel.
+ridge_apply_predictions,/root/autodl-tmp/quant/ML/effective_rolling_results/ridge_overlap333_xsz_hl12_n900k_a02/ridge_overlap333_xsz_hl12_n900k_a02.parquet,False,Ridge 2020 apply-side prediction panel.

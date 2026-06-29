@@ -1,55 +1,104 @@
 # ML Ensemble
 
-Retained ensemble: `expanded_gate_stack_2019q4_nonneg`.
+Retained ensemble: `raw_xsz6__signed_ridge_a01__time90_a0.25`.
 
-This is the best strict no-future-leakage ensemble found in the final pass. The
-current three single models could be ensembled to roughly `0.057-0.058` pooled
-IC, but did not clear the `0.059` target. The retained clean expanded stack did.
+This folder now treats the current strict three-`ML_single` ensemble as the
+active ML ensemble. It replaces the older expanded-history ensemble line as the
+documented retained model in this archive.
+
+## Scope
+
+The ensemble uses only the three retained strict single ML models:
+
+| Component | 2020 Pooled IC | 2020 Monthly Mean |
+| --- | ---: | ---: |
+| MLP `time120_slope_a025_strong` | 0.050756 | 0.052954 |
+| LGB `ref_time90_a1_signed_abs12_a08` | 0.050034 | 0.052653 |
+| Ridge `simplex_basic_full2019` | 0.042481 | 0.044379 |
+
+The selected strict candidate uses six views:
+
+```text
+mlp, lgb, ridge, mlp_xsz, lgb_xsz, ridge_xsz
+```
+
+where `*_xsz` is the same-timestamp cross-sectional z-score view of each model's
+prediction.
 
 ## Architecture
 
-1. Build clean historical component streams from old clean models, old9 selected
-   components, and selected new-factor family predictions.
-2. Fit candidate gates on 2019Q1-Q3.
-3. Select candidate gate configs by 2019Q4 validation.
-4. Refit selected base configs on all 2019.
-5. Fit a nonnegative second-level stack on 2019Q4 and audit on 2020.
+The active ensemble is a small, auditable post-model stack:
 
-Final nonzero stack weights:
+1. Build rolling train-before-test predictions from the three single models.
+2. Add cross-sectional views for each component, including `xcenter`, `xsz`,
+   `xrank`, rank-gaussian, and tanh-z variants.
+3. Screen 137 classic ensemble candidates on 2019 outer folds:
+   equal weights, top-1, positive-IC weights, nonnegative simplex, signed ridge,
+   and conservative time-bucket post-calibration.
+4. Select by 2019-only selectors. The retained candidate wins the mean/std,
+   q3+h2, q3+q4+h2, min+mean, and h2 selectors.
+5. Fit on full 2019 and audit once on 2020.
 
-| Base Config | Weight |
-| --- | ---: |
-| `old_old9_family_selected_xsz_month_equal_u090` | 0.837769 |
-| `old_family_selected_raw_month_equal_u090` | 0.162231 |
+The retained candidate is:
 
-All other saved stack weights are numerical zero.
+```text
+raw_xsz6__signed_ridge_a01__time90_a0.25
+```
 
-## Comparison
+Interpretation:
 
-| Model | Pooled IC | SN non-overlap IC | Dense CS IC |
+- `raw_xsz6`: use raw plus cross-sectional z-score views from MLP, LGB, and
+  Ridge.
+- `signed_ridge_a01`: fit a small signed ridge stack with `alpha=0.1`.
+- `time90_a0.25`: apply a conservative 90-minute intraday time-bucket
+  multiplier with strength `0.25`.
+
+## Performance
+
+| Model | 2020 Pooled IC | 2020 Monthly Mean | 2020 Monthly IR |
 | --- | ---: | ---: | ---: |
-| MLP single | 0.050756 | 0.065097 | 0.060921 |
-| LGB single | 0.050034 | 0.065138 | 0.067389 |
-| Ridge single | 0.042481 | 0.064183 | 0.051803 |
-| Current-three strict ensemble | 0.057293 | n/a | n/a |
-| `expanded_gate_stack_2019q4_nonneg` | 0.059138 | 0.079266 | 0.076180 |
+| MLP single | 0.050756 | 0.052954 | n/a |
+| LGB single | 0.050034 | 0.052653 | n/a |
+| Ridge single | 0.042481 | 0.044379 | n/a |
+| `raw_xsz6__signed_ridge_a01__time90_a0.25` | 0.057293 | 0.059619 | 4.9546 |
 
-The original stack summary in `metrics/stack_summary.csv` reports
-`pred_ic_2020 = 0.059218`. The standardized audit file reports `0.059138`
-because it reconstructs the final prediction path inside the migration audit
-script. Both are strict and both exceed the target.
+The strict retained ensemble improves pooled IC by about `+12.9%` versus the
+best single model (`0.057293 / 0.050756 - 1`).
 
-![ML comparison](figures/ml_single_vs_ensemble_ic_comparison.png)
+For context, a non-selected 2020 diagnostic candidate,
+`mlp_lgb_raw2__signed_ridge_a1__time90_a0.25`, reached pooled IC `0.057845`,
+but it is not the retained strict model because it was not selected by the 2019
+selectors.
+
+## Current Rebuild Status
+
+The full rebuild requires large intermediate prediction parquet files under
+`/root/autodl-tmp/quant/ML/effective_rolling_results` and
+`/root/autodl-tmp/quant/ML/agent_runs`. Those source artifacts are not all
+present on this machine, so `model/three_model_ensemble.py` materializes the
+archived strict result and records the missing inputs in
+`configs/required_inputs.csv`.
 
 ## Files
 
 | Path | Purpose |
 | --- | --- |
-| `model/expanded_gate_stack.py` | Second-level 2019Q4 nonnegative stack. |
-| `model/expanded_history_gate_clean.py` | Clean historical candidate/gate construction. |
-| `configs/selected_by_2019q4.json` | 2019Q4 selector result. |
-| `configs/stack_base_configs.csv` | Base configs included in the second-level stack. |
-| `weights/stack_weights.csv` | Final nonnegative stack weights. |
-| `weights/base_gate_weights.csv` | Underlying base gate weights. |
-| `metrics/best_ensemble_audit_metrics.csv` | Pooled/SN/dense audit metrics. |
-| `figures/expanded_gate_stack_2019q4_nonneg_dashboard.png` | Monthly IC and 20-bin return dashboard. |
+| `model/three_model_ensemble.py` | Active retained ensemble scaffold and input audit. |
+| `scripts/run_best_ensemble.py` | Materializes the retained strict ensemble artifacts. |
+| `configs/selected_by_2019.json` | 2019-only selected strict candidate. |
+| `configs/best_2020_diagnostic.json` | Best 2020 diagnostic candidate, not retained. |
+| `configs/candidate_catalog.csv` | 137-candidate classic ensemble search space. |
+| `configs/required_inputs.csv` | Required large source artifacts and availability. |
+| `metrics/best_ensemble_audit_metrics.csv` | Active strict ensemble 2020 audit metrics. |
+| `metrics/selector_winners_2020_audit.csv` | 2019 selector winners and 2020 audit. |
+| `metrics/single_model_audit_metrics.csv` | Three single-model baseline audits. |
+| `weights/selected_outer_fold_weights.csv` | Archived 2019 outer-fold weights for the retained candidate. |
+| `figures/three_model_ensemble_comparison.png` | Pooled IC comparison chart. |
+
+## Reproduce
+
+```bash
+cd /root/jump_model/ML_ensemble
+python scripts/run_best_ensemble.py
+python model/three_model_ensemble.py --check-inputs
+```

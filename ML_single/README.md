@@ -45,8 +45,10 @@ python scripts/run_single_model.py --model ridge -- --help
 
 The raw data path is configured in the copied infrastructure. On a new machine,
 download the Kaggle raw data and update the config/path constants as needed,
-then rebuild factor panels before training. Regenerate dashboards from the
-project root with `python tools/generate_ml_audit_assets.py`.
+then rebuild factor panels before training. The retained single-model dashboards
+and metrics are archived in this folder; the current retained ensemble audit is
+materialized separately with `python ML_ensemble/scripts/run_best_ensemble.py`
+from the project root.
 
 ## Dashboards
 

@@ -1,0 +1,12 @@
+{
+  "candidate": "mlp_lgb_raw2__signed_ridge_a1__time90_a0.25",
+  "method": "signed_ridge_a1_timecal",
+  "cols": [
+    "mlp",
+    "lgb"
+  ],
+  "selector_winner": false,
+  "audit2020_pooled_ic": 0.05784520466113178,
+  "audit2020_monthly_mean": 0.06025977232334847,
+  "note": "Diagnostic only: best 2020 result among audited candidates, not selected by 2019 selectors."
+}

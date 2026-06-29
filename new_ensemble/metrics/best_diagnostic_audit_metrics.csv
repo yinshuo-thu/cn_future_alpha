@@ -1,0 +1,2 @@
+model,candidate,pooled_ic,monthly_mean,monthly_std,monthly_ir,rows,label_rows,selection
+three_model_best_2020_diagnostic,mlp_lgb_raw2__signed_ridge_a1__time90_a0.25,0.05784520466113178,0.06025977232334847,0.01247702812409336,4.829657489269082,3915511,2939535,diagnostic_not_2019_selected

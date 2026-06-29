@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the retained strict ML ensemble implementation."""
+"""Run/materialize the retained strict three-ML-single ensemble."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = f"{ROOT / 'model'}:{env.get('PYTHONPATH', '')}"
-    command = [sys.executable, str(ROOT / "model" / "expanded_gate_stack.py")]
+    command = [sys.executable, str(ROOT / "model" / "three_model_ensemble.py"), "--materialize-archived"]
     print(" ".join(command), flush=True)
     raise SystemExit(subprocess.call(command, cwd=ROOT, env=env))
 

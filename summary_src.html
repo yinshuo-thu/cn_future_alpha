@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jump Take-Home · 30-Minute Return Prediction · Shuo Yin</title>
+<style>
+  :root{
+    --ink:#1f2937; --ink2:#374151; --muted:#6b7280; --line:#e5e7eb;
+    --bg:#ffffff; --soft:#f8fafc; --soft2:#f1f5f9;
+    --brand:#0f3d6e; --brand2:#0ea5e9; --accent:#dc2626; --gold:#b45309;
+    --ok:#15803d; --chip:#eef2ff;
+    --maxw:1080px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Songti SC","Noto Serif CJK SC",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,"Courier New",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.72;font-size:16.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* language toggle */
+  body.lang-zh .en{display:none}
+  body.lang-en .zh{display:none}
+  span.en,span.zh{display:inline}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .topbar .ttl{font-weight:700;font-size:15px;color:var(--brand);letter-spacing:.2px}
+  .topbar .ttl small{color:var(--muted);font-weight:500}
+  .toggle{display:flex;gap:0;border:1px solid var(--brand);border-radius:999px;overflow:hidden;font-size:13px}
+  .toggle button{border:0;background:#fff;color:var(--brand);padding:6px 14px;cursor:pointer;font-weight:600;font-family:inherit}
+  .toggle button.active{background:var(--brand);color:#fff}
+
+  /* hero */
+  header.hero{background:
+     radial-gradient(1200px 380px at 12% -10%, rgba(14,165,233,.18), transparent 60%),
+     radial-gradient(900px 360px at 100% 0%, rgba(15,61,110,.18), transparent 55%),
+     linear-gradient(180deg,#0b2545 0%, #133a63 60%, #14406e 100%);
+     color:#eaf2fb;padding:54px 0 40px}
+  header.hero h1{font-family:var(--serif);font-weight:700;font-size:32px;line-height:1.25;margin:.1em 0 .25em;color:#fff}
+  header.hero .sub{font-size:17px;color:#bcd4 ;color:#c9ddf2;max-width:760px}
+  header.hero .meta{margin-top:18px;font-size:14px;color:#9fc0e0;display:flex;flex-wrap:wrap;gap:8px 22px}
+  header.hero .meta b{color:#eaf2fb;font-weight:600}
+  .badges{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+  .badge{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:8px 12px;font-size:13px}
+  .badge b{font-size:18px;color:#fff;display:block;font-variant-numeric:tabular-nums}
+  .badge span{color:#bcd4ef}
+
+  /* layout */
+  main{padding:34px 0 70px}
+  section{margin:0 0 46px;scroll-margin-top:70px}
+  h2{font-family:var(--serif);font-size:25px;color:var(--brand);border-bottom:2px solid var(--line);padding-bottom:8px;margin:8px 0 16px;display:flex;align-items:baseline;gap:12px}
+  h2 .num{font-size:15px;color:#fff;background:var(--brand);border-radius:7px;padding:2px 9px;font-family:var(--sans);font-weight:700}
+  h3{font-size:19px;color:var(--ink);margin:26px 0 8px}
+  h4{font-size:16px;color:var(--brand);margin:18px 0 4px;letter-spacing:.2px}
+  p{margin:.5em 0}
+  a{color:var(--brand2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.3em}
+  li{margin:.28em 0}
+  code{font-family:var(--mono);background:var(--soft2);padding:1px 5px;border-radius:4px;font-size:.88em;color:#0b3a66}
+  strong{color:var(--ink)}
+
+  /* TOC */
+  nav.toc{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 32px}
+  nav.toc .h{font-weight:700;color:var(--brand);font-size:14px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+  nav.toc ol{columns:2;column-gap:34px;margin:0;padding-left:1.1em;font-size:14.5px}
+  @media(max-width:680px){nav.toc ol{columns:1}}
+
+  /* callouts */
+  .note{border-left:4px solid var(--brand2);background:#f0f9ff;border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0}
+  .why{border-left:4px solid var(--gold);background:#fffbeb;border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0}
+  .why .lab,.note .lab,.cite .lab{font-weight:700;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:3px}
+  .why .lab{color:var(--gold)} .note .lab{color:var(--brand2)} .cite .lab{color:#6d28d9}
+  .cite{border-left:4px solid #8b5cf6;background:#f5f3ff;border-radius:0 10px 10px 0;padding:10px 16px;margin:14px 0;font-size:14px}
+  .cite b{color:#5b21b6}
+
+  /* stat cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
+  .card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card .k{font-size:28px;font-weight:700;color:var(--brand);font-variant-numeric:tabular-nums;line-height:1.1}
+  .card .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .card.accent .k{color:var(--accent)}
+  .card.gold .k{color:var(--gold)}
+
+  /* tables */
+  .tbl{overflow-x:auto;margin:16px 0}
+  table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+  th,td{padding:8px 11px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:var(--soft2);color:var(--ink2);font-weight:700;border-bottom:2px solid #cbd5e1}
+  tbody tr:hover{background:var(--soft)}
+  td.best,tr.best td{background:#fff7ed;font-weight:700;color:var(--gold)}
+  .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;background:var(--chip);color:#3730a3;font-weight:600}
+  .tag.ml{background:#ecfeff;color:#0e7490}
+  .tag.e2e{background:#fef2f2;color:#b91c1c}
+
+  /* figures */
+  figure{margin:22px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  figure img{width:100%;display:block}
+  figcaption{padding:10px 16px;font-size:13.5px;color:var(--muted);background:var(--soft);border-top:1px solid var(--line)}
+  figcaption b{color:var(--ink2)}
+
+  /* roadmap */
+  .road{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:20px 0}
+  .road .step{flex:1 1 150px;min-width:150px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:linear-gradient(180deg,#fff,#f8fafc);position:relative}
+  .road .step .n{font-size:12px;font-weight:700;color:#fff;background:var(--brand2);border-radius:6px;padding:1px 8px}
+  .road .step.s5 .n{background:var(--accent)}
+  .road .step h5{margin:8px 0 4px;font-size:15px;color:var(--brand)}
+  .road .step p{margin:0;font-size:12.8px;color:var(--muted);line-height:1.5}
+  .road .arrow{align-self:center;color:#cbd5e1;font-size:22px;font-weight:700}
+  @media(max-width:720px){.road .arrow{display:none}}
+
+  .formula{font-family:var(--mono);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14.5px;color:#0b3a66;overflow-x:auto}
+  .small{font-size:13px;color:var(--muted)}
+  .kbd{font-family:var(--mono);font-size:12.5px;background:#0b2545;color:#cfe6ff;padding:10px 14px;border-radius:8px;display:block;white-space:pre;overflow-x:auto;margin:12px 0}
+
+  hr.sep{border:0;border-top:1px solid var(--line);margin:34px 0}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.twocol{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--line);background:var(--soft);padding:28px 0;margin-top:30px;color:var(--muted);font-size:14px}
+  footer b{color:var(--ink)}
+  .ref{font-size:13.5px;color:var(--ink2)}
+  .ref li{margin:.34em 0}
+  sup.r{color:var(--brand2);font-weight:700;font-size:.78em}
+</style>
+</head>
+<body class="lang-zh">
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="ttl">Jump · 30-min Return Alpha &nbsp;<small class="en">— Project Summary</small><small class="zh">— 项目总结</small></div>
+    <div class="toggle" role="group" aria-label="language">
+      <button id="btn-zh" class="active" onclick="setLang('zh')">中文</button>
+      <button id="btn-en" onclick="setLang('en')">English</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="zh">
+      <h1>中国期货市场 30 分钟收益预测<br>从因子工程到端到端 Transformer 的探索总结</h1>
+      <div class="sub">本报告系统性回顾了 Jump Take-Home 挑战的完整解题过程：以因子工程奠基，以机器学习与线性基模型构建强基线集成，并通过端到端 Transformer 阶梯（v1→v2→v3）探索更具表达力、更具创新性的深度学习方案。报告同时阐明每一步的动机、思想来源（含论文引用）与无未来泄漏的实验纪律。</div>
+    </div>
+    <div class="en">
+      <h1>Predicting 30-Minute Returns on China Futures<br>A Summary of the Journey from Factors to End-to-End Transformers</h1>
+      <div class="sub">This report retraces the full solution to the Jump take-home challenge: grounding the work in factor engineering, building a strong baseline with classical ML / linear base models fused into an ensemble, and then exploring more expressive, more innovative deep learning through an end-to-end Transformer ladder (v1→v2→v3). Throughout, it makes the motivation, the intellectual lineage (with paper citations), and the no-future-leakage discipline explicit.</div>
+    </div>
+    <div class="meta">
+      <span><b>Shuo Yin</b> (殷硕)</span>
+      <span>✉ <b>yins25@mails.tsinghua.edu.cn</b></span>
+      <span>Tsinghua University</span>
+      <span class="en"><b>2026-06-29</b></span><span class="zh"><b>2026 年 6 月 29 日</b></span>
+    </div>
+    <div class="badges">
+      <div class="badge"><b>0.0573</b><span class="en">ML Ensemble · Pooled IC (2020)</span><span class="zh">ML 集成 · Pooled IC（2020）</span></div>
+      <div class="badge"><b>0.0548</b><span class="en">E2E v3 Transformer · Pooled IC</span><span class="zh">端到端 v3 · Pooled IC</span></div>
+      <div class="badge"><b>0.0596</b><span class="en">Ensemble · monthly mean IC</span><span class="zh">集成 · 月均 IC</span></div>
+      <div class="badge"><b>51 / 1144</b><span class="en">symbols / selected factors</span><span class="zh">品种 / 精选因子</span></div>
+      <div class="badge"><b>483</b><span class="en">online factor operators (v3)</span><span class="zh">在线因子算子（v3）</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<nav class="toc">
+  <div class="h en">Contents</div><div class="h zh">目录</div>
+  <ol>
+    <li><a href="#abstract"><span class="zh">摘要与核心结果</span><span class="en">Abstract &amp; headline results</span></a></li>
+    <li><a href="#challenge"><span class="zh">挑战定义</span><span class="en">The challenge</span></a></li>
+    <li><a href="#roadmap"><span class="zh">方法路线图</span><span class="en">Methodology roadmap</span></a></li>
+    <li><a href="#factors"><span class="zh">数据与因子工程</span><span class="en">Data &amp; factor engineering</span></a></li>
+    <li><a href="#ml"><span class="zh">机器学习与线性基模型</span><span class="en">ML &amp; linear base models</span></a></li>
+    <li><a href="#ensemble"><span class="zh">三模型 strict 集成</span><span class="en">The strict three-model ensemble</span></a></li>
+    <li><a href="#single"><span class="zh">端到端可行性验证</span><span class="en">End-to-end feasibility</span></a></li>
+    <li><a href="#large"><span class="zh">端到端大规模阶梯 v1→v3</span><span class="en">The large E2E ladder</span></a></li>
+    <li><a href="#philosophy"><span class="zh">设计哲学与思想来源</span><span class="en">Design philosophy &amp; lineage</span></a></li>
+    <li><a href="#results"><span class="zh">结果与可视化</span><span class="en">Results &amp; visualizations</span></a></li>
+    <li><a href="#leakage"><span class="zh">无泄漏与复现</span><span class="en">No-leakage &amp; reproduction</span></a></li>
+    <li><a href="#conclusion"><span class="zh">结论与展望</span><span class="en">Conclusion &amp; future work</span></a></li>
+    <li><a href="#refs"><span class="zh">参考文献</span><span class="en">References</span></a></li>
+  </ol>
+</nav>
+
+<!-- ============================ ABSTRACT ============================ -->
+<section id="abstract">
+  <h2><span class="num">0</span><span class="zh">摘要与核心结果</span><span class="en">Abstract &amp; headline results</span></h2>
+
+  <div class="zh">
+    <p>挑战要求用 1 分钟 bar 数据预测中国期货 51 个品种的未来 30 分钟收益，主指标是「池化 IC」（把全样本预测与标签拉平后计算的余弦相似度），<b>0.05 被视为合理起点，0.2 则属于「好得不真实」</b>。</p>
+    <p>我的解题遵循一条清晰的递进路线：<b>因子工程 → ML / 线性基模型 → 三模型 strict 集成（强基线）→ 端到端小模型（验证可行性）→ 端到端大规模 Transformer 阶梯（v1→v2→v3，追求表达力与创新）→ 滚动复训</b>。两条技术线均稳定越过 0.05：当前保留的 ML 集成 <code>raw_xsz6__signed_ridge_a01__time90_a0.25</code> 在 2020 年取得 <b>0.0573</b> 的池化 IC（月均 IC 0.0596，月度信息比 4.95）；端到端 Transformer 的最终版 v3 取得 <b>0.0548</b> 的池化 IC，并且在验证集到测试集之间保持了 v3&gt;v2&gt;v1 的稳定排序。</p>
+    <p>报告的重点不只是「做到了多少」，更是「为什么这样做」：patch embedding 借鉴 LLM 的分词/分块思想；注意力时间偏置与输出 pooling 来自时序建模工作；FactorBank 与 Mixer 则通过<b>可训练的、低秩的、具金融含义的交互结构</b>，在模型前端「充当特征」，主动收缩搜索空间，以对抗维度灾难导致的震荡不收敛；LayerScale 促进深层残差收敛；SwiGLU 提升 FFN 表征能力。下文逐一展开动机与论文来源，并补充充分的可视化（跨族对比、滚动 IC、20 桶收益、验证→测试持续性、消融）。</p>
+  </div>
+  <div class="en">
+    <p>The challenge is to predict the 30-minute forward return of 51 China-futures symbols from 1-minute bars. The headline metric is the <b>pooled IC</b> — the cosine similarity between flattened predictions and labels across all symbols and time. <b>0.05 is the stated "reasonable starting point"; above 0.2 is "too good to be true."</b></p>
+    <p>My solution follows a deliberate escalation: <b>factor engineering → ML / linear base models → a strict three-model stack (strong baseline) → a small end-to-end model (feasibility) → a large end-to-end Transformer ladder (v1→v2→v3, chasing expressivity and novelty) → rolling refit</b>. Both technical lines comfortably clear 0.05: the strict ML ensemble reaches a <b>0.0573</b> pooled IC on 2020 (monthly mean IC 0.0596, monthly information ratio 4.95), and the final end-to-end Transformer v3 reaches a <b>0.0548</b> pooled IC while preserving the v3&gt;v2&gt;v1 ordering from validation to test.</p>
+    <p>The report emphasizes not just <em>how much</em> but <em>why</em>: patch embedding borrows the chunking/tokenization idea from LLMs; the attention time-bias and the output pooling come from time-series modeling; and the FactorBank/Mixer use <b>trainable, low-rank, financially-meaningful interaction structures</b> that "act as features" at the front of the network, actively shrinking the search space to fight the oscillation-without-convergence that the curse of dimensionality induces. LayerScale eases deep-residual convergence; SwiGLU lifts the FFN's representational power. Each motivation and its source paper are unpacked below, alongside ample supplementary visualizations (cross-family comparison, rolling IC, 20-bucket returns, validation→test persistence, ablations).</p>
+  </div>
+
+  <div class="cards">
+    <div class="card gold"><div class="k">0.0573</div><div class="l"><span class="zh">最佳集成 Pooled IC</span><span class="en">Best ensemble · Pooled IC</span></div></div>
+    <div class="card accent"><div class="k">0.0548</div><div class="l"><span class="zh">最佳端到端 v3 Pooled IC</span><span class="en">Best E2E v3 · Pooled IC</span></div></div>
+    <div class="card"><div class="k">4.95</div><div class="l"><span class="zh">集成月度 IR = mean/std(月IC)</span><span class="en">Ensemble monthly IR</span></div></div>
+    <div class="card"><div class="k">+12.9%</div><div class="l"><span class="zh">集成相对最优单模型提升</span><span class="en">Ensemble lift vs best single</span></div></div>
+    <div class="card"><div class="k">137</div><div class="l"><span class="zh">2019 外折筛选候选集成</span><span class="en">2019-fold ensemble candidates</span></div></div>
+  </div>
+
+  <figure>
+    <img src="ML_ensemble/figures/three_model_ensemble_comparison.png" alt="strict three-model ensemble comparison">
+    <figcaption>
+      <span class="zh"><b>图 0.1 当前保留 ML 集成（2020 测试）。</b>三模型 strict stack 的 Pooled IC 高于 MLP/LGB/Ridge 任一单模型，并超过 PDF 的 0.05 起点线。</span>
+      <span class="en"><b>Fig 0.1 — Current retained ML ensemble (2020 test).</b> The strict three-model stack has higher pooled IC than MLP/LGB/Ridge individually and clears the PDF's 0.05 reference.</span>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ============================ CHALLENGE ============================ -->
+<section id="challenge">
+  <h2><span class="num">1</span><span class="zh">挑战定义</span><span class="en">The challenge</span></h2>
+
+  <div class="zh">
+    <p>核心规格（源自 Jump 项目 PDF）：</p>
+    <ul>
+      <li><b>任务</b>：用 1 分钟 bar 预测 30 分钟收益 <span class="formula" style="display:inline-block;padding:2px 8px;margin:0">Return<sub>t</sub> = ClosePrice<sub>t+30</sub> / ClosePrice<sub>t</sub> − 1</span>。</li>
+      <li><b>品种</b>：数据含 57 个合成连续合约，剔除 T/TF/TS/IF/IC/IH（国债与股指）后保留 <b>51 个</b>。价格已做换月调整并归一化为起点 1。</li>
+      <li><b>交易时段</b>：不同品种、不同日期的日盘/夜盘时段不同；设计时序特征时必须精确识别。</li>
+      <li><b>标签的长休市处理</b>：每个长休市前最后 30 行标签置 NaN。长休市包括（a）日盘→次日夜盘、（b）夜盘→次日日盘、（c）当日无夜盘时日盘→次日日盘。<b>短休市需被「跳过并拼接」</b>——例如 10:15–10:30 为短休市，则 10:00 的标签应使用 10:45 的价格（跳过短休后正好 30 个时点）。</li>
+      <li><b>因果性</b>：推断时只能使用当前时点及之前的信息；模型只能用历史数据训练。允许滚动训练（如按月滚动），PDF 明示「频繁滚动训练通常是稳赚的提升」。</li>
+      <li><b>时间戳</b>：预处理时向下取整到分钟。</li>
+      <li><b>评估指标</b>：以 IC 为主——</li>
+    </ul>
+    <div class="formula">IC = mean(a · y) / sqrt( mean(a · a) · mean(y · y) )&nbsp;&nbsp;&nbsp;# a=预测, y=标签, 拉平为一维后计算, 剔除 NaN 标签</div>
+    <p>即预测与标签的<b>余弦相似度</b>（池化所有品种与时点为一个 IC）。辅以 R²/MSE，以及 <b>mean(IC)/std(IC)</b>（按月计算，衡量稳定性）。</p>
+    <p><b>交付物</b>：2018-01-01 以来全部 51 品种的预测；逐年 IC；月度 IC 曲线；简要报告（结果、观察、流程、消融）；可复现代码且起止日期可配置（以便在样本外数据上测试）。<b>主方法须为深度学习</b>，一定程度的特征工程通常有益，鼓励有效的自主创新。</p>
+  </div>
+  <div class="en">
+    <p>Core spec (from the Jump project PDF):</p>
+    <ul>
+      <li><b>Task.</b> Predict the 30-minute return from 1-minute bars: <span class="formula" style="display:inline-block;padding:2px 8px;margin:0">Return<sub>t</sub> = ClosePrice<sub>t+30</sub> / ClosePrice<sub>t</sub> − 1</span>.</li>
+      <li><b>Universe.</b> 57 synthetic continuous contracts; after excluding T/TF/TS/IF/IC/IH (bonds &amp; equity-index), <b>51 symbols</b> remain. Prices are roll-adjusted and normalized to 1 at the start.</li>
+      <li><b>Sessions.</b> Day/night sessions differ across products and dates; time-series features must respect them precisely.</li>
+      <li><b>Long-break labelling.</b> The last 30 rows before each long break are set to NaN. Long breaks are (a) day→next-night, (b) night→next-day, and (c) day→next-day when no night session that date. <b>Short breaks must be skipped and chained</b> — e.g. if 10:15–10:30 is a short break, the label at 10:00 uses the price at 10:45 (exactly 30 points once the short break is skipped).</li>
+      <li><b>Causality.</b> At inference only information up to <em>t</em> is available, and models may train only on historical data. Rolling training is allowed; the PDF notes "frequent rolling training is usually an easy win."</li>
+      <li><b>Timestamps.</b> Floored to the integer minute in preprocessing.</li>
+      <li><b>Metric.</b> IC is primary —</li>
+    </ul>
+    <div class="formula">IC = mean(a · y) / sqrt( mean(a · a) · mean(y · y) )&nbsp;&nbsp;&nbsp;# a=alpha, y=label; flattened to 1-D, NaN labels excluded</div>
+    <p>i.e. the <b>cosine similarity</b> of prediction and label (pooled over all symbols and time). Supplemented by R²/MSE and <b>mean(IC)/std(IC)</b> (monthly, a stability measure).</p>
+    <p><b>Deliverables.</b> Predictions for all 51 symbols since 2018-01-01; per-year IC; a monthly IC curve; a brief report (results, observations, pipeline, ablation); reproducible code with configurable start/end dates (to test on out-of-sample data). <b>Deep learning must be the main methodology</b>; some feature engineering usually helps; useful self-driven innovation is a bonus.</p>
+  </div>
+
+  <div class="note">
+    <span class="lab zh">关于双指标</span><span class="lab en">On the two metrics</span>
+    <span class="zh"><b>Pooled IC</b> 是 PDF 规定的主指标，对应 0.05 阈值。我额外报告 <b>SN 非重叠 IC</b>（行业中性化、stride-30 非重叠时点上的截面 Pearson IC）作为更严格的稳健性/泄漏自检——它惩罚重叠样本带来的虚高，是一面诚实的镜子。</span>
+    <span class="en"><b>Pooled IC</b> is the PDF's headline metric and the one tied to the 0.05 threshold. I additionally report an <b>SN non-overlap IC</b> (sector-neutral cross-sectional Pearson IC on stride-30 non-overlapping timestamps) as a stricter robustness/leakage self-check — it penalizes the inflation that overlapping samples can cause, and serves as an honest mirror.</span>
+  </div>
+</section>
+
+<!-- ============================ ROADMAP ============================ -->
+<section id="roadmap">
+  <h2><span class="num">2</span><span class="zh">方法路线图</span><span class="en">Methodology roadmap</span></h2>
+
+  <div class="zh"><p>我刻意先用经过千锤百炼的经典方法建立一个<b>诚实、强、且零泄漏</b>的基线，再把端到端深度学习从「小规模验证可行」逐步推到「大规模精雕细琢」。这样每一次架构创新都能在一个可信的标尺上被检验。</p></div>
+  <div class="en"><p>I deliberately first built an <b>honest, strong, zero-leakage</b> baseline with battle-tested classical methods, then escalated end-to-end deep learning from "small-scale feasibility" to "large-scale, finely-engineered." Every architectural innovation is thus tested against a trustworthy yardstick.</p></div>
+
+  <div class="road">
+    <div class="step s1"><span class="n">1</span><h5><span class="zh">因子工程</span><span class="en">Factors</span></h5><p><span class="zh">1144 个无泄漏因子；9 大家族；会话/标签基础设施。</span><span class="en">1,144 leak-free factors; 9 families; session/label infra.</span></p></div>
+    <div class="arrow">→</div>
+    <div class="step s2"><span class="n">2</span><h5><span class="zh">ML / 线性基模型</span><span class="en">ML base models</span></h5><p><span class="zh">MLP / LightGBM / Ridge，配日内校准与视图融合。</span><span class="en">MLP / LightGBM / Ridge with intraday calibration.</span></p></div>
+    <div class="arrow">→</div>
+    <div class="step s3"><span class="n">3</span><h5><span class="zh">集成基线</span><span class="en">Ensemble</span></h5><p><span class="zh">MLP/LGB/Ridge 六视图 stack → 0.0573 强基线。</span><span class="en">MLP/LGB/Ridge six-view stack → 0.0573 baseline.</span></p></div>
+    <div class="arrow">→</div>
+    <div class="step s4"><span class="n">4</span><h5><span class="zh">端到端可行性</span><span class="en">E2E feasibility</span></h5><p><span class="zh">小 Transformer 跑通管线与因子算子思想。</span><span class="en">Small Transformer validates pipeline &amp; idea.</span></p></div>
+    <div class="arrow">→</div>
+    <div class="step s5"><span class="n">5</span><h5><span class="zh">端到端阶梯 v1→v3</span><span class="en">E2E ladder v1→v3</span></h5><p><span class="zh">多尺度 patch + 时间偏置 + 市场门控 + 因子算子库。</span><span class="en">Multi-scale patch + time-bias + market gate + factor bank.</span></p></div>
+  </div>
+
+  <div class="why">
+    <span class="lab zh">为什么先做基线</span><span class="lab en">Why baseline-first</span>
+    <span class="zh">深度学习在高噪声、弱信号的金融数据上极易「自欺」：一个看似亮眼的 IC 可能来自重叠样本、隐性泄漏或过拟合。先有一个用滚动训练、严格时间切分得到的经典基线，就有了一把可信尺子；之后端到端模型的每一处改动，都必须在同一套 2019 验证 / 2020 测试协议下，同时改善 Pooled IC 与 SN 非重叠 IC 才被保留。</span>
+    <span class="en">Deep learning is prone to self-deception on noisy, weak-signal financial data: a flashy IC can come from overlapping samples, hidden leakage, or overfitting. A classical baseline built with rolling training and strict temporal splits is a trustworthy ruler; afterward, every change to the end-to-end model had to improve <em>both</em> Pooled IC and SN non-overlap IC under the same 2019-validation / 2020-test protocol to be retained.</span>
+  </div>
+</section>
+
+<!-- ============================ FACTORS ============================ -->
+<section id="factors">
+  <h2><span class="num">3</span><span class="zh">数据与因子工程</span><span class="en">Data &amp; factor engineering</span></h2>
+
+  <h3><span class="zh">3.1 会话、长/短休市与标签</span><span class="en">3.1 Sessions, long/short breaks, and the label</span></h3>
+  <div class="zh">
+    <p>会话检测（<code>sessions.py</code>）以 <b>≥60 分钟</b> 的间隔判定长休市，并为每行打上 <code>session_id</code>、<code>is_long_break_before</code>、<code>gap_min</code>、<code>bars_to_next_long_break</code>。短休市（&lt;60 分钟）不重置会话，从而自然实现 PDF 要求的「跳过短休、拼接前后」。</p>
+    <p>标签（<code>labels.py</code>，horizon=30）<b>逐会话</b>计算：<code>label[t] = close[t+30]/close[t] − 1</code>，且 t 与 t+30 必属同一会话。三类置 NaN：会话末尾 30 行（前向 bar 不足）、每个长休市前 30 行、以及 close 为 0/非有限的行。时间戳在加载阶段已向下取整到分钟。</p>
+  </div>
+  <div class="en">
+    <p>Session detection (<code>sessions.py</code>) flags a long break at a gap of <b>≥60 minutes</b> and stamps each row with <code>session_id</code>, <code>is_long_break_before</code>, <code>gap_min</code>, and <code>bars_to_next_long_break</code>. Short breaks (&lt;60 min) do not reset the session, which naturally realizes the PDF's "skip the short break and chain the two parts."</p>
+    <p>The label (<code>labels.py</code>, horizon=30) is computed <b>per session</b>: <code>label[t] = close[t+30]/close[t] − 1</code>, with t and t+30 guaranteed to lie in the same session. Three NaN rules: the last 30 rows of a session (insufficient forward bars), the 30 rows before each long break, and rows where close is 0 / non-finite. Timestamps are floored to the minute at load time.</p>
+  </div>
+
+  <h3><span class="zh">3.2 因子库：9 大家族、斐波那契窗口、截面视图</span><span class="en">3.2 Factor library: 9 families, Fibonacci windows, cross-sectional views</span></h3>
+  <div class="zh">
+    <p>核心因子库（<code>factor_lib.py</code>）每品种构造约 <b>1,085</b> 个因果时序因子，覆盖 9 大家族；窗口采用斐波那契式间隔以维持低互相关：<code>WINS</code>=[2,3,4,5,6,8,10,13,16,21,26,34,42,55,72,89,120,144,180,233,288]（21 个），<code>WINS_MID</code>=17 个。</p>
+    <ul>
+      <li><b>动量/收益</b>：mom、sharpe、roc、px_sma、mom_accel、EMA 差与 MACD（10 组）。</li>
+      <li><b>波动率</b>：已实现波动 rv、Parkinson、下行波动 dvol、偏度/峰度、ATR/range、vol_regime。</li>
+      <li><b>振荡器</b>：stoch、willr、rsi、cci、bollz（布林 z）、cmo、收益自相关。</li>
+      <li><b>量/额</b>：成交量 z、量动量、turnover、量价/额价相关、Amihud 非流动性、有向量、涨跌量比、MFI、VWAP 偏离。</li>
+      <li><b>持仓量 OI</b>：oi_chg、oimom、oiz、oi_vol_ratio、oi_accel（仅在 OI 有效时）。</li>
+      <li><b>K 线几何</b>：BOP、实体/上下影线、收盘位置、影线不平衡、Dual-Thrust 位置、真实波幅方向。</li>
+      <li><b>交互项</b>：mom×volz、mom×oimom、rv×volz。</li>
+      <li><b>效率/回撤</b>：Kaufman 效率比、上/下行回撤、收益-OI 相关。</li>
+      <li><b>滞后变体</b>：12 个基因子 × 4 个滞后（跨会话边界处掩码）。</li>
+    </ul>
+    <p>每个原始因子再派生 4 类截面视图：原始、<b>tsz</b>（120 期滚动时序 z）、<b>csz</b>（按时间戳的截面 z）、<b>csr</b>（截面百分位秩）。约 4,340 个候选经 <b>0.9 相关度贪心去冗</b>后，保留 <b>1,144</b> 个最终因子。</p>
+  </div>
+  <div class="en">
+    <p>The core library (<code>factor_lib.py</code>) builds ~<b>1,085</b> causal time-series factors per symbol across 9 families. Windows are Fibonacci-spaced to keep correlation low: <code>WINS</code>=[2,3,4,5,6,8,10,13,16,21,26,34,42,55,72,89,120,144,180,233,288] (21), plus a 17-point <code>WINS_MID</code>.</p>
+    <ul>
+      <li><b>Momentum/returns</b>: mom, sharpe, roc, px_sma, mom_accel, EMA-diff &amp; MACD (10 pairs).</li>
+      <li><b>Volatility</b>: realized vol, Parkinson, downside vol, skew/kurtosis, ATR/range, vol_regime.</li>
+      <li><b>Oscillators</b>: stoch, willr, rsi, cci, Bollinger-z, cmo, return autocorrelation.</li>
+      <li><b>Volume/amount</b>: volume-z, volume momentum, turnover, price-volume/amount correlation, Amihud illiquidity, signed volume, up/down volume ratio, MFI, VWAP deviation.</li>
+      <li><b>Open interest</b>: oi_chg, oimom, oiz, oi_vol_ratio, oi_accel (only when OI is valid).</li>
+      <li><b>K-line geometry</b>: BOP, body/upper/lower shadow, close position, shadow imbalance, Dual-Thrust position, true-range direction.</li>
+      <li><b>Interactions</b>: mom×volz, mom×oimom, rv×volz.</li>
+      <li><b>Efficiency/drawdown</b>: Kaufman efficiency ratio, up/down drawdown, return-OI correlation.</li>
+      <li><b>Lagged variants</b>: 12 base factors × 4 lags (masked across session boundaries).</li>
+    </ul>
+    <p>Each raw factor spawns four cross-sectional views: raw, <b>tsz</b> (120-period rolling time-series z), <b>csz</b> (per-timestamp cross-sectional z), and <b>csr</b> (cross-sectional percentile rank). About 4,340 candidates are reduced by a <b>greedy 0.9-correlation dedup</b> to <b>1,144</b> retained factors.</p>
+  </div>
+
+  <div class="why">
+    <span class="lab zh">动机：先用「手工低秩结构」收缩搜索空间</span><span class="lab en">Motivation: shrink the search space with hand-built low-rank structure first</span>
+    <span class="zh">30 分钟收益的信噪比极低。若把原始 OHLCV 直接丢给一个高容量网络，它要在一个天文数字大的假设空间里，仅凭微弱梯度去「发现」动量、波动、量价关系——这正是维度灾难：在众多近似等价的路径上震荡、难以收敛到真正的 alpha 流形。因子工程就是一个强先验：它把领域知识编码为低秩、可解释的变换，<b>先把搜索空间压到信号附近</b>。这一思想后来被我「内化」进网络——见第 8 节的 FactorBank 与 Mixer，它们是同一哲学的可训练版本。</span>
+    <span class="en">The signal-to-noise of a 30-minute return is tiny. Feeding raw OHLCV straight into a high-capacity network asks it to "discover" momentum, volatility and price-volume relationships from faint gradients in an astronomically large hypothesis space — exactly the curse of dimensionality: oscillating across many near-equivalent paths, struggling to converge onto the thin alpha manifold. Factor engineering is a strong prior: it encodes domain knowledge as low-rank, interpretable transforms that <b>collapse the search space toward the signal first</b>. I later internalized this idea into the network itself — see the FactorBank and Mixers in §8, the trainable incarnation of the same philosophy.</span>
+  </div>
+</section>
+
+<!-- ============================ ML BASE ============================ -->
+<section id="ml">
+  <h2><span class="num">4</span><span class="zh">机器学习与线性基模型</span><span class="en">ML &amp; linear base models</span></h2>
+
+  <div class="zh"><p>三个互补的单模型，分别代表非线性深度（MLP）、树模型（LightGBM）与正则线性（Ridge）。共同点：滚动「先训后测」、丰富的视图输出（raw / xsz 截面 z / xrank 截面秩 / xcenter 截面中心化），以及<b>日内时段感知的后校准</b>。</p></div>
+  <div class="en"><p>Three complementary single models spanning non-linear depth (MLP), trees (LightGBM) and regularized linear (Ridge). Shared traits: rolling train-before-test, rich view outputs (raw / xsz cross-sectional z / xrank cross-sectional rank / xcenter cross-sectional centering), and <b>intraday-aware post-calibration</b>.</p></div>
+
+  <div class="tbl">
+  <table>
+    <thead><tr>
+      <th><span class="zh">模型</span><span class="en">Model</span></th>
+      <th><span class="zh">要点</span><span class="en">Key design</span></th>
+      <th>Pooled IC</th><th>SN IC</th><th><span class="zh">月度 IR</span><span class="en">Monthly IR</span></th><th><span class="zh">20桶差</span><span class="en">20-bin</span></th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="tag ml">MLP</span> <code>mlp_time120_slope_a025_strong</code></td>
+        <td class="small" style="text-align:left"><span class="zh">333 特征→1200→600→1，LayerNorm+SiLU+Dropout；损失=0.65·MSE+0.35·相关；120 分钟时段斜率校准(α=0.25)+单纯形视图融合</span><span class="en">333→1200→600→1, LayerNorm+SiLU+Dropout; loss = 0.65·MSE + 0.35·corr; 120-min time-bucket slope calibration (α=0.25) + simplex view blend</span></td>
+        <td>0.0508</td><td>0.0651</td><td>3.89</td><td>78.5 bps</td>
+      </tr>
+      <tr>
+        <td><span class="tag ml">LGB</span> <code>lgb_ref_time90_a1_signed_abs12_a08</code></td>
+        <td class="small" style="text-align:left"><span class="zh">280 树, 63 叶, lr 0.035, λ=6, subsample 0.82, colsample 0.68；两段校准：time90(α=1.0) + signed_abs12(α=0.8)</span><span class="en">280 trees, 63 leaves, lr 0.035, λ=6, subsample 0.82, colsample 0.68; two-stage calibration: time90 (α=1.0) + signed_abs12 (α=0.8)</span></td>
+        <td>0.0500</td><td>0.0651</td><td>3.49</td><td>71.0 bps</td>
+      </tr>
+      <tr>
+        <td><span class="tag ml">Ridge</span> <code>ridge_simplex_basic_full2019</code></td>
+        <td class="small" style="text-align:left"><span class="zh">Rank-Gaussian 变换 + Ridge(α=1.0)；单纯形(非负、和为1)视图融合</span><span class="en">Rank-Gaussian transform + Ridge (α=1.0); simplex (non-neg, sum-to-1) view blend</span></td>
+        <td>0.0425</td><td>0.0642</td><td>2.90</td><td>65.4 bps</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="why">
+    <span class="lab zh">为什么要做日内时段校准</span><span class="lab en">Why intraday-time calibration</span>
+    <span class="zh">日内不同时段（开盘、午盘、收盘前）的收益尺度与可预测性差异巨大。后校准在 2019 各折上按时段/按预测符号-幅度估计「预测→标签」的斜率，并以可靠度加权地部分修正（α 控制力度、k 控制可靠度收缩、并夹在 [0.8,1.2]）。这是在不触碰测试集的前提下，把模型输出的尺度对齐到真实收益尺度，从而稳定 IC。</span>
+    <span class="en">Return scale and predictability vary sharply across the intraday clock (open, midday, pre-close). The post-calibration estimates the prediction→label slope per time bucket / per signed-magnitude bucket on 2019 folds and applies a reliability-weighted partial correction (α sets the strength, k shrinks by reliability, clipped to [0.8,1.2]). Without ever touching the test set, it aligns the output scale to the true return scale and stabilizes IC.</span>
+  </div>
+</section>
+
+<!-- ============================ ENSEMBLE ============================ -->
+<section id="ensemble">
+  <h2><span class="num">5</span><span class="zh">三模型严格集成（强基线）</span><span class="en">The strict three-model ensemble (strong baseline)</span></h2>
+
+  <div class="zh">
+    <p><code>raw_xsz6__signed_ridge_a01__time90_a0.25</code> 是当前保留的严格 ML 集成，只使用三条 <code>ML_single</code> 线：MLP、LGB、Ridge。它不是多历史组件扩展集成，而是一个可审计的小型三模型 stack。</p>
+    <ol>
+      <li><b>组件</b>：使用 <code>mlp/lgb/ridge</code> 三个 raw 预测，以及对应的横截面 z-score 视图 <code>mlp_xsz/lgb_xsz/ridge_xsz</code>。</li>
+      <li><b>候选搜索</b>：在 2019 外折上筛选 137 个经典集成，包括 equal/top1/IC 正权/simplex/signed ridge 和时间桶校准。</li>
+      <li><b>严格选择</b>：只用 2019 外折选择；该候选赢得 mean/std、q3+h2、q3+q4+h2、min+mean、h2 等 selector。</li>
+      <li><b>最终形式</b>：signed ridge（alpha=0.1）融合 raw+xsz 六视图，再用 90 分钟时间桶、强度 0.25 做保守后校准。</li>
+    </ol>
+    <p>结果（2020）：<b>Pooled IC 0.0573</b>、月均 IC 0.0596、月度 IR 4.95——相对最优单模型（MLP 0.0508）提升约 <b>12.9%</b>。SN/20 桶明细没有随三模型 strict 归档一起保存，因此不在此处编造。</p>
+  </div>
+  <div class="en">
+    <p><code>raw_xsz6__signed_ridge_a01__time90_a0.25</code> is the retained strict ML ensemble. It uses only the three <code>ML_single</code> lines: MLP, LGB, and Ridge. It is a compact auditable three-model stack rather than the older multi-history expanded ensemble.</p>
+    <ol>
+      <li><b>Components.</b> Use raw <code>mlp/lgb/ridge</code> predictions and their same-timestamp cross-sectional z-score views <code>mlp_xsz/lgb_xsz/ridge_xsz</code>.</li>
+      <li><b>Candidate search.</b> Screen 137 classic ensembles on 2019 outer folds: equal/top1/positive-IC/simplex/signed-ridge plus time-bucket calibration.</li>
+      <li><b>Strict selection.</b> Select only from 2019 folds; this candidate wins the mean/std, q3+h2, q3+q4+h2, min+mean, and h2 selectors.</li>
+      <li><b>Final form.</b> Signed ridge with alpha=0.1 over raw+xsz six views, followed by a conservative 90-minute time-bucket multiplier with strength 0.25.</li>
+    </ol>
+    <p>Result (2020): <b>Pooled IC 0.0573</b>, monthly mean IC 0.0596, monthly IR 4.95 — about <b>+12.9%</b> over the best single model (MLP 0.0508). SN and 20-bucket detail were not archived with this strict three-model line, so they are not fabricated here.</p>
+  </div>
+
+  <div class="twocol">
+    <figure>
+      <img src="ML_ensemble/figures/three_model_ensemble_comparison.png" alt="ensemble lift">
+      <figcaption><span class="zh"><b>图 5.1</b> 集成相对最优单模型的提升。</span><span class="en"><b>Fig 5.1</b> Ensemble lift over the best single model.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="ML_ensemble/figures/three_model_ensemble_comparison.png" alt="strict ensemble comparison">
+      <figcaption><span class="zh"><b>图 5.2</b> 当前保留的三模型 strict 集成与三个单模型的 pooled IC 对比。</span><span class="en"><b>Fig 5.2</b> Current retained strict three-model ensemble versus the three single-model pooled ICs.</span></figcaption>
+    </figure>
+  </div>
+  <figure>
+    <img src="ML_ensemble/figures/three_model_ensemble_comparison.png" alt="strict ensemble comparison">
+    <figcaption><span class="zh"><b>图 5.3 当前保留集成。</b>三模型 strict stack 在 2020 pooled IC 上明显高于任一单模型；由于三模型 strict 版本没有归档 20 桶明细，这里不再沿用旧 expanded ensemble 的桶图。</span><span class="en"><b>Fig 5.3 — Current retained ensemble.</b> The strict three-model stack is clearly above every single model on 2020 pooled IC. The 20-bucket detail was not archived for this strict three-model version, so the old expanded-ensemble bucket chart is no longer reused.</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============================ E2E SINGLE ============================ -->
+<section id="single">
+  <h2><span class="num">6</span><span class="zh">端到端可行性验证</span><span class="en">End-to-end feasibility (end2end_single)</span></h2>
+  <div class="zh">
+    <p>在投入大规模训练前，我先用一个<b>小 Transformer</b> 验证端到端管线与「网络内置因子算子」的想法是否成立：d_model=128、4 头、4 层、FFN=256、序列长 120、单尺度 patch (6,3)、低秩输入交互 + FactorOperatorBank(top_k=48)、MoE-4 头。按月滚动训练，在 2020-05..12 取得 <b>Pooled IC 0.0397</b>。</p>
+    <p>这一步的价值不在绝对分数，而在于<b>以小代价排除了管线性风险</b>（采样器、标签、因果掩码、因子算子前向、损失）并确认因子算子库确有增益——为后续把它放大到 v3 提供了信心与证据。</p>
+  </div>
+  <div class="en">
+    <p>Before committing to large-scale training, I validated the end-to-end pipeline and the "factor operators inside the network" idea with a <b>small Transformer</b>: d_model=128, 4 heads, 4 layers, FFN=256, sequence length 120, single-scale patch (6,3), low-rank input interaction + a FactorOperatorBank (top_k=48), and an MoE-4 head. With monthly rolling training it reached <b>Pooled IC 0.0397</b> on 2020-05..12.</p>
+    <p>The value here is not the absolute score but <b>cheaply de-risking the pipeline</b> (sampler, labels, causal masks, factor-operator forward pass, loss) and confirming the operator bank actually helps — giving the confidence and evidence to scale it up to v3.</p>
+  </div>
+  <figure>
+    <img src="summary_assets/fig7_single.png" alt="e2e single feasibility">
+    <figcaption><span class="zh"><b>图 6.1</b> 端到端小模型的滚动月度 IC 与 20 桶单调性——可行性确认。</span><span class="en"><b>Fig 6.1</b> The small E2E model's rolling monthly IC and 20-bucket monotonicity — feasibility confirmed.</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============================ E2E LARGE ============================ -->
+<section id="large">
+  <h2><span class="num">7</span><span class="zh">端到端大规模阶梯 v1→v3</span><span class="en">The large E2E ladder (v1→v3)</span></h2>
+
+  <div class="zh">
+    <p>这是方案中最具创新性的部分。三代 Transformer 共享：<b>33 维归一化输入</b>（11 个 z-score 化的 bar 特征 + 6 个截面相对特征等，全部裁剪到 [−8,8]）、<b>240 分钟</b>回看窗、<b>6 个多任务标签</b>（5/10/30/60 分钟收益 + 已实现波动 + 振幅，主标签为 <code>proxy_ret_30m_cs_zscore</code>），损失为加权 Huber（权重 [0.1,0.1,1.0,0.05,0.05,0.05]）。验证协议：2017–2018 训练、2019 验证；2020 行用 pre-2020 重拟合后测试。</p>
+  </div>
+  <div class="en">
+    <p>This is the most novel part. The three generations share a <b>33-dim normalized input</b> (11 z-scored bar features + 6 cross-sectional relative features, all clipped to [−8,8]), a <b>240-minute</b> lookback, and <b>6 multitask labels</b> (5/10/30/60-min returns + realized volatility + range; the main label is <code>proxy_ret_30m_cs_zscore</code>), with a weighted Huber loss (weights [0.1,0.1,1.0,0.05,0.05,0.05]). Protocol: train 2017–2018, validate 2019; the 2020 rows refit on pre-2020 then test.</p>
+  </div>
+
+  <h3>v1 — Gated Multi-Scale Patch Transformer + Dual Pooling</h3>
+  <div class="zh">
+    <ul>
+      <li><b>GatedFeatureMixer</b>：33→192，<code>base(x) + σ(gate(x))·mix(x)</code>，对弱而多的输入做带门的通道混合。</li>
+      <li><b>CausalConvStem</b>：两层因果 Conv1d（k=3、k=5，左 padding）做局部时序平滑，再进入 patch。</li>
+      <li><b>多尺度 Patch Embedding</b>：(4,2)(8,4)(16,8)(32,16) 四个(patch,stride)，把 240 步切成 ~221 个 token，每尺度加可学习尺度嵌入。</li>
+      <li><b>5 层 Pre-Norm Transformer</b>（6 头）+ <b>双 pooling</b>：注意力池化（全局加权）∥ 各尺度末 token 池化（保留近因）。</li>
+      <li><b>多任务头</b>：192→256→128→6。参数 5.50M。验证 0.0546 / 测试 0.0436。</li>
+    </ul>
+  </div>
+  <div class="en">
+    <ul>
+      <li><b>GatedFeatureMixer</b>: 33→192 via <code>base(x) + σ(gate(x))·mix(x)</code> — gated channel mixing for many weak inputs.</li>
+      <li><b>CausalConvStem</b>: two causal Conv1d layers (k=3, k=5, left-padded) for local temporal smoothing before patching.</li>
+      <li><b>Multi-scale patch embedding</b>: four (patch,stride) pairs (4,2)(8,4)(16,8)(32,16) cut 240 steps into ~221 tokens, each scale with a learnable scale embedding.</li>
+      <li><b>5 pre-norm Transformer blocks</b> (6 heads) + <b>dual pooling</b>: attention pooling (global weighting) ∥ last-token-per-scale pooling (recency).</li>
+      <li><b>Multitask head</b>: 192→256→128→6. 5.50M params. Validation 0.0546 / test 0.0436.</li>
+    </ul>
+  </div>
+  <figure>
+    <img src="end2end_large/v1/figures/gated_multi_scale_patch_transformer_dual_pooling_alt4.png" alt="v1 architecture">
+    <figcaption><span class="zh"><b>图 7.1</b> v1 架构：门控特征混合 → 因果卷积 → 多尺度 patch → Transformer → 双 pooling → 多任务头。</span><span class="en"><b>Fig 7.1</b> v1 architecture: gated feature mixer → causal conv → multi-scale patch → Transformer → dual pooling → multitask head.</span></figcaption>
+  </figure>
+
+  <h3>v2 — Time-Biased, Market-Gated, Stable-Residual Transformer</h3>
+  <div class="zh">
+    <p>在 v1 上叠加四项（仅保留通过 2019 验证者）：</p>
+    <ul>
+      <li><b>TimeBiasAttention</b>：每个头一个指数时间衰减偏置，按 token 的<b>真实时间坐标</b> τ 计算 <span class="formula" style="display:inline-block;padding:2px 8px;margin:0">score(i,j) = Q<sub>i</sub>K<sub>j</sub>/√d − λ<sub>h</sub>·|τ<sub>i</sub>−τ<sub>j</sub>|</span>，半衰期对数均布于 4..240。</li>
+      <li><b>SwiGLU FFN</b>：<code>w3( SiLU(gate)·value )</code>，192→512→192，提升 FFN 表征力。</li>
+      <li><b>LayerScale</b>：每分支可学习的逐通道残差缩放（初值 0.1），让深层残差更「稳」。</li>
+      <li><b>MarketGatedFeatureMixer</b>：注入同一时间戳跨品种的均值/标准差（66 维市场状态），让特征门以市场状态为条件。</li>
+    </ul>
+    <p>参数 5.03M（更少但更强）。验证 0.0621 / 测试 0.0482。</p>
+  </div>
+  <div class="en">
+    <p>Four additions on top of v1 (keeping only those that passed 2019 validation):</p>
+    <ul>
+      <li><b>TimeBiasAttention</b>: a per-head exponential time-decay bias on real token <b>time coordinates</b> τ: <span class="formula" style="display:inline-block;padding:2px 8px;margin:0">score(i,j) = Q<sub>i</sub>K<sub>j</sub>/√d − λ<sub>h</sub>·|τ<sub>i</sub>−τ<sub>j</sub>|</span>, with half-lives log-spaced over 4..240.</li>
+      <li><b>SwiGLU FFN</b>: <code>w3( SiLU(gate)·value )</code>, 192→512→192, lifting FFN expressivity.</li>
+      <li><b>LayerScale</b>: a learnable per-channel residual scale per branch (init 0.1), calming the deep residual path.</li>
+      <li><b>MarketGatedFeatureMixer</b>: injects same-timestamp cross-symbol mean/std (a 66-dim market state) so the feature gate is conditioned on market regime.</li>
+    </ul>
+    <p>5.03M params (fewer yet stronger). Validation 0.0621 / test 0.0482.</p>
+  </div>
+  <figure>
+    <img src="end2end_large/v2/figures/time_biased_market_gated_multi_scale_patch_transformer_alt3_optimized.png" alt="v2 architecture">
+    <figcaption><span class="zh"><b>图 7.2</b> v2 架构：在 v1 基础上加入时间偏置注意力、SwiGLU、LayerScale 与市场门控特征混合。</span><span class="en"><b>Fig 7.2</b> v2 architecture: v1 plus time-biased attention, SwiGLU, LayerScale, and market-gated feature mixing.</span></figcaption>
+  </figure>
+
+  <h3>v3 — + FactorOperatorBank（最终保留版）</h3>
+  <div class="zh">
+    <p>v3 在 v2 前端加入一个<b>在线、可微的因子算子库</b>：在前向时构造 <b>483</b> 个算子（19 个全局 + 53×8 个分窗 + 40 个长短窗差），窗口 [3,5,8,13,21,34,55,89]；算子家族含 K 线实体/影线、收益×量/额/OI 变化、滚动动量、已实现/上行/下行波动、量价相关、布林 z、随机指标、MFI 代理、长短趋势差等。一个<b>序列级门</b>读取 [末值; 均值; 标准差]（99 维）选出 top_k=96，投影到 96 维；以 <code>factor_scale_init=−2.0</code>（σ≈0.119）<b>温和注入</b>，让模型从「轻用新因子」起步、再自行决定加重。参数 5.23M。验证 0.0642 / 测试 0.0548——三代最佳。</p>
+  </div>
+  <div class="en">
+    <p>v3 prepends an <b>online, differentiable factor-operator bank</b>: it constructs <b>483</b> operators at forward time (19 global + 53×8 per-window + 40 short/long-window diffs) over windows [3,5,8,13,21,34,55,89]. Families include K-line body/shadow, return × volume/amount/OI change, rolling momentum, realized/upside/downside vol, price-volume correlation, Bollinger-z, stochastic, an MFI proxy, and short/long trend differences. A <b>sequence-level gate</b> reads [last; mean; std] (99-dim), selects top_k=96, projects to 96 dims, and injects them <b>gently</b> with <code>factor_scale_init=−2.0</code> (σ≈0.119), so the model starts by using the new factors lightly and learns whether to amplify them. 5.23M params. Validation 0.0642 / test 0.0548 — the best of the three.</p>
+  </div>
+  <figure>
+    <img src="end2end_large/v3/figures/factor_operator_bank_time_biased_market_gated_transformer_framework.png" alt="v3 architecture">
+    <figcaption><span class="zh"><b>图 7.3 v3 完整架构。</b>① 输入窗口 → ② FactorOperatorBank（483 算子、序列门 top-k=96、温和注入）→ ③ 市场门控特征混合 → ④ 因果卷积 + 多尺度 patch（352 token）→ ⑤ 时间偏置稳定 Transformer ×5（SwiGLU + LayerScale）→ ⑥ 各尺度注意力/末值池化 + 多任务头。</span><span class="en"><b>Fig 7.3 — Full v3 architecture.</b> ① input window → ② FactorOperatorBank (483 operators, sequence gate top-k=96, gentle injection) → ③ market-gated feature mixer → ④ causal conv + multi-scale patches (352 tokens) → ⑤ time-biased stable Transformer ×5 (SwiGLU + LayerScale) → ⑥ per-scale attention/last pooling + multitask head.</span></figcaption>
+  </figure>
+
+  <h4><span class="zh">训练配置</span><span class="en">Training setup</span></h4>
+  <div class="zh"><p>AdamW（lr 2e-4、wd 1e-4、betas 0.9/0.95）、1000 步 warmup 后衰减到 2e-5、梯度裁剪 1.0、AMP 混合精度、EMA 0.999（v2/v3）、1 个 epoch（数据量大）、按时间戳采样（每批 16 个时间戳 × 约 32 品种）、seed 11。</p></div>
+  <div class="en"><p>AdamW (lr 2e-4, wd 1e-4, betas 0.9/0.95), warmup 1000 steps then decay to 2e-5, grad-clip 1.0, AMP, EMA 0.999 (v2/v3), 1 epoch (large data), timestamp-batch sampling (16 timestamps × ~32 symbols per batch), seed 11.</p></div>
+
+  <figure>
+    <img src="summary_assets/fig4_ladder.png" alt="ladder persistence">
+    <figcaption><span class="zh"><b>图 7.4 验证→测试的持续性。</b>绝对 IC 如预期在样本外回落，但 v3&gt;v2&gt;v1 的排序在 Pooled IC 与 SN 非重叠 IC 上均不变——说明每一步改进是真实的、可泛化的，而非验证集过拟合。</span><span class="en"><b>Fig 7.4 — Validation→test persistence.</b> Absolute IC falls out of sample as expected, but the v3&gt;v2&gt;v1 ordering holds on both Pooled IC and SN non-overlap IC — each improvement is real and generalizable, not validation overfitting.</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============================ PHILOSOPHY ============================ -->
+<section id="philosophy">
+  <h2><span class="num">8</span><span class="zh">设计哲学与思想来源</span><span class="en">Design philosophy &amp; intellectual lineage</span></h2>
+  <div class="zh"><p>本节是整套方案的「为什么」。每一处设计都不是凭空堆砌，而是把一个成熟的思想，移植到「高噪声、弱信号、强因果约束」的金融时序场景。</p></div>
+  <div class="en"><p>This section is the "why" of the whole design. Nothing is stacked arbitrarily; each choice transplants a mature idea into the "noisy, weak-signal, strongly-causal" setting of financial time series.</p></div>
+
+  <h4><span class="zh">① Patch Embedding —— 借鉴 LLM 的分块/分词</span><span class="en">① Patch embedding — borrowing LLM chunking/tokenization</span></h4>
+  <div class="zh"><p>把 240 步的 1 分钟序列像「字符流」一样切成 patch、再投影成 token，本质等同于 LLM 的子词分词与 ViT 的图像分块：原始逐分钟序列又长又碎，逐点注意力既昂贵（O(n²)）又难抓语义；分块把局部微结构压缩成「有语义的 token」，并把注意力长度缩短一个量级。我用<b>多尺度</b>（4→32 bar）相当于多套「词表」，分别捕捉从微观到中观的状态。</p></div>
+  <div class="en"><p>Cutting the 240-step 1-minute series into patches and projecting them into tokens is essentially LLM subword tokenization and ViT image patching: a raw per-minute series is long and fragmented, so point-wise attention is both expensive (O(n²)) and semantically weak; patching compresses local microstructure into "semantic tokens" and shortens the attention length by an order of magnitude. My <b>multi-scale</b> design (4→32 bars) is like several "vocabularies" capturing micro-to-meso state.</p></div>
+  <div class="cite"><span class="lab">refs</span><b>ViT</b> Dosovitskiy et al. 2021<sup class="r">[1]</sup>; <b>PatchTST</b> Nie et al. 2023<sup class="r">[2]</sup>; <b>BPE tokenization</b> Sennrich et al. 2016<sup class="r">[3]</sup>.</div>
+
+  <h4><span class="zh">② 注意力时间偏置 —— 来自时序建模</span><span class="en">② Attention time-bias — from time-series modeling</span></h4>
+  <div class="zh"><p>日内信号有强烈的近因性：越近的 bar 越相关。我在注意力 logits 上叠加一个按<b>真实时间距离</b>的逐头指数衰减偏置（而非按 token 序号），这是 ALiBi 的金融时序化改造，并与相对位置编码/T5 偏置一脉相承。它给模型注入了「就近优先」的归纳偏置，且天然对序列长度外推友好。</p></div>
+  <div class="en"><p>Intraday signals are strongly recency-biased: nearer bars matter more. I add a per-head exponential decay bias on the attention logits keyed to <b>real time distance</b> (not token index) — a finance-time adaptation of ALiBi, in the same lineage as relative position encodings and the T5 bias. It injects a "prefer-nearby" inductive bias and extrapolates gracefully across sequence lengths.</p></div>
+  <div class="cite"><span class="lab">refs</span><b>ALiBi</b> Press et al. 2022<sup class="r">[4]</sup>; <b>Relative position</b> Shaw et al. 2018<sup class="r">[5]</sup>; <b>T5</b> Raffel et al. 2020<sup class="r">[6]</sup>; <b>TFT</b> Lim et al. 2021<sup class="r">[7]</sup>.</div>
+
+  <h4><span class="zh">③ 输出 Pooling —— 来自时序读出头</span><span class="en">③ Output pooling — from time-series readout</span></h4>
+  <div class="zh"><p>不用朴素的 [CLS] 或单一末 token，而是<b>注意力池化</b>（可学习 query 对全部 patch token 加权，源自 Set Transformer 的注意力聚合）与<b>各尺度末 token 池化</b>（保留最新状态）双管齐下：前者汇聚分散证据，后者守住近因。两者拼接后融合，兼顾「全局重要性」与「时效性」。</p></div>
+  <div class="en"><p>Rather than a naive [CLS] or a single last token, I combine <b>attention pooling</b> (a learnable query weighting all patch tokens, à la Set Transformer's attention aggregation) with <b>last-token-per-scale pooling</b> (keeping the freshest state): the former gathers distributed evidence, the latter guards recency. Concatenated and fused, they balance global importance with timeliness.</p></div>
+  <div class="cite"><span class="lab">refs</span><b>Set Transformer (PMA)</b> Lee et al. 2019<sup class="r">[8]</sup>; <b>Attention pooling</b> in PatchTST<sup class="r">[2]</sup>.</div>
+
+  <h4><span class="zh">④ FactorBank / Mixer —— 用低秩交互收缩搜索空间（核心动机）</span><span class="en">④ FactorBank / Mixer — low-rank interaction to shrink the search space (core motivation)</span></h4>
+  <div class="zh">
+    <p>这是贯穿全案的核心思想，也是因子工程的「网络内化」。维度灾难的本质是：在弱信号 + 巨大假设空间下，无约束的稠密网络会在无数条近似等价的路径上震荡，难以收敛到真正的 alpha 流形。解法是给网络一个<b>低秩、有金融含义、且可训练</b>的交互前端，主动把搜索空间压向信号：</p>
+    <ul>
+      <li><b>GatedFeatureMixer / MarketGatedFeatureMixer</b>：低秩门控通道混合，等价于「软特征选择」——让模型在弱输入里先学会该看哪些组合。</li>
+      <li><b>FactorOperatorBank</b>：把「收益×量变」「波动以 OI 变化为条件」「长短动量差」「布林 z」「MFI」等<b>因子化机（FM）式的低秩成对交互</b>显式构造出来，再用稀疏门 top-k 选择，而非让稠密网络从零摸索。</li>
+    </ul>
+    <p>它与 MLP-Mixer 的「通道混合」、FM/DeepFM 的「显式低秩交互」、TFT 的「变量选择网络」、以及 WorldQuant 101 Alphas 的算子族同源。温和注入（σ≈0.119）与 top-k 稀疏正是为了「先收缩、再放开」，避免新算子一上来淹没已有信号通路（消融显示 top_k=160 且无缩放反而更差）。</p>
+  </div>
+  <div class="en">
+    <p>This is the thread running through the whole solution — the "in-network" version of factor engineering. The curse of dimensionality is, at heart: under weak signal and a vast hypothesis space, an unconstrained dense net oscillates across countless near-equivalent paths and struggles to converge onto the true alpha manifold. The remedy is to give the network a <b>low-rank, financially-meaningful, trainable</b> interaction front-end that actively compresses the search space toward signal:</p>
+    <ul>
+      <li><b>GatedFeatureMixer / MarketGatedFeatureMixer</b>: low-rank gated channel mixing — a "soft feature selection" that teaches the model which combinations to look at among weak inputs.</li>
+      <li><b>FactorOperatorBank</b>: explicitly constructs <b>factorization-machine-style low-rank interactions</b> ("return × volume change", "vol conditioned on OI change", "short/long momentum difference", "Bollinger-z", "MFI"), then selects them with a sparse top-k gate — rather than asking a dense net to rediscover them from scratch.</li>
+    </ul>
+    <p>It shares roots with MLP-Mixer's channel mixing, FM/DeepFM's explicit low-rank interactions, the TFT variable-selection network, and the WorldQuant 101-Alphas operator families. The gentle injection (σ≈0.119) and top-k sparsity implement "shrink first, then release," so new operators do not swamp the existing signal path on day one (ablation shows top_k=160 without scaling is in fact worse).</p>
+  </div>
+  <div class="cite"><span class="lab">refs</span><b>Factorization Machines</b> Rendle 2010<sup class="r">[9]</sup>; <b>DeepFM</b> Guo et al. 2017<sup class="r">[10]</sup>; <b>MLP-Mixer</b> Tolstikhin et al. 2021<sup class="r">[11]</sup>; <b>gMLP</b> Liu et al. 2021<sup class="r">[12]</sup>; <b>TFT variable selection</b> Lim et al. 2021<sup class="r">[7]</sup>; <b>101 Formulaic Alphas</b> Kakushadze 2016<sup class="r">[13]</sup>.</div>
+
+  <h4><span class="zh">⑤ LayerScale —— 促进深层收敛</span><span class="en">⑤ LayerScale — easing deep convergence</span></h4>
+  <div class="zh"><p>逐通道、可学习的小残差缩放（初值 0.1）让深层残差路径在训练初期保持「平静」，避免在仅 1 个 epoch、标签极噪的体制下被过大的残差更新带偏。与 ReZero、DeepNet 同属「让残差从小处起步」的稳定化思路。</p></div>
+  <div class="en"><p>A per-channel learnable residual scale (init 0.1) keeps the deep residual path calm early in training, so the optimizer is not whipsawed by oversized residual updates under a 1-epoch, very-noisy-label regime. It belongs to the "start residuals small" family alongside ReZero and DeepNet.</p></div>
+  <div class="cite"><span class="lab">refs</span><b>LayerScale / CaiT</b> Touvron et al. 2021<sup class="r">[14]</sup>; <b>ReZero</b> Bachlechner et al. 2020<sup class="r">[15]</sup>; <b>DeepNet</b> Wang et al. 2022<sup class="r">[16]</sup>.</div>
+
+  <h4><span class="zh">⑥ SwiGLU FFN —— 提升表征力</span><span class="en">⑥ SwiGLU FFN — lifting representational power</span></h4>
+  <div class="zh"><p>用门控线性单元（GLU）家族的 SwiGLU 替代普通 FFN：<code>w3(SiLU(gate)·value)</code>，在相近参数量下显著增强 FFN 的非线性表征，是现代 Transformer/LLM（PaLM、LLaMA）的稳健经验之选。</p></div>
+  <div class="en"><p>Replacing the plain FFN with a GLU-family SwiGLU — <code>w3(SiLU(gate)·value)</code> — markedly strengthens the FFN's non-linear capacity at comparable parameter count, a robust empirical choice in modern Transformers/LLMs (PaLM, LLaMA).</p></div>
+  <div class="cite"><span class="lab">refs</span><b>GLU Variants / SwiGLU</b> Shazeer 2020<sup class="r">[17]</sup>; <b>GLU</b> Dauphin et al. 2017<sup class="r">[18]</sup>.</div>
+
+  <h4><span class="zh">⑦ 市场门控、Pre-Norm、EMA、Huber、多任务</span><span class="en">⑦ Market gating, pre-norm, EMA, Huber, multitask</span></h4>
+  <div class="zh"><p><b>市场门控</b>用同时刻跨品种统计量作为条件（FiLM 式条件化），因为「同一局部形态是延续还是反转，常取决于大盘状态」；<b>Pre-Norm</b> 稳定深层训练；<b>EMA</b>（Polyak 平均）平滑评估权重；<b>Huber</b> 抗厚尾收益噪声；<b>多任务</b>辅助标签（波动/振幅/多 horizon）作为正则信号，提升主任务泛化。</p></div>
+  <div class="en"><p><b>Market gating</b> conditions on same-timestamp cross-symbol statistics (FiLM-style conditioning), because "whether a local pattern means continuation or reversal often depends on the broad market state"; <b>pre-norm</b> stabilizes deep training; <b>EMA</b> (Polyak averaging) smooths evaluation weights; <b>Huber</b> resists heavy-tailed return noise; <b>multitask</b> auxiliary labels (volatility/range/multi-horizon) act as a regularizing signal that improves the main task's generalization.</p></div>
+  <div class="cite"><span class="lab">refs</span><b>FiLM</b> Perez et al. 2018<sup class="r">[19]</sup>; <b>Pre-norm</b> Xiong et al. 2020<sup class="r">[20]</sup>; <b>Polyak averaging</b> Polyak &amp; Juditsky 1992<sup class="r">[21]</sup>; <b>Huber loss</b> Huber 1964<sup class="r">[22]</sup>; <b>Multitask learning</b> Caruana 1997<sup class="r">[23]</sup>; <b>Transformer</b> Vaswani et al. 2017<sup class="r">[24]</sup>.</div>
+
+  <h4><span class="zh">⑧ 诚实的消融：被否决的尝试</span><span class="en">⑧ Honest ablation: what was rejected</span></h4>
+  <div class="zh"><p>每个想法至少试两次。判据是「必须同时改善 Pooled IC 与 SN 非重叠 IC」。被否决者包括：top_k=160 无缩放（淹没主信号）、低秩交互替换输入块（SN 反降）、全量元数据嵌入（symbol+minute+day+month）、保守元数据（symbol+minute）、MoE 头（4 专家+均衡 / 2 专家）。其中「低秩残差小尺度分支」Pooled 略升但 SN 下降，正是被否决的典型——只有 v3 两项齐升。</p></div>
+  <div class="en"><p>Each idea was tried at least twice. The rule: it must improve <em>both</em> Pooled IC and SN non-overlap IC. Rejected: top_k=160 without scaling (swamps the main signal), low-rank interaction replacing the input block (SN drops), full metadata embeddings (symbol+minute+day+month), conservative metadata (symbol+minute), and MoE heads (4 experts + balance / 2 experts). The "low-rank residual small-scale branch" raised Pooled slightly but lowered SN — a textbook rejection; only v3 lifted both.</p></div>
+  <figure>
+    <img src="summary_assets/fig5_ablation.png" alt="ablation">
+    <figcaption><span class="zh"><b>图 8.1</b> 2019 验证上的消融：高亮者为保留的 v3；点线为 v3 的 Pooled/SN 参考。唯有 v3 同时触及两条参考线。</span><span class="en"><b>Fig 8.1</b> Ablation on 2019 validation: the highlighted bars are the retained v3; the dotted lines are v3's Pooled/SN references. Only v3 reaches both lines simultaneously.</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============================ RESULTS ============================ -->
+<section id="results">
+  <h2><span class="num">9</span><span class="zh">结果与可视化</span><span class="en">Results &amp; visualizations</span></h2>
+
+  <h3><span class="zh">9.1 全模型对照表（2020 测试）</span><span class="en">9.1 Master results table (2020 test)</span></h3>
+  <div class="tbl">
+  <table>
+    <thead><tr>
+      <th><span class="zh">族</span><span class="en">Family</span></th><th><span class="zh">模型</span><span class="en">Model</span></th>
+      <th><span class="zh">参数</span><span class="en">Params</span></th><th>Pooled IC</th><th>SN non-ov IC</th><th><span class="zh">评估窗</span><span class="en">Window</span></th>
+    </tr></thead>
+    <tbody>
+      <tr><td><span class="tag ml">ML</span></td><td>mlp_time120_slope_a025_strong</td><td>—</td><td>0.050756</td><td>0.065097</td><td>2020</td></tr>
+      <tr><td><span class="tag ml">ML</span></td><td>lgb_ref_time90_a1_signed_abs12_a08</td><td>—</td><td>0.050034</td><td>0.065138</td><td>2020</td></tr>
+      <tr><td><span class="tag ml">ML</span></td><td>ridge_simplex_basic_full2019</td><td>—</td><td>0.042481</td><td>0.064183</td><td>2020</td></tr>
+      <tr class="best"><td><span class="tag ml">ML</span></td><td>raw_xsz6__signed_ridge_a01__time90_a0.25 <span class="zh">（当前保留集成）</span><span class="en">(retained ensemble)</span></td><td>3 models / 6 views</td><td>0.057293</td><td>n/a</td><td>2020</td></tr>
+      <tr><td><span class="tag e2e">E2E</span></td><td>end2end single (feasibility)</td><td>1.42M</td><td>0.039660</td><td>0.031582</td><td>2020-05..12</td></tr>
+      <tr><td><span class="tag e2e">E2E</span></td><td>v1 · Gated MS-Patch + Dual Pooling</td><td>5.50M</td><td>0.043578</td><td>0.059084</td><td>2020</td></tr>
+      <tr><td><span class="tag e2e">E2E</span></td><td>v2 · Time-Bias + Market-Gate + Stable</td><td>5.03M</td><td>0.048159</td><td>0.061365</td><td>2020</td></tr>
+      <tr class="best"><td><span class="tag e2e">E2E</span></td><td>v3 · + FactorOperatorBank <span class="zh">（最佳深度）</span><span class="en">(best deep)</span></td><td>5.23M</td><td>0.054808</td><td>0.061614</td><td>2020</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="zh">9.2 端到端阶梯：验证 vs 测试</span><span class="en">9.2 E2E ladder: validation vs test</span></h3>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>Version</th><th><span class="zh">2019 验证 Pooled</span><span class="en">2019 Val Pooled</span></th><th><span class="zh">2020 测试 Pooled</span><span class="en">2020 Test Pooled</span></th><th><span class="zh">2019 验证 SN</span><span class="en">2019 Val SN</span></th><th><span class="zh">2020 测试 SN</span><span class="en">2020 Test SN</span></th></tr></thead>
+    <tbody>
+      <tr><td>v1</td><td>0.054609</td><td>0.043578</td><td>0.064411</td><td>0.059084</td></tr>
+      <tr><td>v2</td><td>0.062069</td><td>0.048159</td><td>0.069863</td><td>0.061365</td></tr>
+      <tr class="best"><td>v3</td><td>0.064172</td><td>0.054808</td><td>0.070858</td><td>0.061614</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="zh">9.3 稳定性（ICIR）</span><span class="en">9.3 Stability (ICIR)</span></h3>
+  <div class="zh"><p>PDF 关注 mean(IC)/std(IC)。下图给出阶梯模型逐时间戳截面 IC 的 ICIR：稳定性随 v1→v3 提升，且样本外仅温和回落。</p></div>
+  <div class="en"><p>The PDF cares about mean(IC)/std(IC). Below is the per-timestamp cross-sectional ICIR of the ladder: stability rises along v1→v3 and only mildly decays out of sample.</p></div>
+  <figure>
+    <img src="summary_assets/fig6_icir.png" alt="icir stability">
+    <figcaption><span class="zh"><b>图 9.1</b> 阶梯模型的稠密截面 ICIR 与 SN 非重叠 ICIR（2019 验证 vs 2020 测试）。</span><span class="en"><b>Fig 9.1</b> Dense cross-sectional ICIR and SN non-overlap ICIR of the ladder (2019 val vs 2020 test).</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============================ LEAKAGE ============================ -->
+<section id="leakage">
+  <h2><span class="num">10</span><span class="zh">无泄漏与复现</span><span class="en">No-leakage &amp; reproduction</span></h2>
+  <div class="zh">
+    <ul>
+      <li><b>因果特征</b>：滚动窗在回看不足时掩码；时序 z 用 120 期滚动；截面视图仅用当刻数据；滞后因子跨会话掩码。</li>
+      <li><b>标签嵌牌</b>：长休市前 30 行、会话末 30 行置 NaN，杜绝前向越界。</li>
+      <li><b>严格时间切分</b>：ML 单模型滚动「先训后测」；当前三模型集成只在 2019 外折上筛选候选与选择器，固定后用全 2019 拟合，最后仅在 2020 审计。</li>
+      <li><b>端到端阶梯</b>：2017–2018 训练、2019 验证做选择/消融；2020 行用 pre-2020 重拟合后测试。选择阶段绝不触碰测试标签。</li>
+      <li><b>可配置起止日期</b>：满足 PDF 的样本外测试要求。</li>
+    </ul>
+    <p class="small">复现（不含原始数据）：</p>
+    <div class="kbd">cd /root/jump_model
+pip install -r requirements.txt
+	python ML_ensemble/scripts/run_best_ensemble.py
+	python tools/generate_end2end_audit_assets.py
+	python tools/gen_summary_figs.py      # 本报告的补充图表</div>
+  </div>
+  <div class="en">
+    <ul>
+      <li><b>Causal features</b>: rolling windows masked when lookback is insufficient; time-series z over 120 periods; cross-sectional views use only the current instant; lagged factors masked across sessions.</li>
+      <li><b>Label embargo</b>: the 30 rows before a long break and the last 30 of a session are NaN, preventing any forward bleed.</li>
+      <li><b>Strict temporal splits</b>: ML singles roll train-before-test; the current three-model ensemble screens candidates and selectors only on 2019 outer folds, fits on full 2019 after the choice is fixed, and audits only on 2020.</li>
+      <li><b>E2E ladder</b>: train 2017–2018, validate 2019 for selection/ablation; the 2020 rows refit on pre-2020 then test. The selection stage never touches test labels.</li>
+      <li><b>Configurable start/end dates</b>, satisfying the PDF's out-of-sample requirement.</li>
+    </ul>
+    <p class="small">Reproduce (raw data not included):</p>
+    <div class="kbd">cd /root/jump_model
+pip install -r requirements.txt
+	python ML_ensemble/scripts/run_best_ensemble.py
+	python tools/generate_end2end_audit_assets.py
+	python tools/gen_summary_figs.py      # supplementary figures for this report</div>
+  </div>
+</section>
+
+<!-- ============================ CONCLUSION ============================ -->
+<section id="conclusion">
+  <h2><span class="num">11</span><span class="zh">结论与展望</span><span class="en">Conclusion &amp; future work</span></h2>
+  <div class="zh">
+    <p>两条技术线都稳定越过 0.05：以经典方法精心构建的<b>三模型 strict 集成（0.0573）</b>仍是当前最强的纯 ML 基线；而<b>端到端 v3（0.0548）</b>作为最具创新性的深度方案，证明了「把因子工程内化为可训练的低秩交互结构」这一思路是有效且可泛化的。整套工作既给出了强结果，也给出了诚实的消融与无泄漏纪律。</p>
+    <p><b>展望</b>：(1) 对 v3 做按月滚动复训——PDF 明示这是「稳赚」的提升，<code>end2end_rolling</code> 已搭好脚手架；(2) 把 ML 集成与 v3 做跨族融合（二者错误结构互补）；(3) 正确实现的截面注意力 / 跨品种交互；(4) 更长训练与更精细的在线因子剪枝。</p>
+  </div>
+  <div class="en">
+    <p>Both lines comfortably clear 0.05: the carefully-built classical <b>strict three-model ensemble (0.0573)</b> remains the strongest pure-ML baseline, while the <b>end-to-end v3 (0.0548)</b> — the most novel deep solution — proves that "internalizing factor engineering as trainable low-rank interaction structure" is effective and generalizable. The work delivers strong results alongside honest ablation and no-leakage discipline.</p>
+    <p><b>Future work</b>: (1) monthly rolling refit of v3 — the PDF flags this as an easy win, and <code>end2end_rolling</code> already provides the scaffold; (2) cross-family fusion of the ML ensemble with v3 (their error structures are complementary); (3) a correctly-implemented cross-sectional / cross-symbol attention; (4) longer training and finer online factor-bank pruning.</p>
+  </div>
+</section>
+
+<!-- ============================ REFERENCES ============================ -->
+<section id="refs">
+  <h2><span class="num">12</span><span class="zh">参考文献</span><span class="en">References</span></h2>
+  <ol class="ref">
+    <li>Dosovitskiy, A. et al. (2021). <i>An Image is Worth 16×16 Words: Transformers for Image Recognition at Scale.</i> ICLR.</li>
+    <li>Nie, Y., Nguyen, N. H., Sinha, P., Kalagnanam, J. (2023). <i>A Time Series is Worth 64 Words: Long-term Forecasting with Transformers (PatchTST).</i> ICLR.</li>
+    <li>Sennrich, R., Haddow, B., Birch, A. (2016). <i>Neural Machine Translation of Rare Words with Subword Units (BPE).</i> ACL.</li>
+    <li>Press, O., Smith, N. A., Lewis, M. (2022). <i>Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation (ALiBi).</i> ICLR.</li>
+    <li>Shaw, P., Uszkoreit, J., Vaswani, A. (2018). <i>Self-Attention with Relative Position Representations.</i> NAACL.</li>
+    <li>Raffel, C. et al. (2020). <i>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5).</i> JMLR.</li>
+    <li>Lim, B., Arık, S. Ö., Loeff, N., Pfister, T. (2021). <i>Temporal Fusion Transformers for Interpretable Multi-horizon Time Series Forecasting.</i> Int. J. Forecasting.</li>
+    <li>Lee, J. et al. (2019). <i>Set Transformer: A Framework for Attention-based Permutation-Invariant Neural Networks.</i> ICML.</li>
+    <li>Rendle, S. (2010). <i>Factorization Machines.</i> ICDM.</li>
+    <li>Guo, H. et al. (2017). <i>DeepFM: A Factorization-Machine based Neural Network for CTR Prediction.</i> IJCAI.</li>
+    <li>Tolstikhin, I. et al. (2021). <i>MLP-Mixer: An all-MLP Architecture for Vision.</i> NeurIPS.</li>
+    <li>Liu, H., Dai, Z., So, D. R., Le, Q. V. (2021). <i>Pay Attention to MLPs (gMLP).</i> NeurIPS.</li>
+    <li>Kakushadze, Z. (2016). <i>101 Formulaic Alphas.</i> Wilmott Magazine.</li>
+    <li>Touvron, H. et al. (2021). <i>Going Deeper with Image Transformers (CaiT / LayerScale).</i> ICCV.</li>
+    <li>Bachlechner, T. et al. (2020). <i>ReZero is All You Need: Fast Convergence at Large Depth.</i> UAI 2021.</li>
+    <li>Wang, H. et al. (2022). <i>DeepNet: Scaling Transformers to 1,000 Layers.</i> arXiv:2203.00555.</li>
+    <li>Shazeer, N. (2020). <i>GLU Variants Improve Transformer (SwiGLU).</i> arXiv:2002.05202.</li>
+    <li>Dauphin, Y. N. et al. (2017). <i>Language Modeling with Gated Convolutional Networks (GLU).</i> ICML.</li>
+    <li>Perez, E. et al. (2018). <i>FiLM: Visual Reasoning with a General Conditioning Layer.</i> AAAI.</li>
+    <li>Xiong, R. et al. (2020). <i>On Layer Normalization in the Transformer Architecture (Pre-LN).</i> ICML.</li>
+    <li>Polyak, B. T., Juditsky, A. B. (1992). <i>Acceleration of Stochastic Approximation by Averaging.</i> SIAM J. Control Optim.</li>
+    <li>Huber, P. J. (1964). <i>Robust Estimation of a Location Parameter.</i> Ann. Math. Statist.</li>
+    <li>Caruana, R. (1997). <i>Multitask Learning.</i> Machine Learning.</li>
+    <li>Vaswani, A. et al. (2017). <i>Attention Is All You Need.</i> NeurIPS.</li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Shuo Yin (殷硕)</b> &nbsp;·&nbsp; <a href="mailto:yins25@mails.tsinghua.edu.cn">yins25@mails.tsinghua.edu.cn</a> &nbsp;·&nbsp; Tsinghua University</p>
+    <p class="zh">本报告为 Jump Take-Home Project 的解题总结。指标均在严格无未来泄漏协议下计算；Pooled IC 为 PDF 主指标，SN 非重叠 IC 为稳健性自检。图表由 <code>tools/gen_summary_figs.py</code> 基于项目内指标 CSV 生成。</p>
+    <p class="en">A solution summary for the Jump Take-Home Project. All metrics are computed under a strict no-future-leakage protocol; Pooled IC is the PDF's headline metric and SN non-overlap IC is a robustness self-check. Figures are generated by <code>tools/gen_summary_figs.py</code> from the project's in-repo metric CSVs.</p>
+  </div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.className = 'lang-' + l;
+    document.getElementById('btn-zh').classList.toggle('active', l==='zh');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.documentElement.lang = (l==='zh') ? 'zh' : 'en';
+    try{ localStorage.setItem('jump_summary_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved='zh';
+    try{ saved = localStorage.getItem('jump_summary_lang') || 'zh'; }catch(e){}
+    setLang(saved);
+  })();
+</script>
+</body>
+</html>

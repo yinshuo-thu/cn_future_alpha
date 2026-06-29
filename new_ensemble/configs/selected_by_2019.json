@@ -1,0 +1,18 @@
+{
+  "retained_model": "three_model_strict_2019_selector",
+  "candidate": "raw_xsz6__signed_ridge_a01__time90_a0.25",
+  "method": "signed_ridge_a01_timecal",
+  "cols": [
+    "mlp",
+    "lgb",
+    "ridge",
+    "mlp_xsz",
+    "lgb_xsz",
+    "ridge_xsz"
+  ],
+  "selector_winner": true,
+  "winner_selectors": "score_mean_m025std|score_mean_m050std|score_q3_h2|score_q3_q4_h2|score_min_mean|h2_ic",
+  "audit2020_pooled_ic": 0.057292659680626044,
+  "audit2020_monthly_mean": 0.059618699422496584,
+  "target_note": "This exceeds 0.056 pooled IC; 0.56 would be a decimal-scale typo for these IC metrics."
+}

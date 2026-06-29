@@ -1,0 +1,138 @@
+candidate,feature_set,method,cols_json,postcal
+raw3__equal,raw3,equal,"[""mlp"", ""lgb"", ""ridge""]",
+raw3__top1,raw3,top1,"[""mlp"", ""lgb"", ""ridge""]",
+raw3__icpos,raw3,icpos,"[""mlp"", ""lgb"", ""ridge""]",
+raw3__simplex,raw3,simplex,"[""mlp"", ""lgb"", ""ridge""]",
+raw3__signed_ridge_a001,raw3,signed_ridge_a001,"[""mlp"", ""lgb"", ""ridge""]",
+raw3__signed_ridge_a01,raw3,signed_ridge_a01,"[""mlp"", ""lgb"", ""ridge""]",
+raw3__signed_ridge_a1,raw3,signed_ridge_a1,"[""mlp"", ""lgb"", ""ridge""]",
+xcenter3__equal,xcenter3,equal,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xcenter3__top1,xcenter3,top1,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xcenter3__icpos,xcenter3,icpos,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xcenter3__simplex,xcenter3,simplex,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xcenter3__signed_ridge_a001,xcenter3,signed_ridge_a001,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xcenter3__signed_ridge_a01,xcenter3,signed_ridge_a01,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xcenter3__signed_ridge_a1,xcenter3,signed_ridge_a1,"[""mlp_xcenter"", ""lgb_xcenter"", ""ridge_xcenter""]",
+xsz3__equal,xsz3,equal,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz3__top1,xsz3,top1,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz3__icpos,xsz3,icpos,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz3__simplex,xsz3,simplex,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz3__signed_ridge_a001,xsz3,signed_ridge_a001,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz3__signed_ridge_a01,xsz3,signed_ridge_a01,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz3__signed_ridge_a1,xsz3,signed_ridge_a1,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xrank3__equal,xrank3,equal,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xrank3__top1,xrank3,top1,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xrank3__icpos,xrank3,icpos,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xrank3__simplex,xrank3,simplex,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xrank3__signed_ridge_a001,xrank3,signed_ridge_a001,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xrank3__signed_ridge_a01,xrank3,signed_ridge_a01,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xrank3__signed_ridge_a1,xrank3,signed_ridge_a1,"[""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+rankgauss3__equal,rankgauss3,equal,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+rankgauss3__top1,rankgauss3,top1,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+rankgauss3__icpos,rankgauss3,icpos,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+rankgauss3__simplex,rankgauss3,simplex,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+rankgauss3__signed_ridge_a001,rankgauss3,signed_ridge_a001,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+rankgauss3__signed_ridge_a01,rankgauss3,signed_ridge_a01,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+rankgauss3__signed_ridge_a1,rankgauss3,signed_ridge_a1,"[""mlp_rankgauss"", ""lgb_rankgauss"", ""ridge_rankgauss""]",
+tanh3__equal,tanh3,equal,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+tanh3__top1,tanh3,top1,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+tanh3__icpos,tanh3,icpos,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+tanh3__simplex,tanh3,simplex,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+tanh3__signed_ridge_a001,tanh3,signed_ridge_a001,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+tanh3__signed_ridge_a01,tanh3,signed_ridge_a01,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+tanh3__signed_ridge_a1,tanh3,signed_ridge_a1,"[""mlp_tanh"", ""lgb_tanh"", ""ridge_tanh""]",
+raw_xsz6__equal,raw_xsz6,equal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+raw_xsz6__top1,raw_xsz6,top1,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+raw_xsz6__icpos,raw_xsz6,icpos,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+raw_xsz6__simplex,raw_xsz6,simplex,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+raw_xsz6__signed_ridge_a001,raw_xsz6,signed_ridge_a001,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+raw_xsz6__signed_ridge_a01,raw_xsz6,signed_ridge_a01,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+raw_xsz6__signed_ridge_a1,raw_xsz6,signed_ridge_a1,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]",
+xsz_rank6__equal,xsz_rank6,equal,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xsz_rank6__top1,xsz_rank6,top1,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xsz_rank6__icpos,xsz_rank6,icpos,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xsz_rank6__simplex,xsz_rank6,simplex,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xsz_rank6__signed_ridge_a001,xsz_rank6,signed_ridge_a001,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xsz_rank6__signed_ridge_a01,xsz_rank6,signed_ridge_a01,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+xsz_rank6__signed_ridge_a1,xsz_rank6,signed_ridge_a1,"[""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz"", ""mlp_xrank"", ""lgb_xrank"", ""ridge_xrank""]",
+mlp_lgb_raw2__equal,mlp_lgb_raw2,equal,"[""mlp"", ""lgb""]",
+mlp_lgb_raw2__top1,mlp_lgb_raw2,top1,"[""mlp"", ""lgb""]",
+mlp_lgb_raw2__icpos,mlp_lgb_raw2,icpos,"[""mlp"", ""lgb""]",
+mlp_lgb_raw2__simplex,mlp_lgb_raw2,simplex,"[""mlp"", ""lgb""]",
+mlp_lgb_raw2__signed_ridge_a001,mlp_lgb_raw2,signed_ridge_a001,"[""mlp"", ""lgb""]",
+mlp_lgb_raw2__signed_ridge_a01,mlp_lgb_raw2,signed_ridge_a01,"[""mlp"", ""lgb""]",
+mlp_lgb_raw2__signed_ridge_a1,mlp_lgb_raw2,signed_ridge_a1,"[""mlp"", ""lgb""]",
+mlp_lgb_xsz2__equal,mlp_lgb_xsz2,equal,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_xsz2__top1,mlp_lgb_xsz2,top1,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_xsz2__icpos,mlp_lgb_xsz2,icpos,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_xsz2__simplex,mlp_lgb_xsz2,simplex,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_xsz2__signed_ridge_a001,mlp_lgb_xsz2,signed_ridge_a001,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_xsz2__signed_ridge_a01,mlp_lgb_xsz2,signed_ridge_a01,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_xsz2__signed_ridge_a1,mlp_lgb_xsz2,signed_ridge_a1,"[""mlp_xsz"", ""lgb_xsz""]",
+mlp_lgb_rank2__equal,mlp_lgb_rank2,equal,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+mlp_lgb_rank2__top1,mlp_lgb_rank2,top1,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+mlp_lgb_rank2__icpos,mlp_lgb_rank2,icpos,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+mlp_lgb_rank2__simplex,mlp_lgb_rank2,simplex,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+mlp_lgb_rank2__signed_ridge_a001,mlp_lgb_rank2,signed_ridge_a001,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+mlp_lgb_rank2__signed_ridge_a01,mlp_lgb_rank2,signed_ridge_a01,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+mlp_lgb_rank2__signed_ridge_a1,mlp_lgb_rank2,signed_ridge_a1,"[""mlp_rankgauss"", ""lgb_rankgauss""]",
+raw3__equal__time60_a0.25,raw3,equal_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw3__equal__time90_a0.25,raw3,equal_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw3__equal__time120_a0.25,raw3,equal_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw3__equal__time120_a0.5,raw3,equal_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw3__simplex__time60_a0.25,raw3,simplex_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw3__simplex__time90_a0.25,raw3,simplex_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw3__simplex__time120_a0.25,raw3,simplex_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw3__simplex__time120_a0.5,raw3,simplex_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw3__signed_ridge_a001__time60_a0.25,raw3,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw3__signed_ridge_a001__time90_a0.25,raw3,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw3__signed_ridge_a001__time120_a0.25,raw3,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw3__signed_ridge_a001__time120_a0.5,raw3,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw3__signed_ridge_a01__time60_a0.25,raw3,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw3__signed_ridge_a01__time90_a0.25,raw3,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw3__signed_ridge_a01__time120_a0.25,raw3,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw3__signed_ridge_a01__time120_a0.5,raw3,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw3__signed_ridge_a1__time60_a0.25,raw3,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw3__signed_ridge_a1__time90_a0.25,raw3,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw3__signed_ridge_a1__time120_a0.25,raw3,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw3__signed_ridge_a1__time120_a0.5,raw3,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw_xsz6__equal__time60_a0.25,raw_xsz6,equal_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw_xsz6__equal__time90_a0.25,raw_xsz6,equal_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw_xsz6__equal__time120_a0.25,raw_xsz6,equal_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw_xsz6__equal__time120_a0.5,raw_xsz6,equal_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw_xsz6__simplex__time60_a0.25,raw_xsz6,simplex_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw_xsz6__simplex__time90_a0.25,raw_xsz6,simplex_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw_xsz6__simplex__time120_a0.25,raw_xsz6,simplex_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw_xsz6__simplex__time120_a0.5,raw_xsz6,simplex_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw_xsz6__signed_ridge_a001__time60_a0.25,raw_xsz6,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a001__time90_a0.25,raw_xsz6,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a001__time120_a0.25,raw_xsz6,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a001__time120_a0.5,raw_xsz6,signed_ridge_a001_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw_xsz6__signed_ridge_a01__time60_a0.25,raw_xsz6,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a01__time90_a0.25,raw_xsz6,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a01__time120_a0.25,raw_xsz6,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a01__time120_a0.5,raw_xsz6,signed_ridge_a01_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+raw_xsz6__signed_ridge_a1__time60_a0.25,raw_xsz6,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a1__time90_a0.25,raw_xsz6,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a1__time120_a0.25,raw_xsz6,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+raw_xsz6__signed_ridge_a1__time120_a0.5,raw_xsz6,signed_ridge_a1_timecal,"[""mlp"", ""lgb"", ""ridge"", ""mlp_xsz"", ""lgb_xsz"", ""ridge_xsz""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+mlp_lgb_raw2__equal__time60_a0.25,mlp_lgb_raw2,equal_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+mlp_lgb_raw2__equal__time90_a0.25,mlp_lgb_raw2,equal_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+mlp_lgb_raw2__equal__time120_a0.25,mlp_lgb_raw2,equal_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+mlp_lgb_raw2__equal__time120_a0.5,mlp_lgb_raw2,equal_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+mlp_lgb_raw2__simplex__time60_a0.25,mlp_lgb_raw2,simplex_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+mlp_lgb_raw2__simplex__time90_a0.25,mlp_lgb_raw2,simplex_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+mlp_lgb_raw2__simplex__time120_a0.25,mlp_lgb_raw2,simplex_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+mlp_lgb_raw2__simplex__time120_a0.5,mlp_lgb_raw2,simplex_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+mlp_lgb_raw2__signed_ridge_a001__time60_a0.25,mlp_lgb_raw2,signed_ridge_a001_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a001__time90_a0.25,mlp_lgb_raw2,signed_ridge_a001_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a001__time120_a0.25,mlp_lgb_raw2,signed_ridge_a001_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a001__time120_a0.5,mlp_lgb_raw2,signed_ridge_a001_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+mlp_lgb_raw2__signed_ridge_a01__time60_a0.25,mlp_lgb_raw2,signed_ridge_a01_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a01__time90_a0.25,mlp_lgb_raw2,signed_ridge_a01_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a01__time120_a0.25,mlp_lgb_raw2,signed_ridge_a01_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a01__time120_a0.5,mlp_lgb_raw2,signed_ridge_a01_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
+mlp_lgb_raw2__signed_ridge_a1__time60_a0.25,mlp_lgb_raw2,signed_ridge_a1_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 60, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a1__time90_a0.25,mlp_lgb_raw2,signed_ridge_a1_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 90, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a1__time120_a0.25,mlp_lgb_raw2,signed_ridge_a1_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.25}"
+mlp_lgb_raw2__signed_ridge_a1__time120_a0.5,mlp_lgb_raw2,signed_ridge_a1_timecal,"[""mlp"", ""lgb""]","{""bucket_minutes"": 120, ""alpha"": 0.5}"
