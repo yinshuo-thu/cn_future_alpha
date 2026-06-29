@@ -524,7 +524,7 @@
   <h4>Patch Embedding</h4>
   <div class="zh"><p>把 240 步的 1 分钟序列像「字符流」一样切成 patch、再投影成 token，本质等同于 LLM 的子词分词与 ViT 的图像分块：原始逐分钟序列又长又碎，逐点注意力既昂贵又难抓语义；分块把局部微结构压缩成「有语义的 token」，并把注意力长度缩短一个量级。多尺度（4→32 bar）相当于多套「词表」。我之前做的一些病理切片等计算机视觉深度学习，其中也用到了这种 patch 思想——把大图切成小块再编码。</p></div>
   <div class="en"><p>Cutting the 240-step 1-minute series into patches and projecting them into tokens is essentially LLM subword tokenization and ViT image patching: a raw per-minute series is long and fragmented, so point-wise attention is expensive and semantically weak; patching compresses local microstructure into semantic tokens and shortens the attention length by an order of magnitude. The multi-scale design (4→32 bars) is like several vocabularies. Some of the pathology-slide computer-vision deep learning I did before also used this patch idea — cutting a large image into small blocks before encoding.</p></div>
-  <div class="cite"><span class="lab">refs</span><b>ViT</b> Dosovitskiy et al. 2021<sup class="r">[1]</sup>; <b>PatchTST</b> Nie et al. 2023<sup class="r">[2]</sup>; <b>BPE tokenization</b> Sennrich et al. 2016<sup class="r">[3]</sup>.</div>
+  <div class="cite"><span class="lab">refs</span><b>PatchTST</b> Nie et al. 2023<sup class="r">[2]</sup>; <b>ViT</b> Dosovitskiy et al. 2021<sup class="r">[1]</sup>; <b>HIPT</b> Chen et al. 2022<sup class="r">[25]</sup>; <b>BPE tokenization</b> Sennrich et al. 2016<sup class="r">[3]</sup>.</div>
 
   <h4>Attention Time-Bias</h4>
   <div class="zh"><p>日内信号有强烈近因性：越近的 bar 越相关。我在注意力 logits 上叠加按真实时间距离的逐头指数衰减偏置（而非 token 序号），这是 ALiBi 的金融时序化改造，与相对位置编码/T5 偏置一脉相承，给模型注入「就近优先」的归纳偏置。</p></div>
@@ -689,6 +689,7 @@ python tools/gen_summary_figs.py      # supplementary figures for this report</d
     <li>Huber, P. J. (1964). <i>Robust Estimation of a Location Parameter.</i> Ann. Math. Statist.</li>
     <li>Caruana, R. (1997). <i>Multitask Learning.</i> Machine Learning.</li>
     <li>Vaswani, A. et al. (2017). <i>Attention Is All You Need.</i> NeurIPS.</li>
+    <li>Chen, R. J. et al. (2022). <i>Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning (HIPT).</i> CVPR.</li>
   </ol>
 </section>
 
