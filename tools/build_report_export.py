@@ -81,6 +81,21 @@ EXEC_CSS = """
   section{margin:0 0 19px}
   figure{margin:10px auto;max-width:415px} figure img{max-width:415px}
   figcaption{font-size:9.4px;padding:5px 10px;line-height:1.45}
+  /* detail-heavy / key figures enlarged flush to the text width */
+  figure:has(img[alt="v1 architecture"]),
+  figure:has(img[alt="v2 architecture"]),
+  figure:has(img[alt="v3 architecture"]),
+  figure:has(img[alt="cross-family comparison"]),
+  figure:has(img[alt="e2e single feasibility"]),
+  figure:has(img[alt="attempts"]),
+  figure:has(img[alt="end2end ladder vs ensemble"]){max-width:100%}
+  figure:has(img[alt="v1 architecture"]) img,
+  figure:has(img[alt="v2 architecture"]) img,
+  figure:has(img[alt="v3 architecture"]) img,
+  figure:has(img[alt="cross-family comparison"]) img,
+  figure:has(img[alt="e2e single feasibility"]) img,
+  figure:has(img[alt="attempts"]) img,
+  figure:has(img[alt="end2end ladder vs ensemble"]) img{max-width:100%}
   .ronote{color:var(--muted);font-size:.9em}
   .execsum{padding:15px 19px 7px;margin:22px 0 6px} .execsum h2{font-size:16px}
   .execsum .kpi{font-size:10.5px;padding:6px 12px} .execsum .kpi b{font-size:14px}

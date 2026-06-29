@@ -154,7 +154,7 @@
       <ol>
         <li><a href="#single">3.1 Smoke Test</a></li>
         <li><a href="#large">3.2 v1 → v3 Optimization Ladder</a></li>
-        <li><a href="#philosophy">3.3 Valuable Innovations</a></li>
+        <li><a href="#philosophy">3.3 Valuable Takeaways</a></li>
         <li><a href="#results">3.4 Results &amp; Visualizations</a></li>
       </ol>
     </li>
@@ -514,7 +514,7 @@
     <figcaption><span class="zh"><b>图 3.5 v2→v3 路上各尝试的 2019 验证 IC。</b>高亮为保留的 v3，其余为消融失败、未采纳者；点线为 v3 的 Pooled/SN 参考线。可见有的尝试（如低秩残差）Pooled 看似更高，但 SN 非重叠落在参考线之下，因而被双指标判据拦下。</span><span class="en"><b>Fig 3.5 — 2019-validation IC of the v2→v3 attempts.</b> The highlighted bars are the retained v3; the rest were ablated away. Dotted lines are v3's Pooled/SN references — note that some attempts (e.g. low-rank residual) look higher on Pooled yet fall below the SN reference, so the two-metric gate rejects them.</span></figcaption>
   </figure>
 
-  <h3 id="philosophy"><span class="sn">3.3</span>Valuable Innovations</h3>
+  <h3 id="philosophy"><span class="sn">3.3</span>Valuable Takeaways</h3>
 
   <h4>Patch Embedding</h4>
   <div class="zh"><p>把 240 步的 1 分钟序列像「字符流」一样切成 patch、再投影成 token，本质等同于 LLM 的子词分词与 ViT 的图像分块：原始逐分钟序列又长又碎，逐点注意力既昂贵又难抓语义；分块把局部微结构压缩成「有语义的 token」，并把注意力长度缩短一个量级。多尺度（4→32 bar）相当于多套「词表」。我之前做的一些病理切片等计算机视觉深度学习，其中也用到了这种 patch 思想——把大图切成小块再编码。</p></div>
