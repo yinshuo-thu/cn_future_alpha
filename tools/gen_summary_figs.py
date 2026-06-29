@@ -480,6 +480,98 @@ def fig_lift():
     save(fig, "fig8_lift.png")
 
 
+# ============================================================================
+# REPORT-SUMMARY FIGURES (used in the export/PDF summary block)
+#   S1: Ensemble vs End2End v3 — monthly IC (2020)
+#   S2: Ensemble vs End2End v3 — 20-bucket return monotonicity
+#   S3: All-model comparison — Pooled IC and monthly ICIR
+# ============================================================================
+def _icir(series):
+    return float(np.mean(series) / np.std(series))
+
+
+def fig_sum_monthly():
+    fig, ax = plt.subplots(figsize=(8.8, 4.7))
+    x = np.arange(12)
+    v3 = E2E_MONTHLY["v3"]; ens = MONTHLY_2020["Ensemble"]
+    ax.plot(x, ens, marker="D", ms=5.5, lw=2.2, color=C["ens"], ls="--",
+            label=f"ML Ensemble  (ICIR {_icir(ens):.2f})", zorder=4)
+    ax.plot(x, v3, marker="^", ms=6, lw=2.6, color=C["v3"],
+            label=f"End2End v3  (ICIR {_icir(v3):.2f})", zorder=5)
+    ax.axhline(0.05, color=C["thresh"], ls="--", lw=1.1)
+    ax.text(11.2, 0.0505, "0.05", color=C["thresh"], fontsize=9, va="bottom", ha="right")
+    ax.set_xticks(x); ax.set_xticklabels(MONTHS)
+    ax.set_ylabel("Pooled IC (per month)")
+    ax.set_title("Monthly IC across 2020 — Ensemble vs End2End v3")
+    ax.set_ylim(0, 0.095)
+    ax.legend(loc="upper right", fontsize=9.5)
+    save(fig, "fig_sum_monthly.png")
+
+
+def fig_sum_bin():
+    fig, ax = plt.subplots(figsize=(8.8, 4.7))
+    xb = np.arange(1, 21)
+    ax.bar(xb, np.array(BIN20["Ensemble"]) * 1e4, color=C["ens"], alpha=0.55,
+           edgecolor="white", linewidth=0.4, label="ML Ensemble (bars)", zorder=2)
+    ax.plot(xb, np.array(E2E_BIN["v3"]) * 1e4, marker="^", ms=4.5, lw=2.4,
+            color=C["v3"], label="End2End v3 (line)", zorder=5)
+    ax.axhline(0, color="#374151", lw=0.9)
+    ax.set_xticks([1, 5, 10, 15, 20])
+    ax.set_xlabel("Prediction bucket (1 = most bearish → 20 = most bullish)")
+    ax.set_ylabel("Mean 30-min return (bps)")
+    ax.set_title("Bucketed return monotonicity — Ensemble vs End2End v3")
+    ax.legend(loc="upper left", fontsize=9.5)
+    save(fig, "fig_sum_bin.png")
+
+
+def fig_sum_allmodels():
+    # (label, pooled_ic, monthly_series_key, source_dict, family)
+    rows = [
+        ("Ridge",        0.042481, "Ridge",    MONTHLY_2020, "ML"),
+        ("LightGBM",     0.050034, "LightGBM", MONTHLY_2020, "ML"),
+        ("MLP",          0.050756, "MLP",      MONTHLY_2020, "ML"),
+        ("ML Ensemble",  0.057293, "Ensemble", MONTHLY_2020, "ENS"),
+        ("E2E v1",       0.043578, "v1",       E2E_MONTHLY,  "E2E"),
+        ("E2E v2",       0.048159, "v2",       E2E_MONTHLY,  "E2E"),
+        ("E2E v3",       0.054808, "v3",       E2E_MONTHLY,  "E2E"),
+    ]
+    famcol = {"ML": C["lgb"], "ENS": C["ens"], "E2E": C["v3"]}
+    labels = [r[0] for r in rows]
+    ic = [r[1] for r in rows]
+    icir = [_icir(r[3][r[2]]) for r in rows]
+    cols = [famcol[r[4]] for r in rows]
+    x = np.arange(len(rows))
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 5.0))
+    ax1.bar(x, ic, color=cols, edgecolor="white", width=0.66)
+    for xi, v in zip(x, ic):
+        ax1.text(xi, v + 0.0009, f"{v:.4f}", ha="center", fontsize=8.6, fontweight="bold")
+    ax1.axhline(0.05, color=C["thresh"], ls="--", lw=1.1)
+    ax1.text(len(rows)-0.5, 0.0505, "0.05", color=C["thresh"], fontsize=9, va="bottom", ha="right")
+    ax1.set_xticks(x); ax1.set_xticklabels(labels, rotation=22, ha="right", fontsize=9)
+    ax1.set_ylabel("Pooled IC (2020)")
+    ax1.set_title("Pooled IC — all models")
+    ax1.set_ylim(0, 0.066)
+
+    ax2.bar(x, icir, color=cols, edgecolor="white", width=0.66)
+    for xi, v in zip(x, icir):
+        ax2.text(xi, v + 0.08, f"{v:.2f}", ha="center", fontsize=8.6, fontweight="bold")
+    ax2.set_xticks(x); ax2.set_xticklabels(labels, rotation=22, ha="right", fontsize=9)
+    ax2.set_ylabel("Monthly ICIR = mean(IC)/std(IC)")
+    ax2.set_title("Monthly ICIR — all models")
+    ax2.set_ylim(0, max(icir) * 1.18)
+
+    import matplotlib.patches as mpatches
+    handles = [mpatches.Patch(color=C["lgb"], label="ML single"),
+               mpatches.Patch(color=C["ens"], label="ML Ensemble"),
+               mpatches.Patch(color=C["v3"], label="End2End")]
+    fig.legend(handles=handles, loc="lower center", ncol=3, fontsize=9.5,
+               bbox_to_anchor=(0.5, -0.02))
+    fig.suptitle("All-model comparison on 2020 test — Pooled IC and stability (ICIR)",
+                 fontsize=13, fontweight="bold", y=1.02)
+    save(fig, "fig_sum_allmodels.png")
+
+
 if __name__ == "__main__":
     fig_headline()
     fig_monthly()
@@ -490,4 +582,7 @@ if __name__ == "__main__":
     fig_single()
     fig_e2e_compare()
     fig_lift()
+    fig_sum_monthly()
+    fig_sum_bin()
+    fig_sum_allmodels()
     print("ALL FIGURES DONE ->", os.path.relpath(OUT, os.path.join(HERE, "..")))
