@@ -1,0 +1,2 @@
+epoch,train_loss,n_batches,elapsed_sec,global_step,ema_updates
+1,0.35507481373538313,8654,1909.894859790802,8654,8654

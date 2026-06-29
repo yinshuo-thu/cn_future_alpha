@@ -1,0 +1,173 @@
+# 手工维护的中国期货品种 sector / exchange 映射。
+# 当前原始 CSV 不包含 exchange、sector、contract_id，因此该文件作为研究元数据来源。
+A:
+  sector: agriculture
+  exchange: DCE
+AG:
+  sector: precious
+  exchange: SHFE
+AL:
+  sector: metals
+  exchange: SHFE
+AP:
+  sector: agriculture
+  exchange: CZCE
+AU:
+  sector: precious
+  exchange: SHFE
+B:
+  sector: agriculture
+  exchange: DCE
+BU:
+  sector: energy
+  exchange: SHFE
+C:
+  sector: agriculture
+  exchange: DCE
+CF:
+  sector: agriculture
+  exchange: CZCE
+CJ:
+  sector: agriculture
+  exchange: CZCE
+CS:
+  sector: agriculture
+  exchange: DCE
+CU:
+  sector: metals
+  exchange: SHFE
+CY:
+  sector: agriculture
+  exchange: CZCE
+EB:
+  sector: chemicals
+  exchange: DCE
+EG:
+  sector: chemicals
+  exchange: DCE
+FB:
+  sector: agriculture
+  exchange: DCE
+FG:
+  sector: black
+  exchange: CZCE
+FU:
+  sector: energy
+  exchange: SHFE
+HC:
+  sector: black
+  exchange: SHFE
+I:
+  sector: black
+  exchange: DCE
+IC:
+  sector: index
+  exchange: CFFEX
+IF:
+  sector: index
+  exchange: CFFEX
+IH:
+  sector: index
+  exchange: CFFEX
+J:
+  sector: black
+  exchange: DCE
+JD:
+  sector: agriculture
+  exchange: DCE
+JM:
+  sector: black
+  exchange: DCE
+L:
+  sector: chemicals
+  exchange: DCE
+M:
+  sector: agriculture
+  exchange: DCE
+MA:
+  sector: chemicals
+  exchange: CZCE
+NI:
+  sector: metals
+  exchange: SHFE
+NR:
+  sector: chemicals
+  exchange: INE
+OI:
+  sector: agriculture
+  exchange: CZCE
+P:
+  sector: agriculture
+  exchange: DCE
+PB:
+  sector: metals
+  exchange: SHFE
+PG:
+  sector: energy
+  exchange: DCE
+PP:
+  sector: chemicals
+  exchange: DCE
+RB:
+  sector: black
+  exchange: SHFE
+RM:
+  sector: agriculture
+  exchange: CZCE
+RR:
+  sector: agriculture
+  exchange: DCE
+RU:
+  sector: chemicals
+  exchange: SHFE
+SA:
+  sector: chemicals
+  exchange: CZCE
+SC:
+  sector: energy
+  exchange: INE
+SF:
+  sector: black
+  exchange: CZCE
+SM:
+  sector: black
+  exchange: CZCE
+SN:
+  sector: metals
+  exchange: SHFE
+SP:
+  sector: chemicals
+  exchange: SHFE
+SR:
+  sector: agriculture
+  exchange: CZCE
+SS:
+  sector: black
+  exchange: SHFE
+T:
+  sector: rates
+  exchange: CFFEX
+TA:
+  sector: chemicals
+  exchange: CZCE
+TF:
+  sector: rates
+  exchange: CFFEX
+TS:
+  sector: rates
+  exchange: CFFEX
+UR:
+  sector: chemicals
+  exchange: CZCE
+V:
+  sector: chemicals
+  exchange: DCE
+Y:
+  sector: agriculture
+  exchange: DCE
+ZC:
+  sector: black
+  exchange: CZCE
+ZN:
+  sector: metals
+  exchange: SHFE

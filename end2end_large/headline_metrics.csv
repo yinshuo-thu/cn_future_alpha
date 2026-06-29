@@ -1,0 +1,4 @@
+version,model,source_run,parameters,pooled_ic,sn_nonoverlap_ic,raw_nonoverlap_ic,dense_ic,merged_ic,sn_nonoverlap_rankic,n_scored,weight_path
+v1,Gated Multi-Scale Patch Transformer with Dual Pooling,transformer_main_config_2019_full,5503433,0.054609,0.064411,0.070722,0.070378,0.054452,0.073766,2693337,v1/weights/model.pt
+v2,Time-Biased Market-Gated Multi-Scale Patch Transformer with Stable Residual Learning,transformer_v6_2019_validation_market_only_from_v4_nolf_e1,5026637,0.062069,0.069863,0.078247,0.077234,0.061555,0.079789,2693337,v2/weights/model_raw.pt
+v3,FactorOperatorBank + Time-Biased Market-Gated Multi-Scale Patch Transformer,transformer_v7_factor_bank_k96_scaled_project_e1,5231687,0.064172,0.070858,0.080524,0.080186,0.063401,0.080474,2693337,v3/weights/model_raw.pt

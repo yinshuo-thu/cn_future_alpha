@@ -1,0 +1,107 @@
+{
+  "generated": "2026-06-24 04:59:50 UTC",
+  "config": {
+    "project_root": "/root/autodl-tmp/quant/end2end_30m",
+    "data_dir": "/root/autodl-tmp/quant/data/raw",
+    "sector_map": "/root/autodl-tmp/quant/end2end_30m/configs/sector_map.yaml",
+    "panel_cache": "/root/autodl-tmp/quant/end2end_30m/artifacts/data_limited_panel_thr12.parquet",
+    "train_start": "2017-01-01",
+    "panel_end": "2021-01-01",
+    "excluded_symbols": [
+      "T",
+      "TF",
+      "TS",
+      "IF",
+      "IC",
+      "IH"
+    ],
+    "jump_filter": {
+      "default_threshold": 12,
+      "sensitivity_thresholds": [
+        8,
+        12,
+        16
+      ],
+      "window": 240,
+      "min_periods": 60
+    },
+    "features": {
+      "rolling_window": 240,
+      "min_periods": 60,
+      "clip": 8.0,
+      "use_lite_operators": true
+    },
+    "labels": {
+      "horizons": [
+        5,
+        10,
+        30,
+        60
+      ],
+      "main_target": "proxy_ret_30m_cs_zscore",
+      "eval_label": "proxy_ret_30m"
+    },
+    "data": {
+      "seq_len": 240,
+      "debug_seq_len": 120,
+      "train_stride": 1,
+      "eval_stride_main": 30
+    }
+  },
+  "feature_cols": [
+    "rz_ret_1m",
+    "rz_oc_ret",
+    "rz_hl_range",
+    "rz_upper_shadow",
+    "rz_lower_shadow",
+    "rz_log1p_volume",
+    "rz_volume_change",
+    "rz_log1p_amount",
+    "rz_amount_change",
+    "rz_log1p_oi",
+    "rz_oi_change",
+    "rz_op_ret_zscore_5",
+    "rz_op_momentum_5",
+    "rz_op_abs_ret_mean_5",
+    "rz_op_volume_zscore_5",
+    "rz_op_ret_volume_corr_5",
+    "rz_op_ret_zscore_20",
+    "rz_op_momentum_20",
+    "rz_op_abs_ret_mean_20",
+    "rz_op_volume_zscore_20",
+    "rz_op_ret_volume_corr_20",
+    "rz_op_ret_zscore_60",
+    "rz_op_momentum_60",
+    "rz_op_abs_ret_mean_60",
+    "rz_op_volume_zscore_60",
+    "rz_op_ret_volume_corr_60",
+    "cl_close_pos",
+    "cl_rel_ret_1m",
+    "cl_rel_oc_ret",
+    "cl_rel_hl_range",
+    "cl_rel_volume_change",
+    "cl_rel_amount_change",
+    "cl_rel_oi_change"
+  ],
+  "target_cols": [
+    "proxy_ret_5m_cs_zscore",
+    "proxy_ret_10m_cs_zscore",
+    "proxy_ret_30m_cs_zscore",
+    "proxy_ret_60m_cs_zscore",
+    "log_proxy_rv_30m_norm",
+    "log_proxy_range_30m_norm"
+  ],
+  "mask_cols": [
+    "mask_proxy_ret_5m",
+    "mask_proxy_ret_10m",
+    "mask_proxy_ret_30m",
+    "mask_proxy_ret_60m",
+    "mask_log_proxy_rv_30m",
+    "mask_log_proxy_range_30m"
+  ],
+  "main_target": "proxy_ret_30m_cs_zscore",
+  "eval_label": "proxy_ret_30m",
+  "default_jump_threshold": 12,
+  "n_rows": 14320658,
+  "n_symbols": 51
+}

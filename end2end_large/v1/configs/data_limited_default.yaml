@@ -1,0 +1,26 @@
+project_root: /root/autodl-tmp/quant/end2end_30m
+data_dir: /root/autodl-tmp/quant/data/raw
+sector_map: /root/autodl-tmp/quant/end2end_30m/configs/sector_map.yaml
+panel_cache: /root/autodl-tmp/quant/end2end_30m/artifacts/data_limited_panel_thr12.parquet
+train_start: "2017-01-01"
+panel_end: "2021-01-01"
+excluded_symbols: ["T", "TF", "TS", "IF", "IC", "IH"]
+jump_filter:
+  default_threshold: 12
+  sensitivity_thresholds: [8, 12, 16]
+  window: 240
+  min_periods: 60
+features:
+  rolling_window: 240
+  min_periods: 60
+  clip: 8.0
+  use_lite_operators: true
+labels:
+  horizons: [5, 10, 30, 60]
+  main_target: proxy_ret_30m_cs_zscore
+  eval_label: proxy_ret_30m
+data:
+  seq_len: 240
+  debug_seq_len: 120
+  train_stride: 1
+  eval_stride_main: 30
