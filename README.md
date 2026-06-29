@@ -38,9 +38,13 @@ summary IC of `0.059218`; the generic migration audit recomputation reports
 | ML single | `ridge_simplex_basic_full2019` | 2020 | 0.042481 | 0.064183 |
 | ML ensemble | `expanded_gate_stack_2019q4_nonneg` | 2020 | 0.059138 | 0.079266 |
 | end2end single | `factor_operator_market_full_oldarch_fullsample_m05_m12_raw_seed44` | 2020-05..2020-12 | 0.039660 | 0.031582 |
-| end2end large v1 | `Gated Multi-Scale Patch Transformer with Dual Pooling` | 2019 validation | 0.054609 | 0.064411 |
-| end2end large v2 | `Time-Biased Market-Gated Multi-Scale Patch Transformer with Stable Residual Learning` | 2019 validation | 0.062069 | 0.069863 |
-| end2end large v3 | `FactorOperatorBank + Time-Biased Market-Gated Multi-Scale Patch Transformer` | 2019 validation | 0.064172 | 0.070858 |
+| end2end large v1 | `Gated Multi-Scale Patch Transformer with Dual Pooling` | 2020 | 0.043578 | 0.059084 |
+| end2end large v2 | `Time-Biased Market-Gated Multi-Scale Patch Transformer with Stable Residual Learning` | 2020 | 0.048159 | 0.061365 |
+| end2end large v3 | `FactorOperatorBank + Time-Biased Market-Gated Multi-Scale Patch Transformer` | 2020 | 0.054808 | 0.061614 |
+
+`SN non-overlap IC` means sector-neutral cross-sectional Pearson IC computed on
+stride-30 timestamps. It is a robustness/leakage diagnostic; `Pooled IC` is the
+Jump PDF headline metric and the one associated with the `0.05` threshold.
 
 ## End-to-End Large Ladder
 
@@ -53,9 +57,10 @@ branches with a cleaner three-step Transformer evolution:
 3. `v3`: v2 plus an online FactorOperatorBank with 483 constructed operators,
    sequence-level top-k gating (`top_k=96`), and small initial factor injection.
 
-Only v3 is the latest retained large end-to-end model. Low-rank interaction,
-metadata embeddings, and MoE heads were tested and not retained because they did
-not improve both Pooled IC and SN non-overlap IC. See
+Only v3 is the latest retained large end-to-end model, and it remains the best
+large Transformer on the 2020 pooled test after the 2019 validation selection.
+Low-rank interaction, metadata embeddings, and MoE heads were tested and not
+retained because they did not improve both Pooled IC and SN non-overlap IC. See
 `end2end_large/README.md` for the detailed ablation record, architecture notes,
 paper inspirations, weight paths, and checksums.
 
@@ -64,9 +69,21 @@ paper inspirations, weight paths, and checksums.
 All retained headline ML models use rolling train-before-test predictions. The
 ensemble selects candidate gates by 2019Q4 validation, refits on pre-2020 data,
 and audits on 2020. `end2end_single/` keeps the older rolling-monthly feasibility
-model. The current `end2end_large/` v1-v3 ladder uses a fixed train-before-
-validation split (`2017-2018` train, `2019` validation); features are causal,
-labels mask long-break horizons, and no validation data is used for training.
+model.
+
+The current `end2end_large/` v1-v3 ladder uses a fixed train-before-validation
+selection split (`2017-2018` train, `2019` validation). The 2020 retained-result
+rows then refit the selected Transformer shapes on pre-2020 data and audit them
+on 2020. Features are causal, labels mask long-break horizons, and no validation
+or test data is used for training. The Transformer ladder shows strong
+performance persistence: IC levels naturally drop from validation to test, but
+the model ordering is unchanged on both Pooled IC and SN non-overlap IC.
+
+| Version | 2019 Val Pooled IC | 2020 Test Pooled IC | 2019 Val SN non-overlap IC | 2020 Test SN non-overlap IC |
+| --- | ---: | ---: | ---: | ---: |
+| v1 | 0.054609 | 0.043578 | 0.064411 | 0.059084 |
+| v2 | 0.062069 | 0.048159 | 0.069863 | 0.061365 |
+| v3 | 0.064172 | 0.054808 | 0.070858 | 0.061614 |
 
 ## Rebuild
 

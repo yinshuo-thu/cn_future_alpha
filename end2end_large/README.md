@@ -56,9 +56,32 @@ Relative to v1, v3 improves pooled IC by `+0.009563` and SN non-overlap IC by
 `+0.006447`. Relative to v2, v3 improves pooled IC by `+0.002103` and SN
 non-overlap IC by `+0.000995`.
 
+## 2020 OOS Test Persistence
+
+The 2019 table above is the model-selection and ablation gate. For the retained
+2020 test, the selected shapes were refit on pre-2020 data and evaluated on
+`[2020-01-01, 2021-01-01)`. This keeps the cross-family headline table in the
+root README on a common 2020 test window.
+
+The large Transformer ladder has good persistence from validation to test:
+absolute IC levels fall, as expected out of sample, but the ordering remains
+`v3 > v2 > v1` on both Pooled IC and SN non-overlap IC.
+
+| Version | 2019 Val Pooled IC | 2020 Test Pooled IC | 2019 Val SN non-overlap IC | 2020 Test SN non-overlap IC | 2020 n_scored |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| v1 | 0.054609 | 0.043578 | 0.064411 | 0.059084 | 2,827,738 |
+| v2 | 0.062069 | 0.048159 | 0.069863 | 0.061365 | 2,827,738 |
+| v3 | 0.064172 | 0.054808 | 0.070858 | 0.061614 | 2,827,738 |
+
+Compact source data is kept in `validation_vs_2020_test_metrics.csv`. The
+per-version 2020 OOS reports are archived under each `v*/reports/` folder.
+
 ## v1: Gated Multi-Scale Patch Transformer With Dual Pooling
 
 The v1 branch is the first strong deep end-to-end baseline.
+
+The diagram-backed version summary is in `v1/README.md` and uses the framework
+image `v1/Gated Multi-Scale Patch Transformer with Dual Pooling.png`.
 
 Core structure:
 
