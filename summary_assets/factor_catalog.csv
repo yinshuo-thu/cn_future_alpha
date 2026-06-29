@@ -1,0 +1,1145 @@
+factor,view,base,family
+px_sma_4,raw,px_sma_4,trend
+csz_macd_3_13,cross-sectional zscore,macd_3_13,momentum/trend
+csz_px_sma_4,cross-sectional zscore,px_sma_4,trend
+csr_cpos,cross-sectional rank,cpos,candle-geom
+macd_3_13,raw,macd_3_13,momentum/trend
+csz_macd_5_21,cross-sectional zscore,macd_5_21,momentum/trend
+drawup_4,raw,drawup_4,range
+tsz_bop,time-series zscore,bop,candle-geom
+macd_5_21,raw,macd_5_21,momentum/trend
+csr_bop,cross-sectional rank,bop,candle-geom
+tsz_cpos,time-series zscore,cpos,candle-geom
+drawup_6,raw,drawup_6,range
+csz_willr_4,cross-sectional zscore,willr_4,oscillator
+csr_bollz_4,cross-sectional rank,bollz_4,oscillator/mean-rev
+csz_mom_2,cross-sectional zscore,mom_2,momentum
+csr_stoch_dev_8,cross-sectional rank,stoch_dev_8,oscillator
+px_sma_8,raw,px_sma_8,trend
+csz_drawup_4,cross-sectional zscore,drawup_4,range
+mom_2,raw,mom_2,momentum
+csr_bollz_6,cross-sectional rank,bollz_6,oscillator/mean-rev
+csr_stoch_dev_13,cross-sectional rank,stoch_dev_13,oscillator
+csz_macd_8_34,cross-sectional zscore,macd_8_34,momentum/trend
+tsz_bollz_4,time-series zscore,bollz_4,oscillator/mean-rev
+csz_stoch_dev_4,cross-sectional zscore,stoch_dev_4,oscillator
+dual_thrust_pos_4,raw,dual_thrust_pos_4,other
+mom_5,raw,mom_5,momentum
+maxret_2,raw,maxret_2,other
+csz_drawdn_4,cross-sectional zscore,drawdn_4,range
+csr_stoch_dev_16,cross-sectional rank,stoch_dev_16,oscillator
+tsz_stoch_dev_4,time-series zscore,stoch_dev_4,oscillator
+csz_px_sma_8,cross-sectional zscore,px_sma_8,trend
+mom_4,raw,mom_4,momentum
+csz_stoch_dev_10,cross-sectional zscore,stoch_dev_10,oscillator
+tsz_stoch_dev_8,time-series zscore,stoch_dev_8,oscillator
+csz_willr_6,cross-sectional zscore,willr_6,oscillator
+mom_3,raw,mom_3,momentum
+tsz_stoch_dev_13,time-series zscore,stoch_dev_13,oscillator
+csr_drawup_4,cross-sectional rank,drawup_4,range
+csr_drawdn_4,cross-sectional rank,drawdn_4,range
+drawup_8,raw,drawup_8,range
+csz_mom_3,cross-sectional zscore,mom_3,momentum
+tsz_macd_3_13,time-series zscore,macd_3_13,momentum/trend
+macd_8_34,raw,macd_8_34,momentum/trend
+csr_amt_prop_signed_4,cross-sectional rank,amt_prop_signed_4,other
+csr_dual_thrust_pos_8,cross-sectional rank,dual_thrust_pos_8,other
+csz_drawup_6,cross-sectional zscore,drawup_6,range
+csr_stoch_dev_21,cross-sectional rank,stoch_dev_21,oscillator
+mom_6,raw,mom_6,momentum
+dual_thrust_pos_6,raw,dual_thrust_pos_6,other
+tsz_macd_5_21,time-series zscore,macd_5_21,momentum/trend
+csr_stoch_dev_26,cross-sectional rank,stoch_dev_26,oscillator
+csr_macd_10_42,cross-sectional rank,macd_10_42,momentum/trend
+csr_drawdn_6,cross-sectional rank,drawdn_6,range
+csr_sharpe_2,cross-sectional rank,sharpe_2,momentum/risk-adj
+tsz_px_sma_4,time-series zscore,px_sma_4,trend
+csz_maxret_2,cross-sectional zscore,maxret_2,other
+csr_macd_5_55,cross-sectional rank,macd_5_55,momentum/trend
+tsz_amt_prop_signed_4,time-series zscore,amt_prop_signed_4,other
+tsz_stoch_dev_26,time-series zscore,stoch_dev_26,oscillator
+csr_drawup_6,cross-sectional rank,drawup_6,range
+csz_drawdn_6,cross-sectional zscore,drawdn_6,range
+csr_bollz_10,cross-sectional rank,bollz_10,oscillator/mean-rev
+stoch_dev_16,raw,stoch_dev_16,oscillator
+maxret_3,raw,maxret_3,other
+csr_stoch_dev_34,cross-sectional rank,stoch_dev_34,oscillator
+tsz_stoch_dev_21,time-series zscore,stoch_dev_21,oscillator
+drawup_13,raw,drawup_13,range
+upratio_2,raw,upratio_2,other
+csr_drawdn_8,cross-sectional rank,drawdn_8,range
+csz_mom_5,cross-sectional zscore,mom_5,momentum
+csz_roc_4,cross-sectional zscore,roc_4,momentum
+stoch_8,raw,stoch_8,oscillator
+csr_sharpe_3,cross-sectional rank,sharpe_3,momentum/risk-adj
+csr_cci_4,cross-sectional rank,cci_4,oscillator
+tsz_stoch_dev_34,time-series zscore,stoch_dev_34,oscillator
+tsz_macd_8_34,time-series zscore,macd_8_34,momentum/trend
+tsz_drawdn_4,time-series zscore,drawdn_4,range
+csr_amt_prop_signed_34,cross-sectional rank,amt_prop_signed_34,other
+csz_drawdn_8,cross-sectional zscore,drawdn_8,range
+tsz_bollz_10,time-series zscore,bollz_10,oscillator/mean-rev
+csz_willr_10,cross-sectional zscore,willr_10,oscillator
+tsz_dual_thrust_pos_8,time-series zscore,dual_thrust_pos_8,other
+csz_minret_2,cross-sectional zscore,minret_2,other
+maxret_5,raw,maxret_5,other
+csz_amt_prop_signed_8,cross-sectional zscore,amt_prop_signed_8,other
+csr_macd_13_55,cross-sectional rank,macd_13_55,momentum/trend
+csr_cci_6,cross-sectional rank,cci_6,oscillator
+tsz_cci_4,time-series zscore,cci_4,oscillator
+maxret_8,raw,maxret_8,other
+csz_roc_6,cross-sectional zscore,roc_6,momentum
+tsz_amt_share_signed,time-series zscore,amt_share_signed,other
+maxret_4,raw,maxret_4,other
+csz_drawup_8,cross-sectional zscore,drawup_8,range
+maxret_13,raw,maxret_13,other
+maxret_6,raw,maxret_6,other
+tsz_mom_2,time-series zscore,mom_2,momentum
+csr_stoch_dev_42,cross-sectional rank,stoch_dev_42,oscillator
+mom_8,raw,mom_8,momentum
+upratio_3,raw,upratio_3,other
+rsi_4,raw,rsi_4,oscillator
+csr_cmo_4,cross-sectional rank,cmo_4,oscillator
+tsz_drawup_4,time-series zscore,drawup_4,range
+csz_sharpe_3,cross-sectional zscore,sharpe_3,momentum/risk-adj
+csr_stoch_dev_55,cross-sectional rank,stoch_dev_55,oscillator
+rv_13,raw,rv_13,volatility
+tsz_macd_5_55,time-series zscore,macd_5_55,momentum/trend
+csz_amt_prop_signed_21,cross-sectional zscore,amt_prop_signed_21,other
+tr_dir_6,raw,tr_dir_6,other
+tsz_stoch_dev_42,time-series zscore,stoch_dev_42,oscillator
+csz_px_sma_13,cross-sectional zscore,px_sma_13,trend
+csr_sharpe_5,cross-sectional rank,sharpe_5,momentum/risk-adj
+tsz_stoch_dev_55,time-series zscore,stoch_dev_55,oscillator
+macd_5_55,raw,macd_5_55,momentum/trend
+rsi_6,raw,rsi_6,oscillator
+tsz_mom_3,time-series zscore,mom_3,momentum
+csz_maxret_3,cross-sectional zscore,maxret_3,other
+maxret_16,raw,maxret_16,other
+csz_tr_dir_6,cross-sectional zscore,tr_dir_6,other
+tsz_drawdn_6,time-series zscore,drawdn_6,range
+stoch_13,raw,stoch_13,oscillator
+csr_dual_thrust_pos_13,cross-sectional rank,dual_thrust_pos_13,other
+tsz_px_sma_8,time-series zscore,px_sma_8,trend
+upratio_4,raw,upratio_4,other
+csr_cmo_6,cross-sectional rank,cmo_6,oscillator
+csr_drawdn_13,cross-sectional rank,drawdn_13,range
+maxret_10,raw,maxret_10,other
+csr_amt_prop_signed_55,cross-sectional rank,amt_prop_signed_55,other
+csz_minret_3,cross-sectional zscore,minret_3,other
+tsz_drawdn_8,time-series zscore,drawdn_8,range
+csr_upratio_3,cross-sectional rank,upratio_3,other
+mfi_4,raw,mfi_4,other
+tsz_amt_prop_signed_34,time-series zscore,amt_prop_signed_34,other
+tsz_minret_2,time-series zscore,minret_2,other
+mom_34_lag3,raw,mom_34_lag3,momentum
+upratio_5,raw,upratio_5,other
+csz_sharpe_4,cross-sectional zscore,sharpe_4,momentum/risk-adj
+rv_16,raw,rv_16,volatility
+csr_body_pos_inter_4,cross-sectional rank,body_pos_inter_4,candle-geom
+tr_dir_4,raw,tr_dir_4,other
+minret_13,raw,minret_13,other
+upratio_6,raw,upratio_6,other
+tsz_volskew_4,time-series zscore,volskew_4,volatility
+csz_roc_8,cross-sectional zscore,roc_8,momentum
+mom_x_volz_13,raw,mom_x_volz_13,momentum
+csr_bollz_16,cross-sectional rank,bollz_16,oscillator/mean-rev
+tsz_maxret_2,time-series zscore,maxret_2,other
+drawdn_72,raw,drawdn_72,range
+csr_updn_vol_ratio_4,cross-sectional rank,updn_vol_ratio_4,other
+tsz_drawup_6,time-series zscore,drawup_6,range
+tsz_updn_vol_ratio_4,time-series zscore,updn_vol_ratio_4,other
+csz_tr_dir_4,cross-sectional zscore,tr_dir_4,other
+csz_drawup_13,cross-sectional zscore,drawup_13,range
+rsi_8,raw,rsi_8,oscillator
+tsz_roc_4,time-series zscore,roc_4,momentum
+mfi_6,raw,mfi_6,other
+minret_16,raw,minret_16,other
+mom_x_volz_16,raw,mom_x_volz_16,momentum
+px_sma_13,raw,px_sma_13,trend
+tsz_body_pos_inter_4,time-series zscore,body_pos_inter_4,candle-geom
+tsz_cmo_6,time-series zscore,cmo_6,oscillator
+csr_upsh,cross-sectional rank,upsh,other
+rsi_10,raw,rsi_10,oscillator
+tsz_bollz_16,time-series zscore,bollz_16,oscillator/mean-rev
+csz_mom_x_volz_13,cross-sectional zscore,mom_x_volz_13,momentum
+cpos_8,raw,cpos_8,candle-geom
+csz_drawdn_13,cross-sectional zscore,drawdn_13,range
+upratio_8,raw,upratio_8,other
+tsz_tr_dir_6,time-series zscore,tr_dir_6,other
+drawdn_4,raw,drawdn_4,range
+tsz_dual_thrust_pos_13,time-series zscore,dual_thrust_pos_13,other
+csz_amt_flow_4,cross-sectional zscore,amt_flow_4,other
+csz_volskew_6,cross-sectional zscore,volskew_6,volatility
+mom_accel,raw,mom_accel,momentum
+ema_diff_8_34,raw,ema_diff_8_34,trend
+minret_21,raw,minret_21,other
+tsz_mom_5,time-series zscore,mom_5,momentum
+drawdn_6,raw,drawdn_6,range
+tsz_mom_6,time-series zscore,mom_6,momentum
+upratio_10,raw,upratio_10,other
+rv_x_volz_8,raw,rv_x_volz_8,volatility
+csr_updn_vol_ratio_6,cross-sectional rank,updn_vol_ratio_6,other
+losh,raw,losh,other
+body,raw,body,candle-geom
+csr_drawup_13,cross-sectional rank,drawup_13,range
+tsz_tr_dir_4,time-series zscore,tr_dir_4,other
+csz_maxret_4,cross-sectional zscore,maxret_4,other
+csr_body_pos_inter_6,cross-sectional rank,body_pos_inter_6,candle-geom
+body_8,raw,body_8,candle-geom
+mfi_8,raw,mfi_8,other
+csz_mom_x_volz_21,cross-sectional zscore,mom_x_volz_21,momentum
+rv_2,raw,rv_2,volatility
+csz_mom_x_volz_16,cross-sectional zscore,mom_x_volz_16,momentum
+mom_x_volz_21,raw,mom_x_volz_21,momentum
+rv_21,raw,rv_21,volatility
+mfi_10,raw,mfi_10,other
+drawup_21,raw,drawup_21,range
+rsi_13,raw,rsi_13,oscillator
+mom_10,raw,mom_10,momentum
+oi_vol_ratio,raw,oi_vol_ratio,open-interest
+csz_mom_34_lag3,cross-sectional zscore,mom_34_lag3,momentum
+csz_willr_16,cross-sectional zscore,willr_16,oscillator
+amt_flow_4,raw,amt_flow_4,other
+atr_10,raw,atr_10,volatility
+maxret_21,raw,maxret_21,other
+csz_mom_x_volz_26,cross-sectional zscore,mom_x_volz_26,momentum
+tsz_updn_vol_ratio_6,time-series zscore,updn_vol_ratio_6,other
+mom_x_volz_26,raw,mom_x_volz_26,momentum
+atr_6,raw,atr_6,volatility
+ema_diff_16_72,raw,ema_diff_16_72,trend
+csz_roc_10,cross-sectional zscore,roc_10,momentum
+csr_upratio_4,cross-sectional rank,upratio_4,other
+csz_amt_prop_signed_55,cross-sectional zscore,amt_prop_signed_55,other
+upratio_13,raw,upratio_13,other
+csz_mom_34_lag1,cross-sectional zscore,mom_34_lag1,momentum
+rv_x_volz_4,raw,rv_x_volz_4,volatility
+tsz_drawup_8,time-series zscore,drawup_8,range
+csr_cmo_8,cross-sectional rank,cmo_8,oscillator
+csr_mfi_4,cross-sectional rank,mfi_4,other
+csr_mom_x_volz_21,cross-sectional rank,mom_x_volz_21,momentum
+csz_macd_16_72,cross-sectional zscore,macd_16_72,momentum/trend
+stoch_21,raw,stoch_21,oscillator
+park_2,raw,park_2,volatility
+csr_mom_34_lag2,cross-sectional rank,mom_34_lag2,momentum
+tsz_amt_prop_signed_55,time-series zscore,amt_prop_signed_55,other
+rv_8,raw,rv_8,volatility
+csr_mom_x_volz_13,cross-sectional rank,mom_x_volz_13,momentum
+bollz_21_lag3,raw,bollz_21_lag3,oscillator/mean-rev
+dvol_26,raw,dvol_26,other
+rsi_16,raw,rsi_16,oscillator
+mfi_13,raw,mfi_13,other
+csz_dvol_4,cross-sectional zscore,dvol_4,other
+csz_mom_accel,cross-sectional zscore,mom_accel,momentum
+body_pos_inter_6,raw,body_pos_inter_6,candle-geom
+px_sma_72,raw,px_sma_72,trend
+drawdn_8,raw,drawdn_8,range
+losh_8,raw,losh_8,other
+tr_dir_72,raw,tr_dir_72,other
+dvol_72,raw,dvol_72,other
+tsz_px_sma_13,time-series zscore,px_sma_13,trend
+tsz_ret_oi_corr_16,time-series zscore,ret_oi_corr_16,other
+tsz_upratio_4,time-series zscore,upratio_4,other
+minret_2,raw,minret_2,other
+rv_3,raw,rv_3,volatility
+effratio_6,raw,effratio_6,other
+csz_cci_13,cross-sectional zscore,cci_13,oscillator
+csr_vwap_macd_8_34,cross-sectional rank,vwap_macd_8_34,volume/price
+upsh_8,raw,upsh_8,other
+bollz_21_lag5,raw,bollz_21_lag5,oscillator/mean-rev
+mom_x_volz_4,raw,mom_x_volz_4,momentum
+csr_upratio_5,cross-sectional rank,upratio_5,other
+tsz_mom_34_lag3,time-series zscore,mom_34_lag3,momentum
+upratio_16,raw,upratio_16,other
+csz_ret_oi_corr_16,cross-sectional zscore,ret_oi_corr_16,other
+mom_72,raw,mom_72,momentum
+tr_dir_42,raw,tr_dir_42,other
+csz_px_sma_21,cross-sectional zscore,px_sma_21,trend
+csr_mom_x_volz_16,cross-sectional rank,mom_x_volz_16,momentum
+tsz_ret_oi_corr_21,time-series zscore,ret_oi_corr_21,other
+csr_turnover_z_4,cross-sectional rank,turnover_z_4,other
+csz_maxret_5,cross-sectional zscore,maxret_5,other
+sharpe_72,raw,sharpe_72,momentum/risk-adj
+csz_vol_flow_6,cross-sectional zscore,vol_flow_6,volatility
+body_21,raw,body_21,candle-geom
+cpos_lag1,raw,cpos_lag1,candle-geom
+mom_13_lag2,raw,mom_13_lag2,momentum
+csz_body_pos_inter_8,cross-sectional zscore,body_pos_inter_8,candle-geom
+bop_21_lag3,raw,bop_21_lag3,candle-geom
+mom_x_volz_10,raw,mom_x_volz_10,momentum
+csz_tr_dir_8,cross-sectional zscore,tr_dir_8,other
+cci_21_lag2,raw,cci_21_lag2,oscillator
+cpos_21,raw,cpos_21,candle-geom
+mom_x_oimom_8,raw,mom_x_oimom_8,momentum
+csr_bop_8,cross-sectional rank,bop_8,candle-geom
+effratio_55,raw,effratio_55,other
+csr_mom_x_volz_26,cross-sectional rank,mom_x_volz_26,momentum
+csr_mom_34_lag5,cross-sectional rank,mom_34_lag5,momentum
+park_3,raw,park_3,volatility
+tsz_mom_x_volz_13,time-series zscore,mom_x_volz_13,momentum
+tsz_upratio_5,time-series zscore,upratio_5,other
+cci_72,raw,cci_72,oscillator
+tr_dir_34,raw,tr_dir_34,other
+rsi_21,raw,rsi_21,oscillator
+csz_ret_oi_corr_10,cross-sectional zscore,ret_oi_corr_10,other
+turnover_z_72,raw,turnover_z_72,other
+tsz_bop_8,time-series zscore,bop_8,candle-geom
+csr_updn_vol_ratio_8,cross-sectional rank,updn_vol_ratio_8,other
+csz_ret_oi_corr_21,cross-sectional zscore,ret_oi_corr_21,other
+tsz_cmo_8,time-series zscore,cmo_8,oscillator
+csr_mom_13_lag2,cross-sectional rank,mom_13_lag2,momentum
+effratio_13,raw,effratio_13,other
+tsz_ret_oi_corr_10,time-series zscore,ret_oi_corr_10,other
+upratio_21,raw,upratio_21,other
+csr_minret_4,cross-sectional rank,minret_4,other
+drawdn_34,raw,drawdn_34,range
+effratio_4,raw,effratio_4,other
+drawdn_55,raw,drawdn_55,range
+csz_mom_x_volz_4,cross-sectional zscore,mom_x_volz_4,momentum
+csr_upratio_6,cross-sectional rank,upratio_6,other
+csz_stoch_21_lag5,cross-sectional zscore,stoch_21_lag5,oscillator
+effratio_8,raw,effratio_8,other
+dvol_34,raw,dvol_34,other
+amt_flow_6,raw,amt_flow_6,other
+csz_volskew_8,cross-sectional zscore,volskew_8,volatility
+upsh_21,raw,upsh_21,other
+csr_updn_vol_ratio_10,cross-sectional rank,updn_vol_ratio_10,other
+tsz_maxret_3,time-series zscore,maxret_3,other
+vol_flow_72,raw,vol_flow_72,volatility
+csz_stoch_21_lag3,cross-sectional zscore,stoch_21_lag3,oscillator
+csz_mom_x_volz_10,cross-sectional zscore,mom_x_volz_10,momentum
+cpos_lag5,raw,cpos_lag5,candle-geom
+csz_rsi_21_lag3,cross-sectional zscore,rsi_21_lag3,oscillator
+dual_thrust_pos_16,raw,dual_thrust_pos_16,other
+losh_21,raw,losh_21,other
+tsz_mom_8,time-series zscore,mom_8,momentum
+csz_rsi_21_lag5,cross-sectional zscore,rsi_21_lag5,oscillator
+mom_13_lag3,raw,mom_13_lag3,momentum
+csr_tr_dir_10,cross-sectional rank,tr_dir_10,other
+csz_minret_5,cross-sectional zscore,minret_5,other
+bop_21_lag5,raw,bop_21_lag5,candle-geom
+turnover_z_42,raw,turnover_z_42,other
+mom_x_volz_8,raw,mom_x_volz_8,momentum
+csr_stoch_21,cross-sectional rank,stoch_21,oscillator
+csr_cmo_10,cross-sectional rank,cmo_10,oscillator
+ret_oi_corr_8,raw,ret_oi_corr_8,other
+tsz_upratio_6,time-series zscore,upratio_6,other
+tr_dir_8,raw,tr_dir_8,other
+csr_bollz_21_lag5,cross-sectional rank,bollz_21_lag5,oscillator/mean-rev
+vol_flow_42,raw,vol_flow_42,volatility
+rv_5,raw,rv_5,volatility
+csr_bollz_21_lag3,cross-sectional rank,bollz_21_lag3,oscillator/mean-rev
+pacorr_72,raw,pacorr_72,other
+csr_drawdn_21,cross-sectional rank,drawdn_21,range
+csz_body_pos_inter_10,cross-sectional zscore,body_pos_inter_10,candle-geom
+csr_px_sma_21,cross-sectional rank,px_sma_21,trend
+ret_ac1_6,raw,ret_ac1_6,other
+csr_bollz_26,cross-sectional rank,bollz_26,oscillator/mean-rev
+tsz_mom_x_volz_26,time-series zscore,mom_x_volz_26,momentum
+csz_dvol_6,cross-sectional zscore,dvol_6,other
+tsz_bop_21_lag3,time-series zscore,bop_21_lag3,candle-geom
+csr_mom_13_lag5,cross-sectional rank,mom_13_lag5,momentum
+dvol_55,raw,dvol_55,other
+csr_mom_13_lag3,cross-sectional rank,mom_13_lag3,momentum
+vol_flow_34,raw,vol_flow_34,volatility
+csz_stoch_21_lag2,cross-sectional zscore,stoch_21_lag2,oscillator
+volskew_72,raw,volskew_72,volatility
+upratio_26,raw,upratio_26,other
+csr_turnover_z_6,cross-sectional rank,turnover_z_6,other
+willr_55,raw,willr_55,oscillator
+csr_ret_oi_corr_13,cross-sectional rank,ret_oi_corr_13,other
+tsz_ret_oi_corr_13,time-series zscore,ret_oi_corr_13,other
+tsz_mom_x_volz_16,time-series zscore,mom_x_volz_16,momentum
+cpos_lag2,raw,cpos_lag2,candle-geom
+csz_rsi_21_lag2,cross-sectional zscore,rsi_21_lag2,oscillator
+vwap_dev,raw,vwap_dev,volume/price
+drawdn_26,raw,drawdn_26,range
+csr_vwap_macd_5_21,cross-sectional rank,vwap_macd_5_21,volume/price
+ret_ac1_10,raw,ret_ac1_10,other
+csr_maxret_5,cross-sectional rank,maxret_5,other
+maxret_26,raw,maxret_26,other
+tsz_mom_x_volz_21,time-series zscore,mom_x_volz_21,momentum
+maxret_72,raw,maxret_72,other
+effratio_16,raw,effratio_16,other
+dvol_42,raw,dvol_42,other
+effratio_10,raw,effratio_10,other
+ret_ac1_8,raw,ret_ac1_8,other
+tsz_mom_34_lag5,time-series zscore,mom_34_lag5,momentum
+csz_oimom_26,cross-sectional zscore,oimom_26,open-interest
+csr_drawup_21,cross-sectional rank,drawup_21,range
+drawdn_42,raw,drawdn_42,range
+maxret_42,raw,maxret_42,other
+csz_mom_x_volz_34,cross-sectional zscore,mom_x_volz_34,momentum
+effratio_21,raw,effratio_21,other
+rv_x_volz_13,raw,rv_x_volz_13,volatility
+tsz_drawup_13,time-series zscore,drawup_13,range
+csr_ema_diff_8_34,cross-sectional rank,ema_diff_8_34,trend
+csr_minret_5,cross-sectional rank,minret_5,other
+csr_ret_oi_corr_26,cross-sectional rank,ret_oi_corr_26,other
+tsz_mom_x_volz_4,time-series zscore,mom_x_volz_4,momentum
+ret_ac1_55,raw,ret_ac1_55,other
+willr_26,raw,willr_26,oscillator
+mom_x_oimom_26,raw,mom_x_oimom_26,momentum
+body_55,raw,body_55,candle-geom
+csz_drawdn_72,cross-sectional zscore,drawdn_72,range
+cci_21_lag1,raw,cci_21_lag1,oscillator
+ret_ac1_16,raw,ret_ac1_16,other
+ema_diff_13_55,raw,ema_diff_13_55,trend
+csz_ema_diff_8_34,cross-sectional zscore,ema_diff_8_34,trend
+mom_13_lag5,raw,mom_13_lag5,momentum
+bollz_21,raw,bollz_21,oscillator/mean-rev
+sharpe_34,raw,sharpe_34,momentum/risk-adj
+willr_34,raw,willr_34,oscillator
+csz_cci_21_lag2,cross-sectional zscore,cci_21_lag2,oscillator
+csr_rv_x_volz_4,cross-sectional rank,rv_x_volz_4,volatility
+turnover_z_55,raw,turnover_z_55,other
+csz_drawup_21,cross-sectional zscore,drawup_21,range
+tsz_roc_10,time-series zscore,roc_10,momentum
+minret_4,raw,minret_4,other
+csr_cpos_8,cross-sectional rank,cpos_8,candle-geom
+tr_dir_10,raw,tr_dir_10,other
+vol_flow_26,raw,vol_flow_26,volatility
+csr_mom_x_volz_10,cross-sectional rank,mom_x_volz_10,momentum
+updn_vol_ratio_8,raw,updn_vol_ratio_8,other
+ret_ac1_26,raw,ret_ac1_26,other
+rv_x_volz_26,raw,rv_x_volz_26,volatility
+tr_dir_26,raw,tr_dir_26,other
+dvol_10,raw,dvol_10,other
+willr_42,raw,willr_42,oscillator
+maxret_34,raw,maxret_34,other
+tsz_bop_21_lag5,time-series zscore,bop_21_lag5,candle-geom
+csr_volskew_10,cross-sectional rank,volskew_10,volatility
+csz_mom_x_volz_8,cross-sectional zscore,mom_x_volz_8,momentum
+tsz_tr_dir_8,time-series zscore,tr_dir_8,other
+mfi_26,raw,mfi_26,other
+csz_illiq_55,cross-sectional zscore,illiq_55,other
+csz_mfi_6,cross-sectional zscore,mfi_6,other
+effratio_72,raw,effratio_72,other
+tsz_rv_x_volz_8,time-series zscore,rv_x_volz_8,volatility
+tsz_mom_x_volz_8,time-series zscore,mom_x_volz_8,momentum
+tsz_rv_x_volz_4,time-series zscore,rv_x_volz_4,volatility
+oimom_26,raw,oimom_26,open-interest
+mom_x_oimom_55,raw,mom_x_oimom_55,momentum
+csr_bop_21_lag3,cross-sectional rank,bop_21_lag3,candle-geom
+tsz_stoch_21,time-series zscore,stoch_21,oscillator
+rsi_21_lag3,raw,rsi_21_lag3,oscillator
+drawup_26,raw,drawup_26,range
+bop_21_lag1,raw,bop_21_lag1,candle-geom
+maxret_55,raw,maxret_55,other
+mom_26,raw,mom_26,momentum
+tsz_mfi_6,time-series zscore,mfi_6,other
+tsz_rsi_10,time-series zscore,rsi_10,oscillator
+csr_dvol_6,cross-sectional rank,dvol_6,other
+vwap_dev_16,raw,vwap_dev_16,volume/price
+csz_rv_x_volz_8,cross-sectional zscore,rv_x_volz_8,volatility
+csz_tr_dir_34,cross-sectional zscore,tr_dir_34,other
+csz_mfi_21_lag5,cross-sectional zscore,mfi_21_lag5,other
+ret_ac1_13,raw,ret_ac1_13,other
+tsz_mom_13_lag2,time-series zscore,mom_13_lag2,momentum
+csr_mfi_34,cross-sectional rank,mfi_34,other
+ret_ac1_21,raw,ret_ac1_21,other
+csz_dvol_8,cross-sectional zscore,dvol_8,other
+csz_roc_13,cross-sectional zscore,roc_13,momentum
+tr_dir_55,raw,tr_dir_55,other
+tsz_mom_x_volz_10,time-series zscore,mom_x_volz_10,momentum
+csz_vol_flow_8,cross-sectional zscore,vol_flow_8,volatility
+px_sma_42,raw,px_sma_42,trend
+cpos_lag3,raw,cpos_lag3,candle-geom
+csr_oipx_div_34,cross-sectional rank,oipx_div_34,open-interest
+csr_ret_oi_corr_34,cross-sectional rank,ret_oi_corr_34,other
+tsz_mom_accel,time-series zscore,mom_accel,momentum
+pvcorr_34_lag1,raw,pvcorr_34_lag1,other
+csr_turnover_z_42,cross-sectional rank,turnover_z_42,other
+csz_oimom_34,cross-sectional zscore,oimom_34,open-interest
+tsz_mom_x_oimom_8,time-series zscore,mom_x_oimom_8,momentum
+csz_bop_21_lag2,cross-sectional zscore,bop_21_lag2,candle-geom
+csz_mfi_21_lag3,cross-sectional zscore,mfi_21_lag3,other
+csz_vwap_macd_10_42,cross-sectional zscore,vwap_macd_10_42,volume/price
+csr_vwap_macd_13_55,cross-sectional rank,vwap_macd_13_55,volume/price
+csr_upratio_8,cross-sectional rank,upratio_8,other
+csz_body_pos_inter_13,cross-sectional zscore,body_pos_inter_13,candle-geom
+csz_drawdn_21,cross-sectional zscore,drawdn_21,range
+csr_ret_oi_corr_6,cross-sectional rank,ret_oi_corr_6,other
+tsz_ema_diff_10_42,time-series zscore,ema_diff_10_42,trend
+mom_x_oimom_21,raw,mom_x_oimom_21,momentum
+updn_vol_ratio_10,raw,updn_vol_ratio_10,other
+csz_dvol_72,cross-sectional zscore,dvol_72,other
+volmom_42,raw,volmom_42,volatility
+sharpe_26,raw,sharpe_26,momentum/risk-adj
+csz_mom_x_volz_6,cross-sectional zscore,mom_x_volz_6,momentum
+upratio_34,raw,upratio_34,other
+csz_oipx_div_34,cross-sectional zscore,oipx_div_34,open-interest
+csz_turnover_z_72,cross-sectional zscore,turnover_z_72,other
+oimom_4,raw,oimom_4,open-interest
+tsz_maxret_4,time-series zscore,maxret_4,other
+tsz_ema_diff_8_34,time-series zscore,ema_diff_8_34,trend
+ret_ac1_42,raw,ret_ac1_42,other
+cmo_42,raw,cmo_42,oscillator
+csz_body_pos_inter_16,cross-sectional zscore,body_pos_inter_16,candle-geom
+csz_range_55,cross-sectional zscore,range_55,volatility/range
+csz_vwap_macd_16_72,cross-sectional zscore,vwap_macd_16_72,volume/price
+csz_stoch_21_lag1,cross-sectional zscore,stoch_21_lag1,oscillator
+csr_mom_x_volz_4,cross-sectional rank,mom_x_volz_4,momentum
+mom_42,raw,mom_42,momentum
+csr_rsi_21_lag1,cross-sectional rank,rsi_21_lag1,oscillator
+mom_x_oimom_4,raw,mom_x_oimom_4,momentum
+csr_oimom_26,cross-sectional rank,oimom_26,open-interest
+csz_oi_chg,cross-sectional zscore,oi_chg,open-interest
+csz_illiq_42,cross-sectional zscore,illiq_42,other
+csz_ema_diff_16_72,cross-sectional zscore,ema_diff_16_72,trend
+csr_mom_x_volz_34,cross-sectional rank,mom_x_volz_34,momentum
+csr_vwap_dev_8,cross-sectional rank,vwap_dev_8,volume/price
+csr_mom_13_lag1,cross-sectional rank,mom_13_lag1,momentum
+csr_mom_x_oimom_10,cross-sectional rank,mom_x_oimom_10,momentum
+mom_x_volz_6,raw,mom_x_volz_6,momentum
+mom_13_lag1,raw,mom_13_lag1,momentum
+csz_vol_flow_10,cross-sectional zscore,vol_flow_10,volatility
+csz_tr_dir_42,cross-sectional zscore,tr_dir_42,other
+volz_21_lag2,raw,volz_21_lag2,volatility
+willr_16,raw,willr_16,oscillator
+csr_oipx_div_21,cross-sectional rank,oipx_div_21,open-interest
+turnover_z_26,raw,turnover_z_26,other
+ret_ac1_4,raw,ret_ac1_4,other
+oimom_8,raw,oimom_8,open-interest
+csr_bop_21_lag5,cross-sectional rank,bop_21_lag5,candle-geom
+drawdn_16,raw,drawdn_16,range
+csz_updn_vol_ratio_13,cross-sectional zscore,updn_vol_ratio_13,other
+vol_regime,raw,vol_regime,volatility
+oipx_div_8,raw,oipx_div_8,open-interest
+ret_ac2_10,raw,ret_ac2_10,other
+csz_oiz_42,cross-sectional zscore,oiz_42,open-interest
+csr_vwap_macd_3_13,cross-sectional rank,vwap_macd_3_13,volume/price
+tsz_upratio_8,time-series zscore,upratio_8,other
+csz_mfi_72,cross-sectional zscore,mfi_72,other
+csz_vwap_macd_13_55,cross-sectional zscore,vwap_macd_13_55,volume/price
+amtmom_42,raw,amtmom_42,other
+csz_vwap_macd_8_34,cross-sectional zscore,vwap_macd_8_34,volume/price
+tsz_rv_8,time-series zscore,rv_8,volatility
+stoch_34,raw,stoch_34,oscillator
+csr_mom_x_oimom_6,cross-sectional rank,mom_x_oimom_6,momentum
+px_sma_21,raw,px_sma_21,trend
+csz_upsh_8,cross-sectional zscore,upsh_8,other
+csr_pvcorr_4,cross-sectional rank,pvcorr_4,other
+csr_kurt_6,cross-sectional rank,kurt_6,other
+ret_ac1_34,raw,ret_ac1_34,other
+volskew_34,raw,volskew_34,volatility
+rsi_42,raw,rsi_42,oscillator
+csz_rsi_13,cross-sectional zscore,rsi_13,oscillator
+vol_flow_55,raw,vol_flow_55,volatility
+volmom_72,raw,volmom_72,volatility
+csz_cci_72,cross-sectional zscore,cci_72,oscillator
+csz_turnover_z_34,cross-sectional zscore,turnover_z_34,other
+csr_kurt_8,cross-sectional rank,kurt_8,other
+volz_21_lag3,raw,volz_21_lag3,volatility
+csz_illiq_13,cross-sectional zscore,illiq_13,other
+mom_x_volz_34,raw,mom_x_volz_34,momentum
+tr_dir_21,raw,tr_dir_21,other
+csz_body_pos_inter_21,cross-sectional zscore,body_pos_inter_21,candle-geom
+csr_volz_4,cross-sectional rank,volz_4,volatility
+csz_shadow_imb_4,cross-sectional zscore,shadow_imb_4,candle-geom
+csz_maxret_55,cross-sectional zscore,maxret_55,other
+csz_mom_x_oimom_4,cross-sectional zscore,mom_x_oimom_4,momentum
+csr_maxret_6,cross-sectional rank,maxret_6,other
+csz_cci_21_lag1,cross-sectional zscore,cci_21_lag1,oscillator
+csz_drawup_55,cross-sectional zscore,drawup_55,range
+csz_oiz_55,cross-sectional zscore,oiz_55,open-interest
+csr_mom_x_volz_42,cross-sectional rank,mom_x_volz_42,momentum
+tsz_cpos_8,time-series zscore,cpos_8,candle-geom
+csz_rsi_72,cross-sectional zscore,rsi_72,oscillator
+csr_oi_accel,cross-sectional rank,oi_accel,open-interest
+csz_vol_flow_42,cross-sectional zscore,vol_flow_42,volatility
+drawup_55,raw,drawup_55,range
+csz_dvol_34,cross-sectional zscore,dvol_34,other
+tsz_rv_x_volz_13,time-series zscore,rv_x_volz_13,volatility
+csz_vol_flow_72,cross-sectional zscore,vol_flow_72,volatility
+tsz_park_3,time-series zscore,park_3,volatility
+volskew_10,raw,volskew_10,volatility
+csr_oipx_div_8,cross-sectional rank,oipx_div_8,open-interest
+csz_tr_dir_72,cross-sectional zscore,tr_dir_72,other
+csr_shadow_vol_diff_4,cross-sectional rank,shadow_vol_diff_4,candle-geom
+tsz_effratio_55,time-series zscore,effratio_55,other
+tsz_mom_x_oimom_26,time-series zscore,mom_x_oimom_26,momentum
+tsz_mom_13_lag3,time-series zscore,mom_13_lag3,momentum
+tsz_rv_5,time-series zscore,rv_5,volatility
+upratio_72,raw,upratio_72,other
+csz_amtmom_42,cross-sectional zscore,amtmom_42,other
+csz_effratio_10,cross-sectional zscore,effratio_10,other
+csz_maxret_8,cross-sectional zscore,maxret_8,other
+csz_oipx_div_42,cross-sectional zscore,oipx_div_42,open-interest
+csz_effratio_26,cross-sectional zscore,effratio_26,other
+csr_amtz_8,cross-sectional rank,amtz_8,other
+volmom_55,raw,volmom_55,volatility
+tsz_rv_10,time-series zscore,rv_10,volatility
+cci_42,raw,cci_42,oscillator
+stoch_55,raw,stoch_55,oscillator
+csz_maxret_42,cross-sectional zscore,maxret_42,other
+mfi_34,raw,mfi_34,other
+tsz_rsi_21_lag1,time-series zscore,rsi_21_lag1,oscillator
+csr_mom_x_volz_6,cross-sectional rank,mom_x_volz_6,momentum
+tsz_rv_3,time-series zscore,rv_3,volatility
+csz_skew_16,cross-sectional zscore,skew_16,other
+csz_illiq_26,cross-sectional zscore,illiq_26,other
+csz_mom_72,cross-sectional zscore,mom_72,momentum
+csr_turnover_z_10,cross-sectional rank,turnover_z_10,other
+vwap_dev_34,raw,vwap_dev_34,volume/price
+csz_sharpe_2,cross-sectional zscore,sharpe_2,momentum/risk-adj
+ret_ac1_72,raw,ret_ac1_72,other
+oipx_div_55,raw,oipx_div_55,open-interest
+csr_skew_55,cross-sectional rank,skew_55,other
+stoch_21_lag1,raw,stoch_21_lag1,oscillator
+csz_vol_flow_34,cross-sectional zscore,vol_flow_34,volatility
+ret_ac2_8,raw,ret_ac2_8,other
+tsz_upratio_10,time-series zscore,upratio_10,other
+csz_cci_21,cross-sectional zscore,cci_21,oscillator
+csz_maxret_72,cross-sectional zscore,maxret_72,other
+ret_ac2_4,raw,ret_ac2_4,other
+volskew_26,raw,volskew_26,volatility
+csr_shadow_imb_10,cross-sectional rank,shadow_imb_10,candle-geom
+tsz_dvol_13,time-series zscore,dvol_13,other
+csz_mom_x_oimom_42,cross-sectional zscore,mom_x_oimom_42,momentum
+ret_ac2_13,raw,ret_ac2_13,other
+ret_ac2_16,raw,ret_ac2_16,other
+csz_mom_x_oimom_34,cross-sectional zscore,mom_x_oimom_34,momentum
+csr_oipx_div_42,cross-sectional rank,oipx_div_42,open-interest
+csr_mfi_42,cross-sectional rank,mfi_42,other
+csr_mom_x_oimom_16,cross-sectional rank,mom_x_oimom_16,momentum
+csr_rv_x_volz_6,cross-sectional rank,rv_x_volz_6,volatility
+csz_atr_42,cross-sectional zscore,atr_42,volatility
+csr_maxret_55,cross-sectional rank,maxret_55,other
+turnover_z_8,raw,turnover_z_8,other
+csz_pacorr_34,cross-sectional zscore,pacorr_34,other
+oi_accel,raw,oi_accel,open-interest
+csr_dvol_8,cross-sectional rank,dvol_8,other
+ret_ac2_55,raw,ret_ac2_55,other
+tsz_atr_4,time-series zscore,atr_4,volatility
+amtmom_55,raw,amtmom_55,other
+csz_vwap_macd_3_13,cross-sectional zscore,vwap_macd_3_13,volume/price
+csz_mom_x_oimom_55,cross-sectional zscore,mom_x_oimom_55,momentum
+csr_rv_x_volz_10,cross-sectional rank,rv_x_volz_10,volatility
+tsz_drawup_21,time-series zscore,drawup_21,range
+csr_mfi_26,cross-sectional rank,mfi_26,other
+csz_rsi_34,cross-sectional zscore,rsi_34,oscillator
+csz_maxret_16,cross-sectional zscore,maxret_16,other
+csr_roc_34,cross-sectional rank,roc_34,momentum
+csr_amtmom_42,cross-sectional rank,amtmom_42,other
+csz_rv_x_volz_13,cross-sectional zscore,rv_x_volz_13,volatility
+csr_mom_x_oimom_4,cross-sectional rank,mom_x_oimom_4,momentum
+csr_oimom_42,cross-sectional rank,oimom_42,open-interest
+csr_bop_21_lag1,cross-sectional rank,bop_21_lag1,candle-geom
+csz_mfi_21_lag1,cross-sectional zscore,mfi_21_lag1,other
+minret_5,raw,minret_5,other
+csr_shadow_imb_8,cross-sectional rank,shadow_imb_8,candle-geom
+effratio_26,raw,effratio_26,other
+stoch_42,raw,stoch_42,oscillator
+rv_x_volz_42,raw,rv_x_volz_42,volatility
+csz_pvcorr_34_lag3,cross-sectional zscore,pvcorr_34_lag3,other
+csr_upratio_10,cross-sectional rank,upratio_10,other
+csr_shadow_imb_13,cross-sectional rank,shadow_imb_13,candle-geom
+csz_oimom_42,cross-sectional zscore,oimom_42,open-interest
+volz_21_lag1,raw,volz_21_lag1,volatility
+csz_px_sma_72,cross-sectional zscore,px_sma_72,trend
+csz_mfi_8,cross-sectional zscore,mfi_8,other
+vol_flow_8,raw,vol_flow_8,volatility
+rv_x_volz_72,raw,rv_x_volz_72,volatility
+csz_volskew_13,cross-sectional zscore,volskew_13,volatility
+csz_oiz_72,cross-sectional zscore,oiz_72,open-interest
+csr_roc_42,cross-sectional rank,roc_42,momentum
+tsz_park_8,time-series zscore,park_8,volatility
+turnover_z_16,raw,turnover_z_16,other
+csz_mom_x_volz_42,cross-sectional zscore,mom_x_volz_42,momentum
+pacorr_42,raw,pacorr_42,other
+csr_mom_x_oimom_13,cross-sectional rank,mom_x_oimom_13,momentum
+csr_ret_ac1_4,cross-sectional rank,ret_ac1_4,other
+csz_oimom_10,cross-sectional zscore,oimom_10,open-interest
+amtmom_72,raw,amtmom_72,other
+csr_bollz_55,cross-sectional rank,bollz_55,oscillator/mean-rev
+macd_16_72,raw,macd_16_72,momentum/trend
+csz_upsh_21,cross-sectional zscore,upsh_21,other
+csz_mom_16,cross-sectional zscore,mom_16,momentum
+cmo_55,raw,cmo_55,oscillator
+csr_vol_flow_13,cross-sectional rank,vol_flow_13,volatility
+csr_vwap_dev_55,cross-sectional rank,vwap_dev_55,volume/price
+csr_skew_42,cross-sectional rank,skew_42,other
+vol_flow_16,raw,vol_flow_16,volatility
+csz_illiq_6,cross-sectional zscore,illiq_6,other
+csz_oimom_16,cross-sectional zscore,oimom_16,open-interest
+pvcorr_34_lag5,raw,pvcorr_34_lag5,other
+csz_vwap_macd_5_21,cross-sectional zscore,vwap_macd_5_21,volume/price
+csz_oimom_72,cross-sectional zscore,oimom_72,open-interest
+oipx_div_42,raw,oipx_div_42,open-interest
+amtz_72,raw,amtz_72,other
+csr_turnover_z_26,cross-sectional rank,turnover_z_26,other
+csz_cmo_16,cross-sectional zscore,cmo_16,oscillator
+csr_rv_55,cross-sectional rank,rv_55,volatility
+csr_mom_x_volz_8,cross-sectional rank,mom_x_volz_8,momentum
+tsz_mfi_8,time-series zscore,mfi_8,other
+csr_effratio_55,cross-sectional rank,effratio_55,other
+csr_turnover_z_55,cross-sectional rank,turnover_z_55,other
+cci_55,raw,cci_55,oscillator
+csz_effratio_34,cross-sectional zscore,effratio_34,other
+effratio_42,raw,effratio_42,other
+kurt_16,raw,kurt_16,other
+volmom_26,raw,volmom_26,volatility
+csz_volskew_16,cross-sectional zscore,volskew_16,volatility
+csz_vwap_macd_5_55,cross-sectional zscore,vwap_macd_5_55,volume/price
+ret_ac2_6,raw,ret_ac2_6,other
+csz_shadow_imb_42,cross-sectional zscore,shadow_imb_42,candle-geom
+csr_maxret_42,cross-sectional rank,maxret_42,other
+ret_oi_corr_4,raw,ret_oi_corr_4,other
+csz_pacorr_72,cross-sectional zscore,pacorr_72,other
+volskew_42,raw,volskew_42,volatility
+body_pos_inter_72,raw,body_pos_inter_72,candle-geom
+csz_oimom_55,cross-sectional zscore,oimom_55,open-interest
+csz_bop_21,cross-sectional zscore,bop_21,candle-geom
+volmom_16,raw,volmom_16,volatility
+csz_ret_ac1_55,cross-sectional zscore,ret_ac1_55,other
+amtmom_16,raw,amtmom_16,other
+oimom_21,raw,oimom_21,open-interest
+kurt_21,raw,kurt_21,other
+oipx_div_34,raw,oipx_div_34,open-interest
+csr_illiq_34,cross-sectional rank,illiq_34,other
+csz_shadow_imb_34,cross-sectional zscore,shadow_imb_34,candle-geom
+tsz_dvol_16,time-series zscore,dvol_16,other
+stoch_21_lag2,raw,stoch_21_lag2,oscillator
+csz_atr_13,cross-sectional zscore,atr_13,volatility
+pacorr_26,raw,pacorr_26,other
+csr_shadow_imb_6,cross-sectional rank,shadow_imb_6,candle-geom
+vwap_macd_3_13,raw,vwap_macd_3_13,volume/price
+vol_flow_10,raw,vol_flow_10,volatility
+tsz_dvol_21,time-series zscore,dvol_21,other
+px_sma_55,raw,px_sma_55,trend
+oimom_55,raw,oimom_55,open-interest
+tsz_park_10,time-series zscore,park_10,volatility
+csz_mom_x_oimom_8,cross-sectional zscore,mom_x_oimom_8,momentum
+csr_shadow_vol_diff_10,cross-sectional rank,shadow_vol_diff_10,candle-geom
+csr_shadow_vol_diff_42,cross-sectional rank,shadow_vol_diff_42,candle-geom
+vol_flow_21,raw,vol_flow_21,volatility
+tsz_mfi_10,time-series zscore,mfi_10,other
+csz_maxret_10,cross-sectional zscore,maxret_10,other
+csz_oimom_4,cross-sectional zscore,oimom_4,open-interest
+csr_ema_diff_13_55,cross-sectional rank,ema_diff_13_55,trend
+csr_shadow_imb_26,cross-sectional rank,shadow_imb_26,candle-geom
+csr_oipx_div_26,cross-sectional rank,oipx_div_26,open-interest
+tsz_roc_34,time-series zscore,roc_34,momentum
+tsz_vol_flow_42,time-series zscore,vol_flow_42,volatility
+csz_oipx_div_55,cross-sectional zscore,oipx_div_55,open-interest
+tsz_maxret_5,time-series zscore,maxret_5,other
+csr_oimom_55,cross-sectional rank,oimom_55,open-interest
+csr_volz_21_lag2,cross-sectional rank,volz_21_lag2,volatility
+roc_13,raw,roc_13,momentum
+csz_rv_x_volz_26,cross-sectional zscore,rv_x_volz_26,volatility
+skew_13,raw,skew_13,other
+amtmom_26,raw,amtmom_26,other
+csr_bollz_42,cross-sectional rank,bollz_42,oscillator/mean-rev
+csz_oipx_div_21,cross-sectional zscore,oipx_div_21,open-interest
+effratio_34,raw,effratio_34,other
+csr_tr_dir_13,cross-sectional rank,tr_dir_13,other
+volz_6,raw,volz_6,volatility
+csz_mfi_10,cross-sectional zscore,mfi_10,other
+ret_ac2_26,raw,ret_ac2_26,other
+csr_rv_42,cross-sectional rank,rv_42,volatility
+csr_ret_ac1_13,cross-sectional rank,ret_ac1_13,other
+csz_mom_x_oimom_6,cross-sectional zscore,mom_x_oimom_6,momentum
+csz_pvcorr_10,cross-sectional zscore,pvcorr_10,other
+kurt_8,raw,kurt_8,other
+csz_vol_regime,cross-sectional zscore,vol_regime,volatility
+csr_updn_vol_ratio_16,cross-sectional rank,updn_vol_ratio_16,other
+csr_kurt_13,cross-sectional rank,kurt_13,other
+csz_body_pos_inter_26,cross-sectional zscore,body_pos_inter_26,candle-geom
+csz_ret_oi_corr_55,cross-sectional zscore,ret_oi_corr_55,other
+csr_drawup_55,cross-sectional rank,drawup_55,range
+csr_rv_2,cross-sectional rank,rv_2,volatility
+vwap_dev_55,raw,vwap_dev_55,volume/price
+tsz_tr_dir_42,time-series zscore,tr_dir_42,other
+mom_x_volz_42,raw,mom_x_volz_42,momentum
+tsz_minret_21,time-series zscore,minret_21,other
+csz_rv_2,cross-sectional zscore,rv_2,volatility
+csr_body_8,cross-sectional rank,body_8,candle-geom
+csz_upratio_72,cross-sectional zscore,upratio_72,other
+csz_maxret_34,cross-sectional zscore,maxret_34,other
+csz_minret_42,cross-sectional zscore,minret_42,other
+skew_72,raw,skew_72,other
+mom_55,raw,mom_55,momentum
+csz_tr_dir_55,cross-sectional zscore,tr_dir_55,other
+csr_ema_diff_5_21,cross-sectional rank,ema_diff_5_21,trend
+sharpe_2,raw,sharpe_2,momentum/risk-adj
+tsz_rv_13,time-series zscore,rv_13,volatility
+csr_atr_34,cross-sectional rank,atr_34,volatility
+csr_ret_ac2_55,cross-sectional rank,ret_ac2_55,other
+oimom_42,raw,oimom_42,open-interest
+stoch_21_lag5,raw,stoch_21_lag5,oscillator
+csz_minret_10,cross-sectional zscore,minret_10,other
+csz_ret_ac1_72,cross-sectional zscore,ret_ac1_72,other
+csz_upsh_55,cross-sectional zscore,upsh_55,other
+shadow_imb_72,raw,shadow_imb_72,candle-geom
+mom_x_oimom_13,raw,mom_x_oimom_13,momentum
+csr_minret_10,cross-sectional rank,minret_10,other
+csz_illiq_4,cross-sectional zscore,illiq_4,other
+tsz_rsi_13,time-series zscore,rsi_13,oscillator
+mom_x_oimom_34,raw,mom_x_oimom_34,momentum
+kurt_72,raw,kurt_72,other
+tsz_vol_flow_34,time-series zscore,vol_flow_34,volatility
+csr_shadow_vol_diff_8,cross-sectional rank,shadow_vol_diff_8,candle-geom
+ret_ac2_42,raw,ret_ac2_42,other
+volmom_10,raw,volmom_10,volatility
+csz_ret_oi_corr_72,cross-sectional zscore,ret_oi_corr_72,other
+csz_maxret_21,cross-sectional zscore,maxret_21,other
+csr_oipx_div_55,cross-sectional rank,oipx_div_55,open-interest
+ret_ac2_34,raw,ret_ac2_34,other
+csz_volskew_72,cross-sectional zscore,volskew_72,volatility
+csz_vol_flow_26,cross-sectional zscore,vol_flow_26,volatility
+amtmom_10,raw,amtmom_10,other
+dvol_8,raw,dvol_8,other
+csr_body_55,cross-sectional rank,body_55,candle-geom
+csr_volz_21_lag3,cross-sectional rank,volz_21_lag3,volatility
+csz_mom_x_volz_55,cross-sectional zscore,mom_x_volz_55,momentum
+csz_upratio_34,cross-sectional zscore,upratio_34,other
+stoch_21_lag3,raw,stoch_21_lag3,oscillator
+csz_tr_dir_26,cross-sectional zscore,tr_dir_26,other
+csz_volskew_34,cross-sectional zscore,volskew_34,volatility
+tsz_losh_8,time-series zscore,losh_8,other
+kurt_26,raw,kurt_26,other
+tsz_losh_21,time-series zscore,losh_21,other
+csr_maxret_34,cross-sectional rank,maxret_34,other
+csz_oipx_div_8,cross-sectional zscore,oipx_div_8,open-interest
+csz_shadow_imb_16,cross-sectional zscore,shadow_imb_16,candle-geom
+mom_x_oimom_42,raw,mom_x_oimom_42,momentum
+csr_ret_ac1_42,cross-sectional rank,ret_ac1_42,other
+csz_amtmom_10,cross-sectional zscore,amtmom_10,other
+amtz_55,raw,amtz_55,other
+csr_volskew_55,cross-sectional rank,volskew_55,volatility
+csz_atr_26,cross-sectional zscore,atr_26,volatility
+oipx_div_21,raw,oipx_div_21,open-interest
+csr_volmom_13,cross-sectional rank,volmom_13,volatility
+csz_shadow_imb_21,cross-sectional zscore,shadow_imb_21,candle-geom
+csr_ret_oi_corr_42,cross-sectional rank,ret_oi_corr_42,other
+csr_effratio_4,cross-sectional rank,effratio_4,other
+sharpe_21,raw,sharpe_21,momentum/risk-adj
+csz_drawdn_55,cross-sectional zscore,drawdn_55,range
+csr_pacorr_8,cross-sectional rank,pacorr_8,other
+csz_updn_vol_ratio_21,cross-sectional zscore,updn_vol_ratio_21,other
+csz_oipx_div_10,cross-sectional zscore,oipx_div_10,open-interest
+csr_rv_21_lag5,cross-sectional rank,rv_21_lag5,volatility
+csz_drawdn_42,cross-sectional zscore,drawdn_42,range
+csz_oiz_26,cross-sectional zscore,oiz_26,open-interest
+csr_oimom_16,cross-sectional rank,oimom_16,open-interest
+csr_drawup_42,cross-sectional rank,drawup_42,range
+csz_upratio_42,cross-sectional zscore,upratio_42,other
+sharpe_3,raw,sharpe_3,momentum/risk-adj
+oipx_div_13,raw,oipx_div_13,open-interest
+csr_pvcorr_16,cross-sectional rank,pvcorr_16,other
+csr_drawdn_34,cross-sectional rank,drawdn_34,range
+csz_amtmom_26,cross-sectional zscore,amtmom_26,other
+ret_ac2_21,raw,ret_ac2_21,other
+oimom_72,raw,oimom_72,open-interest
+csz_rsi_42,cross-sectional zscore,rsi_42,oscillator
+csr_pvcorr_6,cross-sectional rank,pvcorr_6,other
+csr_shadow_vol_diff_55,cross-sectional rank,shadow_vol_diff_55,candle-geom
+csz_effratio_16,cross-sectional zscore,effratio_16,other
+csz_skew_6,cross-sectional zscore,skew_6,other
+skew_55,raw,skew_55,other
+csr_shadow_vol_diff_6,cross-sectional rank,shadow_vol_diff_6,candle-geom
+dual_thrust_pos_42,raw,dual_thrust_pos_42,other
+csz_kurt_10,cross-sectional zscore,kurt_10,other
+sharpe_5,raw,sharpe_5,momentum/risk-adj
+mom_x_oimom_72,raw,mom_x_oimom_72,momentum
+csz_volmom_72,cross-sectional zscore,volmom_72,volatility
+tsz_rv_16,time-series zscore,rv_16,volatility
+csr_oi_chg,cross-sectional rank,oi_chg,open-interest
+csz_amtz_72,cross-sectional zscore,amtz_72,other
+csr_volz_21_lag1,cross-sectional rank,volz_21_lag1,volatility
+tsz_park_2,time-series zscore,park_2,volatility
+tsz_range_55,time-series zscore,range_55,volatility/range
+csz_maxret_26,cross-sectional zscore,maxret_26,other
+csr_mom_x_volz_55,cross-sectional rank,mom_x_volz_55,momentum
+csr_amtmom_16,cross-sectional rank,amtmom_16,other
+csr_minret_16,cross-sectional rank,minret_16,other
+csz_rv_x_volz_72,cross-sectional zscore,rv_x_volz_72,volatility
+oi_chg,raw,oi_chg,open-interest
+csz_vol_flow_55,cross-sectional zscore,vol_flow_55,volatility
+shadow_vol_diff_16,raw,shadow_vol_diff_16,candle-geom
+csr_roc_26,cross-sectional rank,roc_26,momentum
+csr_rv_x_volz_34,cross-sectional rank,rv_x_volz_34,volatility
+csz_skew_8,cross-sectional zscore,skew_8,other
+csz_mom_21,cross-sectional zscore,mom_21,momentum
+csz_drawup_42,cross-sectional zscore,drawup_42,range
+oiz_13,raw,oiz_13,open-interest
+csz_turnover_z_21,cross-sectional zscore,turnover_z_21,other
+csr_pvcorr_55,cross-sectional rank,pvcorr_55,other
+tsz_park_13,time-series zscore,park_13,volatility
+csz_upratio_26,cross-sectional zscore,upratio_26,other
+csr_skew_4,cross-sectional rank,skew_4,other
+csr_rv_x_volz_21,cross-sectional rank,rv_x_volz_21,volatility
+mom_21,raw,mom_21,momentum
+amtmom_21,raw,amtmom_21,other
+tsz_drawdn_26,time-series zscore,drawdn_26,range
+csz_amtmom_13,cross-sectional zscore,amtmom_13,other
+csz_amtmom_16,cross-sectional zscore,amtmom_16,other
+tsz_rsi_21,time-series zscore,rsi_21,oscillator
+tr_dir_16,raw,tr_dir_16,other
+vwap_dev_72,raw,vwap_dev_72,volume/price
+csr_kurt_10,cross-sectional rank,kurt_10,other
+csr_cpos_21,cross-sectional rank,cpos_21,candle-geom
+volmom_21,raw,volmom_21,volatility
+csz_minret_55,cross-sectional zscore,minret_55,other
+csz_mom_x_volz_72,cross-sectional zscore,mom_x_volz_72,momentum
+willr_10,raw,willr_10,oscillator
+csr_maxret_8,cross-sectional rank,maxret_8,other
+pacorr_55,raw,pacorr_55,other
+kurt_34,raw,kurt_34,other
+csz_kurt_55,cross-sectional zscore,kurt_55,other
+csr_illiq_21,cross-sectional rank,illiq_21,other
+volskew_21,raw,volskew_21,volatility
+csz_rsi_21,cross-sectional zscore,rsi_21,oscillator
+kurt_42,raw,kurt_42,other
+bop_55,raw,bop_55,candle-geom
+csz_effratio_72,cross-sectional zscore,effratio_72,other
+csz_oipx_div_26,cross-sectional zscore,oipx_div_26,open-interest
+volmom_34,raw,volmom_34,volatility
+mom_x_volz_72,raw,mom_x_volz_72,momentum
+tsz_body_8,time-series zscore,body_8,candle-geom
+tsz_atr_16,time-series zscore,atr_16,volatility
+csz_px_sma_55,cross-sectional zscore,px_sma_55,trend
+oimom_6,raw,oimom_6,open-interest
+volskew_13,raw,volskew_13,volatility
+csz_shadow_imb_55,cross-sectional zscore,shadow_imb_55,candle-geom
+tsz_maxret_6,time-series zscore,maxret_6,other
+volskew_55,raw,volskew_55,volatility
+tsz_tr_dir_34,time-series zscore,tr_dir_34,other
+tsz_range_21,time-series zscore,range_21,volatility/range
+csz_drawdn_34,cross-sectional zscore,drawdn_34,range
+csz_oipx_div_6,cross-sectional zscore,oipx_div_6,open-interest
+tsz_dvol_42,time-series zscore,dvol_42,other
+csz_tr_dir_21,cross-sectional zscore,tr_dir_21,other
+csr_body_pos_inter_34,cross-sectional rank,body_pos_inter_34,candle-geom
+csr_amtmom_10,cross-sectional rank,amtmom_10,other
+tsz_rv_21_lag1,time-series zscore,rv_21_lag1,volatility
+csz_mom_x_oimom_10,cross-sectional zscore,mom_x_oimom_10,momentum
+csr_pvcorr_13,cross-sectional rank,pvcorr_13,other
+dual_thrust_pos_26,raw,dual_thrust_pos_26,other
+sharpe_16,raw,sharpe_16,momentum/risk-adj
+drawup_72,raw,drawup_72,range
+csr_minret_34,cross-sectional rank,minret_34,other
+csr_stoch_34,cross-sectional rank,stoch_34,oscillator
+csr_amtmom_4,cross-sectional rank,amtmom_4,other
+tsz_rv_34,time-series zscore,rv_34,volatility
+skew_10,raw,skew_10,other
+csz_oipx_div_16,cross-sectional zscore,oipx_div_16,open-interest
+csr_drawup_34,cross-sectional rank,drawup_34,range
+csr_amtmom_26,cross-sectional rank,amtmom_26,other
+csz_amtmom_4,cross-sectional zscore,amtmom_4,other
+pacorr_21,raw,pacorr_21,other
+csr_volz_26,cross-sectional rank,volz_26,volatility
+csz_turnover_z_13,cross-sectional zscore,turnover_z_13,other
+drawup_34,raw,drawup_34,range
+csz_oipx_div_4,cross-sectional zscore,oipx_div_4,open-interest
+volz_21_lag5,raw,volz_21_lag5,volatility
+shadow_vol_diff_55,raw,shadow_vol_diff_55,candle-geom
+tsz_ret_ac1_55,time-series zscore,ret_ac1_55,other
+kurt_4,raw,kurt_4,other
+tsz_maxret_42,time-series zscore,maxret_42,other
+csr_upratio_16,cross-sectional rank,upratio_16,other
+csr_ret_ac1_10,cross-sectional rank,ret_ac1_10,other
+csr_oiz_10,cross-sectional rank,oiz_10,open-interest
+tsz_minret_26,time-series zscore,minret_26,other
+csz_oipx_div_72,cross-sectional zscore,oipx_div_72,open-interest
+tsz_maxret_8,time-series zscore,maxret_8,other
+oipx_div_10,raw,oipx_div_10,open-interest
+csz_range_6,cross-sectional zscore,range_6,volatility/range
+skew_42,raw,skew_42,other
+csz_ema_diff_5_21,cross-sectional zscore,ema_diff_5_21,trend
+tsz_minret_34,time-series zscore,minret_34,other
+kurt_55,raw,kurt_55,other
+shadow_vol_diff_42,raw,shadow_vol_diff_42,candle-geom
+csr_kurt_34,cross-sectional rank,kurt_34,other
+csz_effratio_42,cross-sectional zscore,effratio_42,other
+csr_volmom_6,cross-sectional rank,volmom_6,volatility
+vol_flow_13,raw,vol_flow_13,volatility
+csr_effratio_13,cross-sectional rank,effratio_13,other
+csr_skew_34,cross-sectional rank,skew_34,other
+illiq_72,raw,illiq_72,other
+csr_pvcorr_34_lag5,cross-sectional rank,pvcorr_34_lag5,other
+tsz_maxret_10,time-series zscore,maxret_10,other
+csr_maxret_26,cross-sectional rank,maxret_26,other
+csr_body_pos_inter_42,cross-sectional rank,body_pos_inter_42,candle-geom
+oipx_div_4,raw,oipx_div_4,open-interest
+csr_skew_26,cross-sectional rank,skew_26,other
+csr_rv_10,cross-sectional rank,rv_10,volatility
+csz_shadow_vol_diff_72,cross-sectional zscore,shadow_vol_diff_72,candle-geom
+csr_shadow_vol_diff_34,cross-sectional rank,shadow_vol_diff_34,candle-geom
+sharpe_4,raw,sharpe_4,momentum/risk-adj
+csz_body_pos_inter_55,cross-sectional zscore,body_pos_inter_55,candle-geom
+vwap_macd_13_55,raw,vwap_macd_13_55,volume/price
+csr_shadow_vol_diff_13,cross-sectional rank,shadow_vol_diff_13,candle-geom
+csz_mom_x_oimom_16,cross-sectional zscore,mom_x_oimom_16,momentum
+csz_oiz_4,cross-sectional zscore,oiz_4,open-interest
+tsz_upratio_26,time-series zscore,upratio_26,other
+csz_px_sma_34,cross-sectional zscore,px_sma_34,trend
+willr_6,raw,willr_6,oscillator
+volmom_6,raw,volmom_6,volatility
+csr_oimom_6,cross-sectional rank,oimom_6,open-interest
+csz_kurt_21,cross-sectional zscore,kurt_21,other
+csz_amtmom_8,cross-sectional zscore,amtmom_8,other
+csz_drawup_34,cross-sectional zscore,drawup_34,range
+tsz_drawdn_55,time-series zscore,drawdn_55,range
+csr_effratio_6,cross-sectional rank,effratio_6,other
+csz_kurt_13,cross-sectional zscore,kurt_13,other
+csz_mom_x_oimom_21,cross-sectional zscore,mom_x_oimom_21,momentum
+tsz_maxret_13,time-series zscore,maxret_13,other
+oipx_div_26,raw,oipx_div_26,open-interest
+body_pos_inter_42,raw,body_pos_inter_42,candle-geom
+csr_dual_thrust_pos_42,cross-sectional rank,dual_thrust_pos_42,other
+csz_rv_3,cross-sectional zscore,rv_3,volatility
+csz_cmo_26,cross-sectional zscore,cmo_26,oscillator
+csz_minret_21,cross-sectional zscore,minret_21,other
+csr_rv_x_volz_55,cross-sectional rank,rv_x_volz_55,volatility
+body_pos_inter_34,raw,body_pos_inter_34,candle-geom
+tsz_effratio_21,time-series zscore,effratio_21,other
+tsz_dvol_34,time-series zscore,dvol_34,other
+csr_volz_21_lag5,cross-sectional rank,volz_21_lag5,volatility
+volmom_8,raw,volmom_8,volatility
+volmom_4,raw,volmom_4,volatility
+mom_x_oimom_6,raw,mom_x_oimom_6,momentum
+csr_park_16,cross-sectional rank,park_16,volatility
+csr_oiz_16,cross-sectional rank,oiz_16,open-interest
+csr_maxret_21,cross-sectional rank,maxret_21,other
+csr_skew_13,cross-sectional rank,skew_13,other
+csr_ret_ac1_21,cross-sectional rank,ret_ac1_21,other
+shadow_imb_26,raw,shadow_imb_26,candle-geom
+csr_pacorr_42,cross-sectional rank,pacorr_42,other
+csr_maxret_16,cross-sectional rank,maxret_16,other
+csz_amtz_55,cross-sectional zscore,amtz_55,other
+csr_body_21,cross-sectional rank,body_21,candle-geom
+csz_volskew_21,cross-sectional zscore,volskew_21,volatility
+tr_dir_13,raw,tr_dir_13,other
+ret_ac2_72,raw,ret_ac2_72,other
+amtmom_4,raw,amtmom_4,other
+csr_pvcorr_21,cross-sectional rank,pvcorr_21,other
+tsz_rv_21_lag3,time-series zscore,rv_21_lag3,volatility
+csz_upratio_55,cross-sectional zscore,upratio_55,other
+csz_oimom_6,cross-sectional zscore,oimom_6,open-interest
+shadow_vol_diff_21,raw,shadow_vol_diff_21,candle-geom
+csr_skew_21,cross-sectional rank,skew_21,other
+csz_rv_x_volz_42,cross-sectional zscore,rv_x_volz_42,volatility
+csz_minret_13,cross-sectional zscore,minret_13,other
+csz_mom_x_oimom_13,cross-sectional zscore,mom_x_oimom_13,momentum
+csr_minret_42,cross-sectional rank,minret_42,other
+tsz_willr_55,time-series zscore,willr_55,oscillator
+tsz_rsi_26,time-series zscore,rsi_26,oscillator
+csz_mom_x_oimom_26,cross-sectional zscore,mom_x_oimom_26,momentum
+csr_drawdn_55,cross-sectional rank,drawdn_55,range
+csr_cpos_lag5,cross-sectional rank,cpos_lag5,candle-geom
+csr_rsi_55,cross-sectional rank,rsi_55,oscillator
+csz_amtmom_55,cross-sectional zscore,amtmom_55,other
+csr_ret_ac1_34,cross-sectional rank,ret_ac1_34,other
+csr_ret_ac2_42,cross-sectional rank,ret_ac2_42,other
+csz_vwap_dev_55,cross-sectional zscore,vwap_dev_55,volume/price
+csz_vwap_dev_34,cross-sectional zscore,vwap_dev_34,volume/price
+tsz_upratio_13,time-series zscore,upratio_13,other
+illiq_34,raw,illiq_34,other
+csz_amtmom_6,cross-sectional zscore,amtmom_6,other
+csr_cpos_55,cross-sectional rank,cpos_55,candle-geom
+csr_stoch_55,cross-sectional rank,stoch_55,oscillator
+tsz_upratio_16,time-series zscore,upratio_16,other
+csz_volskew_26,cross-sectional zscore,volskew_26,volatility
+csr_rv_3,cross-sectional rank,rv_3,volatility
+tsz_upsh_21,time-series zscore,upsh_21,other
+csr_rv_4,cross-sectional rank,rv_4,volatility
+csr_oimom_4,cross-sectional rank,oimom_4,open-interest
+csr_bop_55,cross-sectional rank,bop_55,candle-geom
+csr_oiz_6,cross-sectional rank,oiz_6,open-interest
+rv_x_volz_55,raw,rv_x_volz_55,volatility
+tsz_rv_2,time-series zscore,rv_2,volatility
+csr_atr_8,cross-sectional rank,atr_8,volatility
+amtmom_8,raw,amtmom_8,other
+csz_dvol_16,cross-sectional zscore,dvol_16,other
+shadow_vol_diff_8,raw,shadow_vol_diff_8,candle-geom
+tsz_upsh_8,time-series zscore,upsh_8,other
+volskew_16,raw,volskew_16,volatility
+shadow_vol_diff_13,raw,shadow_vol_diff_13,candle-geom
+csr_upratio_13,cross-sectional rank,upratio_13,other
+csz_drawup_72,cross-sectional zscore,drawup_72,range
+csr_shadow_vol_diff_26,cross-sectional rank,shadow_vol_diff_26,candle-geom
+shadow_vol_diff_6,raw,shadow_vol_diff_6,candle-geom
+csr_kurt_16,cross-sectional rank,kurt_16,other
+csr_minret_55,cross-sectional rank,minret_55,other
+mom_x_volz_55,raw,mom_x_volz_55,momentum
+tsz_maxret_16,time-series zscore,maxret_16,other
+csr_kurt_55,cross-sectional rank,kurt_55,other
+csr_dvol_21,cross-sectional rank,dvol_21,other
+csr_maxret_10,cross-sectional rank,maxret_10,other
+tsz_oi_vol_ratio,time-series zscore,oi_vol_ratio,open-interest
+csr_minret_21,cross-sectional rank,minret_21,other
+csr_drawdn_42,cross-sectional rank,drawdn_42,range
+csr_mfi_55,cross-sectional rank,mfi_55,other
+amtmom_34,raw,amtmom_34,other
+tsz_dvol_26,time-series zscore,dvol_26,other
+roc_16,raw,roc_16,momentum
+csz_tr_dir_16,cross-sectional zscore,tr_dir_16,other
+tsz_rv_55,time-series zscore,rv_55,volatility
+csz_losh_55,cross-sectional zscore,losh_55,other
+csr_park_4,cross-sectional rank,park_4,volatility
+illiq_4,raw,illiq_4,other
+skew_34,raw,skew_34,other
+csr_illiq_8,cross-sectional rank,illiq_8,other
+csr_losh_8,cross-sectional rank,losh_8,other
+csr_shadow_vol_diff_16,cross-sectional rank,shadow_vol_diff_16,candle-geom
+csz_vwap_dev_72,cross-sectional zscore,vwap_dev_72,volume/price
+csr_oimom_10,cross-sectional rank,oimom_10,open-interest
+shadow_vol_diff_10,raw,shadow_vol_diff_10,candle-geom
+csr_losh_21,cross-sectional rank,losh_21,other
+mom_x_oimom_16,raw,mom_x_oimom_16,momentum
+csr_park_2,cross-sectional rank,park_2,volatility
+csz_mfi_13,cross-sectional zscore,mfi_13,other
+csr_kurt_26,cross-sectional rank,kurt_26,other
+tsz_range_26,time-series zscore,range_26,volatility/range
+tsz_rv_26,time-series zscore,rv_26,volatility
+tsz_effratio_13,time-series zscore,effratio_13,other
+pacorr_13,raw,pacorr_13,other
+oimom_13,raw,oimom_13,open-interest
+csz_kurt_72,cross-sectional zscore,kurt_72,other
+dvol_6,raw,dvol_6,other
+csr_pacorr_26,cross-sectional rank,pacorr_26,other
+shadow_vol_diff_26,raw,shadow_vol_diff_26,candle-geom
+tsz_mfi_21,time-series zscore,mfi_21,other
+csz_skew_72,cross-sectional zscore,skew_72,other
+csr_kurt_21,cross-sectional rank,kurt_21,other
+drawup_42,raw,drawup_42,range
+csz_amtmom_34,cross-sectional zscore,amtmom_34,other
+csz_park_3,cross-sectional zscore,park_3,volatility
+csz_kurt_4,cross-sectional zscore,kurt_4,other
+csz_rv_8,cross-sectional zscore,rv_8,volatility
+csr_ret_ac1_16,cross-sectional rank,ret_ac1_16,other
+tsz_cpos_21,time-series zscore,cpos_21,candle-geom
+csz_kurt_34,cross-sectional zscore,kurt_34,other
+tsz_maxret_21,time-series zscore,maxret_21,other
+volmom_13,raw,volmom_13,volatility
+csz_ret_ac1_26,cross-sectional zscore,ret_ac1_26,other
+csz_oipx_div_13,cross-sectional zscore,oipx_div_13,open-interest
+skew_26,raw,skew_26,other
+tsz_body_21,time-series zscore,body_21,candle-geom
+csz_mom_x_oimom_72,cross-sectional zscore,mom_x_oimom_72,momentum
+csz_kurt_42,cross-sectional zscore,kurt_42,other
+amtz_21,raw,amtz_21,other
+csr_amtmom_21,cross-sectional rank,amtmom_21,other
+skew_21,raw,skew_21,other
+csr_shadow_vol_diff_21,cross-sectional rank,shadow_vol_diff_21,candle-geom
+oiz_21,raw,oiz_21,open-interest
+tsz_maxret_26,time-series zscore,maxret_26,other
+csz_amtmom_21,cross-sectional zscore,amtmom_21,other
+tsz_drawdn_42,time-series zscore,drawdn_42,range
+csr_effratio_21,cross-sectional rank,effratio_21,other
+csz_volskew_42,cross-sectional zscore,volskew_42,volatility
+tsz_effratio_16,time-series zscore,effratio_16,other
+oipx_div_72,raw,oipx_div_72,open-interest
+csz_mfi_16,cross-sectional zscore,mfi_16,other
+csr_minret_26,cross-sectional rank,minret_26,other
+tsz_mfi_16,time-series zscore,mfi_16,other
+amtmom_13,raw,amtmom_13,other
+csz_roc_55,cross-sectional zscore,roc_55,momentum
+pvcorr_16,raw,pvcorr_16,other
+amtmom_6,raw,amtmom_6,other
+tsz_dvol_55,time-series zscore,dvol_55,other
+csr_kurt_42,cross-sectional rank,kurt_42,other
+csr_amtmom_55,cross-sectional rank,amtmom_55,other
+oipx_div_16,raw,oipx_div_16,open-interest

@@ -130,6 +130,27 @@ SINGLE_BIN = [-0.0001826,-0.0001565,-0.0001598,-0.0001098,-0.00009449,-0.0000713
               -0.00004086,-0.00003965,-0.00003564,-0.000008862,-0.000005930,-0.00001621,
               -0.00001369,0.00001683,0.000003159,0.00001775,0.00003996,0.00005481,0.00009075]
 
+# End2End ladder (v1/v2/v3) on the full 2020 test, computed from the archived
+# OOS prediction parquets. Monthly = pooled (cosine) IC per calendar month;
+# full-year pooled IC ties out to 0.043578 / 0.048159 / 0.054808 respectively.
+E2E_MONTHLY = {
+    "v1": [0.06731,0.04604,0.01748,0.03818,0.05741,0.04926,0.04980,0.05862,0.04243,0.02297,0.04744,0.04707],
+    "v2": [0.05138,0.04085,0.02488,0.05827,0.06800,0.05069,0.05467,0.05905,0.04664,0.03733,0.04339,0.04911],
+    "v3": [0.04740,0.06076,0.03174,0.05422,0.06652,0.06624,0.05024,0.06048,0.06142,0.05173,0.05618,0.06110],
+}
+# 20-bucket mean realized 30-min return (raw units) on full 2020.
+E2E_BIN = {
+    "v1": [-0.000435198,-0.000254121,-0.00020305,-0.000135768,-0.000132068,-8.0089e-05,
+           -6.4916e-05,-4.1691e-05,-1.5672e-05,2e-06,8.98e-06,2.859e-05,5.6809e-05,
+           6.4825e-05,7.53e-05,0.00010301,0.000110436,0.000139218,0.000139441,0.000273725],
+    "v2": [-0.000466124,-0.000277621,-0.000227107,-0.000167185,-0.000137922,-0.000106174,
+           -7.7757e-05,-4.6757e-05,-2.411e-06,1.4612e-05,2.2642e-05,3.0138e-05,4.9032e-05,
+           6.3026e-05,7.9695e-05,0.000113899,0.000114805,0.000151639,0.000190318,0.000319014],
+    "v3": [-0.000517108,-0.000334827,-0.000243847,-0.000184464,-0.000148764,-0.000105786,
+           -6.9312e-05,-5.1886e-05,-3.2922e-05,1.183e-06,5.333e-06,2.8065e-05,5.1908e-05,
+           8.3252e-05,0.000106838,0.000123287,0.000156279,0.000169757,0.000249537,0.000353237],
+}
+
 
 # ============================================================================
 # FIG 1 — Cross-family headline IC comparison (2020)
@@ -144,7 +165,7 @@ def fig_headline():
     bw = 0.38
 
     ax.barh(y + bw/2, pooled, height=bw, color=cols, edgecolor="white",
-            linewidth=0.6, label="Pooled IC (PDF headline metric)")
+            linewidth=0.6, label="Pooled IC (headline metric)")
     ax.barh(y - bw/2, sn, height=bw, color=cols, alpha=0.45, edgecolor="white",
             linewidth=0.6, label="SN non-overlap IC (robustness)")
 
@@ -156,8 +177,8 @@ def fig_headline():
             ax.text(0.0012, yi - bw/2, "n/a", va="center", fontsize=8.5, color="#6b7280")
 
     ax.axvline(0.05, color=C["thresh"], ls="--", lw=1.4)
-    ax.text(0.05, len(labels)-0.3, "  PDF “reasonable start” = 0.05",
-            color=C["thresh"], fontsize=9.5, va="top")
+    ax.text(0.0508, len(labels)-0.35, "0.05",
+            color=C["thresh"], fontsize=10, fontweight="bold", va="top", ha="left")
 
     ax.set_yticks(y)
     ax.set_yticklabels(labels, fontsize=9.5)
@@ -291,7 +312,7 @@ def fig_ablation():
 
     ax.set_yticks(y); ax.set_yticklabels(labels, fontsize=8.5)
     ax.set_xlabel("Information Coefficient (2019 validation)")
-    ax.set_title("Honest ablation — only v3 improved BOTH Pooled IC and SN non-overlap IC")
+    ax.set_title("End-to-end attempts on 2019 validation — v3 retained, others not adopted")
     ax.set_xlim(0.05, 0.076)
     ax.legend(loc="lower right", fontsize=9)
     ax.grid(axis="y", visible=False)
@@ -343,27 +364,95 @@ def fig_icir():
 # FIG 7 — end2end_single feasibility
 # ============================================================================
 def fig_single():
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 4.6))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.9))
+
+    # ----- Panel 1: monthly IC (May..Dec), E2E single vs ML singles + ensemble -----
+    # The ML single/ensemble monthly series are full-year; slice to May..Dec (idx 4..11)
+    # so they align with the E2E single's rolling window.
     x = np.arange(len(SINGLE_MONTHS))
-    ax1.plot(x, SINGLE_IC, marker="o", color=C["single"], lw=2.2, ms=6)
+    overlay = [("MLP", C["mlp"], "^"), ("LightGBM", C["lgb"], "s"),
+               ("Ridge", C["ridge"], "o"), ("Ensemble", C["ens"], "D")]
+    for name, col, mk in overlay:
+        v = np.array(MONTHLY_2020[name])[4:]
+        ax1.plot(x, v, marker=mk, ms=4, lw=1.4, color=col, alpha=0.9, label=name)
+    ax1.plot(x, SINGLE_IC, marker="o", color=C["single"], lw=2.6, ms=7,
+             label="E2E single", zorder=6)
+    ax1.fill_between(x, SINGLE_IC, 0, color=C["single"], alpha=0.10)
     ax1.axhline(0.05, color=C["thresh"], ls="--", lw=1.1)
-    ax1.fill_between(x, SINGLE_IC, 0, color=C["single"], alpha=0.12)
+    ax1.text(len(x) - 0.8, 0.0505, "0.05", color=C["thresh"], fontsize=9, va="bottom", ha="right")
     ax1.set_xticks(x); ax1.set_xticklabels(SINGLE_MONTHS)
     ax1.set_ylabel("Pooled IC")
-    ax1.set_title("E2E single: rolling-monthly IC (2020-05..12)")
-    ax1.set_ylim(0, 0.085)
+    ax1.set_title("Monthly IC (2020-05..12): E2E single vs baselines")
+    ax1.set_ylim(0, 0.095)
+    ax1.legend(loc="upper right", ncol=2, fontsize=8.2)
 
+    # ----- Panel 2: bucketed returns — E2E single as bars, others as lines -----
     xb = np.arange(1, len(SINGLE_BIN) + 1)
-    bcol = ["#ef4444" if v < 0 else "#22c55e" for v in SINGLE_BIN]
-    ax2.bar(xb, np.array(SINGLE_BIN) * 1e4, color=bcol, alpha=0.85, edgecolor="white", linewidth=0.4)
+    ax2.bar(xb, np.array(SINGLE_BIN) * 1e4, color=C["single"], alpha=0.55,
+            edgecolor="white", linewidth=0.4, label="E2E single (bars)", zorder=2)
+    xl = np.arange(1, 21)
+    for name, col, mk in [("MLP", C["mlp"], "^"), ("LightGBM", C["lgb"], "s"),
+                          ("Ridge", C["ridge"], "o"), ("Ensemble", C["ens"], "D")]:
+        ax2.plot(xl, np.array(BIN20[name]) * 1e4, marker=mk, ms=3.5, lw=1.4,
+                 color=col, alpha=0.9, label=name, zorder=4)
     ax2.axhline(0, color="#374151", lw=0.9)
-    ax2.set_xticks([1, 5, 10, 15, 19])
-    ax2.set_xlabel("Prediction bucket")
+    ax2.set_xticks([1, 5, 10, 15, 20])
+    ax2.set_xlabel("Prediction bucket (1 = most bearish → top = most bullish)")
     ax2.set_ylabel("Mean 30-min return (bps)")
-    ax2.set_title("E2E single: bucketed return monotonicity")
-    fig.suptitle("End-to-end feasibility check passed before scaling up",
+    ax2.set_title("Bucketed return monotonicity vs baselines")
+    ax2.legend(loc="upper left", fontsize=8.2)
+    fig.suptitle("End-to-end feasibility check passed before scaling up — tracks the ML baselines",
                  fontsize=12.5, fontweight="bold", y=1.03)
     save(fig, "fig7_single.png")
+
+
+# ============================================================================
+# FIG 9 — End2End ladder (v1/v2/v3) vs Ensemble, in the style of Fig 3.1
+#   E2E models drawn as lines; the Ensemble (strongest baseline) drawn with a
+#   different encoding — dashed line for monthly IC, bars for the buckets.
+# ============================================================================
+def fig_e2e_compare():
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.9))
+    e2e = [("E2E v1", "v1", C["v1"], "o"),
+           ("E2E v2", "v2", C["v2"], "s"),
+           ("E2E v3", "v3", C["v3"], "^")]
+
+    # ----- Panel 1: monthly IC across 2020 — E2E as lines, Ensemble dashed -----
+    x = np.arange(12)
+    for name, key, col, mk in e2e:
+        v = E2E_MONTHLY[key]
+        ir = np.mean(v) / np.std(v)
+        lw = 2.6 if key == "v3" else 1.6
+        ax1.plot(x, v, marker=mk, ms=5, lw=lw, color=col,
+                 label=f"{name}  (mean/std = {ir:.2f})", zorder=5 if key == "v3" else 3)
+    ens = MONTHLY_2020["Ensemble"]
+    ax1.plot(x, ens, marker="D", ms=5, lw=2.0, color=C["ens"], ls="--",
+             label=f"Ensemble baseline  (mean/std = {np.mean(ens)/np.std(ens):.2f})", zorder=6)
+    ax1.axhline(0.05, color=C["thresh"], ls="--", lw=1.1)
+    ax1.text(11.2, 0.0505, "0.05", color=C["thresh"], fontsize=9, va="bottom", ha="right")
+    ax1.set_xticks(x); ax1.set_xticklabels(MONTHS)
+    ax1.set_ylabel("Pooled IC (per month)")
+    ax1.set_title("Monthly IC across 2020: End2End ladder vs Ensemble")
+    ax1.set_ylim(0, 0.095)
+    ax1.legend(loc="upper right", ncol=1, fontsize=8.4)
+
+    # ----- Panel 2: 20-bucket returns — Ensemble as bars, E2E as lines -----
+    xb = np.arange(1, 21)
+    ax2.bar(xb, np.array(BIN20["Ensemble"]) * 1e4, color=C["ens"], alpha=0.5,
+            edgecolor="white", linewidth=0.4, label="Ensemble baseline (bars)", zorder=2)
+    for name, key, col, mk in e2e:
+        lw = 2.4 if key == "v3" else 1.4
+        ax2.plot(xb, np.array(E2E_BIN[key]) * 1e4, marker=mk, ms=3.8, lw=lw,
+                 color=col, alpha=0.95, label=name, zorder=5 if key == "v3" else 4)
+    ax2.axhline(0, color="#374151", lw=0.9)
+    ax2.set_xticks([1, 5, 10, 15, 20])
+    ax2.set_xlabel("Prediction bucket (1 = most bearish → 20 = most bullish)")
+    ax2.set_ylabel("Mean 30-min return (bps)")
+    ax2.set_title("Bucketed return monotonicity vs Ensemble")
+    ax2.legend(loc="upper left", fontsize=8.4)
+    fig.suptitle("End-to-end ladder approaches the Ensemble — v3 closes most of the gap (2020 test)",
+                 fontsize=12.5, fontweight="bold", y=1.03)
+    save(fig, "fig9_e2e_compare.png")
 
 
 # ============================================================================
@@ -399,5 +488,6 @@ if __name__ == "__main__":
     fig_ablation()
     fig_icir()
     fig_single()
+    fig_e2e_compare()
     fig_lift()
     print("ALL FIGURES DONE ->", os.path.relpath(OUT, os.path.join(HERE, "..")))
