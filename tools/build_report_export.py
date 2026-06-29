@@ -63,7 +63,7 @@ EXEC_CSS = """
   .execsum .figs .wide{grid-column:1 / -1}
 
   /* ---- compact typography for the PDF export (~half the page count, readable) ---- */
-  body{font-size:10.1px;line-height:1.48}
+  body{font-size:10.7px;line-height:1.48}
   header.doc{padding:24px 0 14px} header.doc h1{font-size:22px;margin:0 0 .2em}
   header.doc .sub{font-size:12.5px} header.doc .meta{font-size:11px;margin-top:11px}
   h2{font-size:15.5px;padding-bottom:5px;margin:6px 0 11px} h2 .num{font-size:11px;padding:1px 7px}
@@ -77,6 +77,7 @@ EXEC_CSS = """
   .road{gap:8px;margin:13px 0} .road .step h5{font-size:11.5px} .road .step p{font-size:9.8px}
   .tldr,.note,.why,.cite,.fail{padding:9px 13px;margin:11px 0}
   .cite{font-size:10.4px} .fail{font-size:10.4px} .fail .m{font-size:.8em}
+  .ref{font-size:8.7px} .ref li{margin:.18em 0} ol.ref{padding-left:1.4em}
   section{margin:0 0 19px}
   figure{margin:10px auto;max-width:415px} figure img{max-width:415px}
   figcaption{font-size:9.4px;padding:5px 10px;line-height:1.45}
