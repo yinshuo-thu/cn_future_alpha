@@ -98,7 +98,7 @@ HTML = """<!DOCTYPE html>
     <h1>1,144 Baseline Factor Fields</h1>
     <div class="sub">cn-future-alpha · the retained leak-free factor library after 0.9-correlation dedup.<br>
       Views: {view_summary}.</div>
-    <a class="back" href="summary.html">← back to the summary report</a>
+    <a class="back" href="https://autoalpha.cn/cn_future_alpha/">← back to the summary report</a>
   </div>
 </header>
 

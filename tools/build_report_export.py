@@ -61,6 +61,30 @@ EXEC_CSS = """
   .execsum .figs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 4px}
   .execsum .figs figure{margin:0}
   .execsum .figs .wide{grid-column:1 / -1}
+
+  /* ---- compact typography for the PDF export (≈ half the page count) ---- */
+  body{font-size:9.6px;line-height:1.4}
+  header.doc{padding:24px 0 14px} header.doc h1{font-size:22px;margin:0 0 .2em}
+  header.doc .sub{font-size:12px} header.doc .meta{font-size:10.5px;margin-top:11px}
+  h2{font-size:15px;padding-bottom:5px;margin:6px 0 11px} h2 .num{font-size:11px;padding:1px 7px}
+  h3{font-size:12.8px;margin:15px 0 5px;padding-top:4px} h4{font-size:11.4px;margin:12px 0 3px}
+  p{margin:.42em 0} ul,ol{margin:.3em 0 .6em} li{margin:.2em 0}
+  table{font-size:9.6px} th,td{padding:3.5px 7px}
+  .formula{font-size:10px;padding:6px 10px;margin:9px 0} code{font-size:.86em}
+  .small{font-size:9px} .kbd{font-size:9px;padding:7px 10px;margin:9px 0}
+  nav.toc{padding:12px 16px;margin:16px 0 20px} nav.toc ol{font-size:10.3px} nav.toc ol ol{font-size:9.8px}
+  .cards{gap:10px;margin:13px 0} .card{padding:10px 13px} .card .k{font-size:18px} .card .l{font-size:9.3px}
+  .road{gap:8px;margin:13px 0} .road .step h5{font-size:11px} .road .step p{font-size:9.2px}
+  .tldr,.note,.why,.cite,.fail{padding:9px 13px;margin:11px 0}
+  .cite{font-size:9.8px} .fail{font-size:9.8px} .fail .m{font-size:.8em}
+  section{margin:0 0 18px}
+  figure{margin:10px auto;max-width:415px} figure img{max-width:415px}
+  figcaption{font-size:8.8px;padding:5px 10px;line-height:1.4}
+  .execsum{padding:15px 19px 7px;margin:22px 0 6px} .execsum h2{font-size:16px}
+  .execsum .kpi{font-size:10.5px;padding:6px 12px} .execsum .kpi b{font-size:14px}
+  .execsum .figs{gap:12px;margin:13px 0 2px}
+  .execsum .figs figure{max-width:none} .execsum .figs figure img{max-width:100%}
+
   @media print{
     .topbar{display:none!important}
     section,figure,.execsum,table,.tbl{break-inside:avoid}
@@ -133,7 +157,27 @@ def build_lang(lang):
     print(f"  wrote {os.path.relpath(out, ROOT)}  ({len(html)/1e6:.2f} MB)")
     return out
 
+def render_pdfs(html_paths):
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        b = p.chromium.launch(args=["--no-sandbox"])
+        for hp in html_paths:
+            page = b.new_page()
+            page.goto("file://" + hp, wait_until="networkidle", timeout=180000)
+            page.emulate_media(media="print")
+            pdf = os.path.splitext(hp)[0] + ".pdf"
+            page.pdf(path=pdf, format="A4", print_background=True,
+                     margin={"top": "10mm", "bottom": "10mm", "left": "11mm", "right": "11mm"})
+            page.close()
+            print(f"  wrote {os.path.relpath(pdf, ROOT)}  ({os.path.getsize(pdf)/1e6:.2f} MB)")
+        b.close()
+
+
 if __name__ == "__main__":
-    for lang in ("en", "zh"):
-        build_lang(lang)
+    outs = [build_lang(lang) for lang in ("en", "zh")]
     print("HTML exports done.")
+    try:
+        render_pdfs(outs)
+        print("PDF exports done.")
+    except Exception as e:
+        print("PDF step skipped (run after `playwright install chromium`):", e)
