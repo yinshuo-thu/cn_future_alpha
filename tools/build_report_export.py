@@ -159,6 +159,8 @@ def build_lang(lang):
     html = re.sub(r'<div class="topbar">.*?</div>\s*</div>\s*</div>', '', html, count=1, flags=re.S)
     # 4) drop the language <script> at the end so the fixed class sticks
     html = re.sub(r'<script>.*?</script>', '', html, count=1, flags=re.S)
+    # 4b) drop the website-only visit counter (no live counter in a static PDF)
+    html = re.sub(r'<!-- VISIT-COUNTER-START -->.*?<!-- VISIT-COUNTER-END -->', '', html, flags=re.S)
     # 5) insert the exec-summary block before the Contents nav
     html = html.replace('<nav class="toc">', EXEC_BLOCK + '\n<nav class="toc">', 1)
     # 6) repoint the factor link to the public page
