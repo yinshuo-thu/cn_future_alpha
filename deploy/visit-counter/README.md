@@ -1,24 +1,26 @@
 # Visit counter for the cn-future-alpha report
 
-A tiny, stdlib-only page-visit counter shown in the bottom-right corner of
+A tiny, stdlib-only **unique-IP** visit counter shown inline in the footer of
 <https://autoalpha.cn/cn_future_alpha/>. No external dependencies.
 
 ## Pieces
 
-- **`counter.py`** — a `http.server` service on `127.0.0.1:8766`. Persists the
-  count in `/opt/cnfa-counter/count.txt` (atomic, `flock`).
-  - `GET /cn_future_alpha/visits`     → peek (no increment)
-  - `GET /cn_future_alpha/visits/hit` → +1, returns the new count
+- **`counter.py`** — a `http.server` service on `127.0.0.1:8766`. Counts each
+  client IP **at most once** (the real IP comes from nginx's `X-Real-IP`). IPs are
+  stored hashed (sha256, salted) in `/opt/cnfa-counter/ips.txt`; the count is the
+  number of distinct IPs (mirrored to `count.txt` for inspection).
+  - `GET /cn_future_alpha/visits`     → peek (current unique count, no change)
+  - `GET /cn_future_alpha/visits/hit` → register this IP if new; returns the count
   - response: `{"count": N}`
 - **`cnfa-counter.service`** — systemd unit (runs as `www-data`).
 - **`nginx-location.conf`** — the nginx `location` to proxy `/cn_future_alpha/visits`
   to the service (add it to the `autoalpha.cn` server block).
 - **Page side** (in `summary_src.html`, between the `VISIT-COUNTER` comment
-  markers): a fixed bottom-right badge + a small script that calls the endpoint on
-  load and shows the count. It counts a visit at most once per 6h per browser
-  (localStorage), hides itself if the backend is unreachable, and is `display:none`
-  in print. `tools/build_report_export.py` strips the whole block from the PDF
-  exports, so the submission PDFs are unaffected.
+  markers): a small muted-gray "N visits" shown inline in the footer, on the same
+  line as the thank-you note, plus a script that calls `/hit` on load (the server
+  dedups by IP). It hides itself if the backend is unreachable and is
+  `display:none` in print. `tools/build_report_export.py` strips the whole block
+  from the PDF exports, so the submission PDFs are unaffected.
 
 ## Install on the server
 
@@ -37,4 +39,4 @@ sudo nginx -t && sudo systemctl reload nginx
 ```
 
 Reset the count any time with:
-`echo 0 | sudo tee /opt/cnfa-counter/count.txt && sudo systemctl restart cnfa-counter`
+`sudo truncate -s0 /opt/cnfa-counter/ips.txt && echo 0 | sudo tee /opt/cnfa-counter/count.txt && sudo systemctl restart cnfa-counter`
