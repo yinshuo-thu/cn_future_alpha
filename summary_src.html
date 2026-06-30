@@ -691,9 +691,8 @@ python tools/gen_summary_figs.py      # supplementary figures for this report</d
 </main>
 
 <footer>
-  <div class="wrap">
-    <span class="zh">Thank you for the opportunity to be considered by the team.</span>
-    <span class="en">Thank you for the opportunity to be considered by the team.</span><!-- VISIT-COUNTER-START --><span id="visit-counter" style="display:none">&nbsp;·&nbsp;<span class="n" id="vc-num">—</span>&nbsp;<span class="zh">次访问</span><span class="en">visits</span></span><!-- VISIT-COUNTER-END -->
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span><span class="zh">Thank you for the opportunity to be considered by the team.</span><span class="en">Thank you for the opportunity to be considered by the team.</span></span><!-- VISIT-COUNTER-START --><span id="visit-counter" style="display:none"><span class="zh">总访问人数：</span><span class="en">Total visitors:&nbsp;</span><span class="n" id="vc-num">—</span></span><!-- VISIT-COUNTER-END -->
   </div>
 </footer>
 
@@ -726,7 +725,7 @@ python tools/gen_summary_figs.py      # supplementary figures for this report</d
     .then(function(d){
       if(!d||typeof d.count!=='number') return;
       document.getElementById('vc-num').textContent = d.count.toLocaleString();
-      document.getElementById('visit-counter').style.display='inline';
+      document.getElementById('visit-counter').style.display='';
     }).catch(function(){});
 })();
 </script>
