@@ -36,6 +36,11 @@ Both technical lines clear the Jump `0.05` reasonable-start threshold. The
 classical **Ensemble (0.0573)** is strongest and steadiest on raw IC; the single
 deep model **End2End v3 (0.0548)** approaches it and largely closes the gap.
 
+<p align="center">
+  <img src="summary_assets/fig1_headline.png" alt="cross-family comparison (2020 test)" width="820">
+</p>
+<p align="center"><sub><b>Fig 0.1 — Cross-family comparison (2020 test).</b> Pooled IC (solid) and SN non-overlap IC (light); the dashed line is 0.05. The Ensemble is strongest on raw IC; End2End v3 is the strongest single deep model.</sub></p>
+
 ---
 
 ## Metric convention
@@ -68,6 +73,11 @@ First build a leak-free strong baseline with mature classical methods, then
 escalate end-to-end deep learning from "small-scale feasibility" to "large-scale
 step-by-step optimization." Every architectural change is tested under the same
 **2019-validation / 2020-test** protocol.
+
+<p align="center">
+  <img src="summary_assets/fig7_single.png" alt="E2E smoke-test feasibility vs ML baselines" width="820">
+</p>
+<p align="center"><sub><b>Fig 3.1 — E2E smoke test.</b> The small end-to-end model (thick purple) against the three ML singles + Ensemble — left: rolling monthly IC over 2020-05..12; right: 20-bucket return monotonicity. The shape tracks the baselines, so the deep approach is feasible before scaling up.</sub></p>
 
 ---
 
@@ -111,6 +121,17 @@ auditable signed-ridge stack of 6 views + a conservative 90-min intraday
 multiplier: **Pooled IC 0.0573**, monthly IR **4.95**, ≈ **+12.9%** over the best
 single model. Screened on 137 candidates / 2019 outer folds; audited once on 2020.
 
+<p align="center">
+  <img src="summary_assets/fig2_monthly_ic.png" alt="monthly IC of the single models" width="47%">
+  <img src="summary_assets/fig3_bin20.png" alt="20-bucket return monotonicity" width="47%">
+</p>
+<p align="center"><sub><b>Fig 2.1 / 2.2.</b> Left: 2020 monthly IC of the three single models (the PDF's required monthly-IC curve). Right: 20-bucket monotonicity — realized 30-minute return rises monotonically across prediction buckets with a clean head-to-tail spread, so the alpha is economically ordered, not merely correlated.</sub></p>
+
+<p align="center">
+  <img src="summary_assets/fig8_lift.png" alt="ensemble lift over best single model" width="640">
+</p>
+<p align="center"><sub><b>Fig 2.3 — Ensemble lift.</b> Pooled-IC of the Ensemble vs the best single model (≈ +12.9%).</sub></p>
+
 ---
 
 ## End-to-end ladder (v1 → v3)
@@ -131,6 +152,17 @@ optimizations brought a definite gain; the ladder summarizes those that did.
    at forward time; a sequence-level gate selects `top_k=96` and injects them
    gently (`factor_scale_init=−2.0`) to enrich the otherwise simple 33-dim input.
 
+<p align="center">
+  <img src="end2end_large/v1/Gated%20Multi-Scale%20Patch%20Transformer%20with%20Dual%20Pooling.png" alt="v1 architecture" width="47%">
+  <img src="end2end_large/v2/Time-Biased%20Market-Gated%20Multi-Scale%20Transformer%20with%20Stable%20Residual%20Learning.png" alt="v2 architecture" width="47%">
+</p>
+<p align="center"><sub><b>Fig 3.2 / 3.3 — v1 (left) and v2 (right) frameworks.</b></sub></p>
+
+<p align="center">
+  <img src="end2end_large/v3/figures/factor_operator_bank_time_biased_market_gated_transformer_framework.png" alt="v3 full framework" width="900">
+</p>
+<p align="center"><sub><b>Fig 3.4 — Full v3 framework.</b> ① input window → ② FactorOperatorBank (483 operators, sequence gate top-k=96, gentle injection) → ③ market-gated feature mixer → ④ causal conv + multi-scale patches (352 tokens) → ⑤ time-biased stable Transformer ×5 (SwiGLU + LayerScale) → ⑥ per-scale attention/last pooling + multitask head.</sub></p>
+
 Persistence — absolute IC drops out of sample, but the v3 > v2 > v1 ordering holds
 on both metrics:
 
@@ -139,6 +171,17 @@ on both metrics:
 | v1 | 0.054609 | 0.043578 | 0.064411 | 0.059084 |
 | v2 | 0.062069 | 0.048159 | 0.069863 | 0.061365 |
 | v3 | 0.064172 | 0.054808 | 0.070858 | 0.061614 |
+
+<p align="center">
+  <img src="summary_assets/fig4_ladder.png" alt="validation to test persistence" width="47%">
+  <img src="summary_assets/fig6_icir.png" alt="ICIR stability of the ladder" width="47%">
+</p>
+<p align="center"><sub><b>Fig 3.7 / 3.6.</b> Left: validation→test persistence — absolute IC falls out of sample but the v3 > v2 > v1 ordering holds on both Pooled and SN non-overlap IC. Right: dense and SN non-overlap ICIR rise along v1 → v3, so stability improves with the ladder.</sub></p>
+
+<p align="center">
+  <img src="summary_assets/fig9_e2e_compare.png" alt="End2End ladder vs Ensemble (2020 test)" width="820">
+</p>
+<p align="center"><sub><b>Fig 3.8 — End2End ladder vs the Ensemble (2020 test).</b> Left: monthly Pooled IC across 2020; right: 20-bucket return monotonicity. The three deep models are lines (v3 bold); the strongest baseline (Ensemble) uses a dashed gold line / bars for contrast. On both panels v3 tracks the Ensemble most closely, largely closing the gap.</sub></p>
 
 ### Valuable innovations (with lineage)
 
@@ -157,6 +200,11 @@ attention, a low-rank residual branch (Pooled up but SN down), metadata
 embeddings, and MoE heads were all **ablated away** because they failed to improve
 both metrics on 2019. Full record with numbers in
 [`end2end_large/README.md`](end2end_large/README.md) and the report.
+
+<p align="center">
+  <img src="summary_assets/fig5_ablation.png" alt="2019-validation IC of the v2 to v3 attempts" width="820">
+</p>
+<p align="center"><sub><b>Fig 3.5 — 2019-validation IC of the v2 → v3 attempts.</b> Highlighted bars are the retained v3; the rest were ablated away. Dotted lines are v3's Pooled / SN references — some attempts (e.g. the low-rank residual) look higher on Pooled yet fall below the SN reference, so the two-metric gate rejects them.</sub></p>
 
 ---
 
