@@ -1,0 +1,17 @@
+[Unit]
+Description=cn-future-alpha visit counter (stdlib http.server)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+ExecStart=/usr/bin/python3 /opt/cnfa-counter/counter.py
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+ProtectSystem=full
+ReadWritePaths=/opt/cnfa-counter
+
+[Install]
+WantedBy=multi-user.target
